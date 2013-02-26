@@ -1,0 +1,7 @@
+c:\users\foobar\documents\visual studio 2010\Projects\gigapede\gigapede\gigapede\bin\x86\Debug\gigapede.exe
+c:\users\foobar\documents\visual studio 2010\Projects\gigapede\gigapede\gigapede\bin\x86\Debug\gigapede.pdb
+c:\users\foobar\documents\visual studio 2010\Projects\gigapede\gigapede\gigapede\obj\x86\Debug\gigapede.csprojResolveAssemblyReference.cache
+c:\users\foobar\documents\visual studio 2010\Projects\gigapede\gigapede\gigapede\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
+c:\users\foobar\documents\visual studio 2010\Projects\gigapede\gigapede\gigapede\obj\x86\Debug\gigapede.exe
+c:\users\foobar\documents\visual studio 2010\Projects\gigapede\gigapede\gigapede\obj\x86\Debug\gigapede.pdb
+c:\users\foobar\documents\visual studio 2010\Projects\gigapede\gigapede\gigapede\bin\x86\Debug\Content\Default.xnb
