@@ -1,0 +1,6 @@
+C:\Users\Admin\Documents\GitHub\gigapede\gigapede\gigapede\bin\x86\Debug\gigapede.exe
+C:\Users\Admin\Documents\GitHub\gigapede\gigapede\gigapede\bin\x86\Debug\gigapede.pdb
+C:\Users\Admin\Documents\GitHub\gigapede\gigapede\gigapede\obj\x86\Debug\gigapede.csprojResolveAssemblyReference.cache
+C:\Users\Admin\Documents\GitHub\gigapede\gigapede\gigapede\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
+C:\Users\Admin\Documents\GitHub\gigapede\gigapede\gigapede\obj\x86\Debug\gigapede.exe
+C:\Users\Admin\Documents\GitHub\gigapede\gigapede\gigapede\obj\x86\Debug\gigapede.pdb
