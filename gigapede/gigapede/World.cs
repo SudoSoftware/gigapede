@@ -3,18 +3,19 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Microsoft.Xna.Framework;
+using gigapede.GameItems;
 
 namespace gigapede
 {
 	class World
 	{
-		private List<gigapede.GameItem.GameItem> items;
+		private List<GameItem> items;
 
 		public void Update(GameTime gameTime, UserInput inputState)
 		{
-			foreach (gigapede.GameItem.GameItem item in items)
+			foreach (GameItem item in items)
 			{
-				List<gigapede.GameItem.GameItem.GameItemAction> actions = item.Update(gameTime, GetContacts(item), inputState);
+				List<GameItem.GameItemAction> actions = item.Update(gameTime, GetContacts(item), inputState);
 			}
 		}
 
@@ -22,15 +23,15 @@ namespace gigapede
 
 		public void Draw()
 		{
-			foreach (gigapede.GameItem.GameItem item in items)
+			foreach (GameItem item in items)
 				item.Draw();
 		}
 
 
 
-		private gigapede.GameItem.GameItem GetContacts(gigapede.GameItem.GameItem item)
+		private GameItem GetContacts(GameItem item)
 		{
-			foreach (gigapede.GameItem.GameItem otherItem in items)
+			foreach (GameItem otherItem in items)
 			{
 				if (otherItem != item && item.Intersects(otherItem))
 					return otherItem;

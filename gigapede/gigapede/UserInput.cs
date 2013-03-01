@@ -15,8 +15,8 @@ namespace gigapede
 			FIRE, ESCAPE
 		}
 
-		private List<InputType> lastState;
-		private List<InputType> currentState;
+		private List<InputType> lastState = new List<InputType>();
+		private List<InputType> currentState = new List<InputType>();
 
 
 		public void Update()

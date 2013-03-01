@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace gigapede
+namespace gigapede.GameItems
 {
-	class Shooter
+	class Mushroom
 	{
 	}
 }
