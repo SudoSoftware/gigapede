@@ -72,7 +72,7 @@
     <Reference Include="System.Net" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="GameItem\Centipede\CentipedeHead.cs" />
+    <Compile Include="GameItem\Centipede.cs" />
     <Compile Include="GameItem\GameItem.cs" />
     <Compile Include="GameItem\Mushroom.cs" />
     <Compile Include="GameItem\Rocket.cs" />
@@ -80,6 +80,7 @@
     <Compile Include="Program.cs" />
     <Compile Include="CentipedeGame.cs" />
     <Compile Include="GameItem\Shooter.cs" />
+    <Compile Include="UserInput.cs" />
     <Compile Include="World.cs" />
   </ItemGroup>
   <ItemGroup>

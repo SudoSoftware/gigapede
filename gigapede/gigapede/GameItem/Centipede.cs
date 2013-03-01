@@ -6,10 +6,10 @@ using Microsoft.Xna.Framework;
 
 namespace gigapede.GameItem
 {
-	class Rocket : GameItem
+	class Centipede
 	{
-		public Rocket(Point location) :
-			base(new Rectangle(location.X, location.Y, 10, 40))
-		{ }
+		private List<Rectangle> positions;
+
+
 	}
 }
