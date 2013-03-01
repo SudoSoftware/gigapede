@@ -11,15 +11,16 @@ using Microsoft.Xna.Framework.Media;
 
 namespace gigapede
 {
-	public class Game1 : Microsoft.Xna.Framework.Game
+	public class CentipedeGame : Microsoft.Xna.Framework.Game
 	{
 		GraphicsDeviceManager graphics;
 		SpriteBatch spriteBatch;
 
-		public Game1()
+		public CentipedeGame()
 		{
-		graphics = new GraphicsDeviceManager(this);
-		Content.RootDirectory = "Content";
+			graphics = new GraphicsDeviceManager(this);
+			Content.RootDirectory = "Content";
+			graphics.IsFullScreen = true;
 		}
 
 		protected override void Initialize()
@@ -29,7 +30,6 @@ namespace gigapede
 
 		protected override void LoadContent()
 		{
-			// Create a new SpriteBatch, which can be used to draw textures.
 			spriteBatch = new SpriteBatch(GraphicsDevice);
 		}
 

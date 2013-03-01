@@ -10,7 +10,7 @@ namespace gigapede
         /// </summary>
         static void Main(string[] args)
         {
-            using (Game1 game = new Game1())
+			using (CentipedeGame game = new CentipedeGame())
             {
                 game.Run();
             }
