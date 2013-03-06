@@ -3,15 +3,20 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 
 namespace gigapede.GameItems
 {
-	class GameItem
+	abstract class GameItem
 	{
-		private Rectangle boundingBox;
+		protected Texture2D texture;
+		protected Rectangle boundingBox;
 
-		private GameItem()
-		{ }
+		private GameItem(Texture2D texture, Rectangle boundingBox)
+		{
+			this.texture = texture;
+			this.boundingBox = boundingBox;
+		}
 
 
 		public GameItem(Rectangle size)
@@ -20,18 +25,8 @@ namespace gigapede.GameItems
 		}
 
 
-
-		public List<GameItemAction> Update(GameTime gameTime, GameItem itemTouching, UserInput inputState)
-		{
-			return null;
-		}
-
-
-
-		public void Draw()
-		{
-		}
-
+		abstract public List<GameItemAction> Update(World.InfoForItem info);
+		abstract public void Draw(SpriteBatch spriteBatch);
 
 
 		public bool Intersects(GameItem otherItem)
@@ -40,14 +35,12 @@ namespace gigapede.GameItems
 		}
 
 
-
 		public class GameItemAction
 		{
 			public enum Action
 			{
 				ADD_ITEM, REMOVE_ITEM
 			}
-
 
 			public GameItem item;
 			public Action action;
