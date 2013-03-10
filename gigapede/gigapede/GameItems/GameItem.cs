@@ -12,11 +12,15 @@ namespace gigapede.GameItems
 		protected Texture2D texture;
 		protected Rectangle boundingBox;
 
+		abstract public List<GameItemAction> Update(World.InfoForItem info);
+
+
 		private GameItem(Texture2D texture, Rectangle boundingBox)
 		{
 			this.texture = texture;
 			this.boundingBox = boundingBox;
 		}
+
 
 
 		public GameItem(Rectangle size)
@@ -25,14 +29,26 @@ namespace gigapede.GameItems
 		}
 
 
-		abstract public List<GameItemAction> Update(World.InfoForItem info);
-		abstract public void Draw(SpriteBatch spriteBatch);
+		
+		public void Draw(SpriteBatch spriteBatch)
+		{
+			spriteBatch.Draw(texture, boundingBox, Color.White);
+		}
+
 
 
 		public bool Intersects(GameItem otherItem)
 		{
 			return boundingBox.Intersects(otherItem.boundingBox);
 		}
+
+
+
+		public virtual bool IsMovable()
+		{
+			return false;
+		}
+
 
 
 		public class GameItemAction
@@ -44,6 +60,7 @@ namespace gigapede.GameItems
 
 			public GameItem item;
 			public Action action;
+
 
 			public GameItemAction(Action action, GameItem item)
 			{

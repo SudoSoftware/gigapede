@@ -15,6 +15,7 @@ namespace gigapede
 			FIRE, ESCAPE
 		}
 
+
 		private List<InputType> lastState = new List<InputType>();
 		private List<InputType> currentState = new List<InputType>();
 
@@ -27,6 +28,13 @@ namespace gigapede
 
 			checkKeyboard(Keyboard.GetState());
 			//checkGamepad(GamePad.GetState(PlayerIndex.One)); //TODO: FINALIZE
+		}
+
+
+
+		public bool justPressed(InputType type)
+		{
+			return onNow(type) && !onLastTime(type);
 		}
 
 

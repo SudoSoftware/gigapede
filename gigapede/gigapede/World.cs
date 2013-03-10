@@ -13,6 +13,7 @@ namespace gigapede
 		private List<GameItem> items = new List<GameItem>();
 		private Rectangle worldBounds;
 
+
 		public World(Rectangle worldBounds)
 		{
 			this.worldBounds = worldBounds;
@@ -62,31 +63,39 @@ namespace gigapede
 
 
 
-		private GameItem GetContacts(GameItem item)
+		private List<GameItem> GetContacts(GameItem item)
 		{
-			foreach (GameItem otherItem in items)
+			List<GameItem> contacts = new List<GameItem>();
+
+			if (item.IsMovable())
 			{
-				if (otherItem != item && item.Intersects(otherItem))
-					return otherItem;
+				foreach (GameItem otherItem in items)
+				{
+					if (otherItem != item && item.Intersects(otherItem))
+						contacts.Add(otherItem);
+				}
 			}
 
-			return null;
+			return contacts;
 		}
 
 
 
 		public class InfoForItem
 		{
-			public GameItem contact;
+			public List<GameItem> contacts;
 			public GameTime gameTime;
 			public UserInput inputState;
 
-			public InfoForItem(GameItem contact, GameTime gameTime, UserInput inputState)
+
+			public InfoForItem(List<GameItem> contacts, GameTime gameTime, UserInput inputState)
 			{
-				this.contact = contact;
+				this.contacts = contacts;
 				this.gameTime = gameTime;
 				this.inputState = inputState;
 			}
+
+
 
 			public Rectangle worldBounds
 			{
