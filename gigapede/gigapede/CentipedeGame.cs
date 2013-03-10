@@ -25,7 +25,12 @@ namespace gigapede
 		{
 			graphics = new GraphicsDeviceManager(this);
 			Content.RootDirectory = "Content";
+
+			graphics.PreferredBackBufferWidth = 720;
+			graphics.PreferredBackBufferHeight = 480;
 			graphics.IsFullScreen = true;
+
+			//System.Diagnostics.Debug.WriteLine("DERP");
 		}
 
 
@@ -33,7 +38,7 @@ namespace gigapede
 		protected override void Initialize()
 		{
 			userInput = new UserInput();
-			world = new World(new Rectangle(0, 0, 800, 600)); //todo: fix hack
+			world = new World(new Rectangle(0, 0, graphics.PreferredBackBufferWidth, graphics.PreferredBackBufferHeight));
 
 			base.Initialize();
 		}
@@ -48,13 +53,22 @@ namespace gigapede
 			Mushroom.texture = this.Content.Load<Texture2D>("mushroom");
 			Rocket.texture = this.Content.Load<Texture2D>("rocket");
 			Shooter.texture = this.Content.Load<Texture2D>("shooter");
+
+			AddWorldContent();
 		}
 
 
 
 		protected override void UnloadContent()
 		{
-		
+			this.Content.Unload();
+		}
+
+
+
+		public void AddWorldContent()
+		{
+			world.AddItem(new Shooter(new Point(200, 200)));
 		}
 
 
@@ -77,7 +91,9 @@ namespace gigapede
 		{
 			GraphicsDevice.Clear(Color.CornflowerBlue);
 
+			spriteBatch.Begin();
 			world.Draw(spriteBatch);
+			spriteBatch.End();
 
 			base.Draw(gameTime);
 		}

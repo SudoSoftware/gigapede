@@ -32,11 +32,11 @@ namespace gigapede
 				UpdateItemList(actions, itemsToBeAdded, itemsToBeRemoved);
 			}
 
-			foreach (GameItem removeMe in itemsToBeRemoved)
-				items.Remove(removeMe);
+			foreach (GameItem item in itemsToBeRemoved)
+				RemoveItem(item);
 
-			foreach (GameItem addMe in itemsToBeAdded)
-				items.Add(addMe);
+			foreach (GameItem item in itemsToBeAdded)
+				AddItem(item);
 		}
 
 
@@ -45,6 +45,20 @@ namespace gigapede
 		{
 			foreach (GameItem item in items)
 				item.Draw(spriteBatch);
+		}
+
+
+
+		public void AddItem(GameItem item)
+		{
+			items.Add(item);
+		}
+
+
+
+		public void RemoveItem(GameItem item)
+		{
+			items.Remove(item);
 		}
 
 
