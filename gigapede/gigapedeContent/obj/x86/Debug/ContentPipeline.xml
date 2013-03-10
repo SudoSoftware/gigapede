@@ -10,6 +10,33 @@
       <Output>C:\Users\Admin\Documents\GitHub\gigapede\gigapede\gigapede\bin\x86\Debug\Content\mushroom.xnb</Output>
       <Time>2013-03-01T11:53:45.3525138-07:00</Time>
     </Item>
+    <Item>
+      <Source>rocket.png</Source>
+      <Name>rocket</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Admin\Documents\GitHub\gigapede\gigapede\gigapede\bin\x86\Debug\Content\rocket.xnb</Output>
+      <Time>2013-03-01T11:59:17.700523-07:00</Time>
+    </Item>
+    <Item>
+      <Source>popcorn.png</Source>
+      <Name>popcorn</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Admin\Documents\GitHub\gigapede\gigapede\gigapede\bin\x86\Debug\Content\popcorn.xnb</Output>
+      <Time>2013-03-10T16:07:51.7937229-06:00</Time>
+    </Item>
+    <Item>
+      <Source>shooter.jpg</Source>
+      <Name>shooter</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Admin\Documents\GitHub\gigapede\gigapede\gigapede\bin\x86\Debug\Content\shooter.xnb</Output>
+      <Time>2013-03-10T16:38:54.5915086-06:00</Time>
+    </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
       <TargetPlatform>Windows</TargetPlatform>

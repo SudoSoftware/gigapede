@@ -5,3 +5,6 @@ C:\Users\Admin\Documents\GitHub\gigapede\gigapede\gigapede\obj\x86\Debug\Microso
 C:\Users\Admin\Documents\GitHub\gigapede\gigapede\gigapede\obj\x86\Debug\gigapede.exe
 C:\Users\Admin\Documents\GitHub\gigapede\gigapede\gigapede\obj\x86\Debug\gigapede.pdb
 C:\Users\Admin\Documents\GitHub\gigapede\gigapede\gigapede\bin\x86\Debug\Content\mushroom.xnb
+C:\Users\Admin\Documents\GitHub\gigapede\gigapede\gigapede\bin\x86\Debug\Content\rocket.xnb
+C:\Users\Admin\Documents\GitHub\gigapede\gigapede\gigapede\bin\x86\Debug\Content\popcorn.xnb
+C:\Users\Admin\Documents\GitHub\gigapede\gigapede\gigapede\bin\x86\Debug\Content\shooter.xnb

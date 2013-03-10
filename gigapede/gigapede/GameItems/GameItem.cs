@@ -9,23 +9,15 @@ namespace gigapede.GameItems
 {
 	abstract class GameItem
 	{
-		protected Texture2D texture;
+		public static Texture2D texture;
 		protected Rectangle boundingBox;
 
 		abstract public List<GameItemAction> Update(World.InfoForItem info);
 
 
-		private GameItem(Texture2D texture, Rectangle boundingBox)
+		public GameItem(Rectangle bounds)
 		{
-			this.texture = texture;
-			this.boundingBox = boundingBox;
-		}
-
-
-
-		public GameItem(Rectangle size)
-		{
-			boundingBox = size;
+			boundingBox = bounds;
 		}
 
 
