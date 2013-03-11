@@ -11,32 +11,47 @@ namespace gigapede.GameItems
 	class Mushroom: GameItem
 	{
 		private const int MAX_HEALTH = 5;
+		internal int currentHealth = MAX_HEALTH;
 		public static Texture2D texture;
-		private int currentHealth = MAX_HEALTH;
+		//private RectangleF backupBounds;
 
 		public Mushroom(PointF location) :
 			base(location)
-		{ }
+		{
+			//backupBounds = boundingBox;
+		}
 
 
 
 		public override List<GameItemAction> Update(InfoForItem info)
 		{
+			//boundingBox.Height = backupBounds.Height * getAliveness();
+
 			List<GameItemAction> actions = new List<GameItemAction>();
-
-			foreach (GameItem item in info.contacts)
-			{
-				//if (item.GetType() == typeof(Rocket))
-				{
-					actions.Add(new GameItemAction(GameItemAction.Action.REMOVE_ITEM, item));
-					currentHealth--;
-				}
-			}
-
+			
 			if (currentHealth <= 0)
 				actions.Add(new GameItemAction(GameItemAction.Action.REMOVE_ITEM, this));
 			
 			return actions;
+		}
+
+
+
+		public override void Draw(SpriteBatch spriteBatch)
+		{
+			spriteBatch.Draw(
+				GetTexture(),
+				new Microsoft.Xna.Framework.Rectangle((int)boundingBox.X, (int)boundingBox.Y, (int)boundingBox.Width, (int)(boundingBox.Height * getAliveness())),
+				new Microsoft.Xna.Framework.Rectangle(0, 0, (int)texture.Bounds.Width, (int)(texture.Bounds.Height * getAliveness())),
+				Microsoft.Xna.Framework.Color.White
+			);
+		}
+
+
+
+		public float getAliveness()
+		{
+			return currentHealth / (float)MAX_HEALTH;
 		}
 
 

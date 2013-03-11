@@ -35,7 +35,7 @@ namespace gigapede.GameItems
 
 
 		
-		public void Draw(SpriteBatch spriteBatch)
+		public virtual void Draw(SpriteBatch spriteBatch)
 		{
 			spriteBatch.Draw(
 				GetTexture(),

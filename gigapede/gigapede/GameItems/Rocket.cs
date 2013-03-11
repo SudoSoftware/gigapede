@@ -21,12 +21,21 @@ namespace gigapede.GameItems
 
 		public override List<GameItemAction> Update(InfoForItem info)
 		{
+			boundingBox.Y -= info.gameTime.ElapsedGameTime.Milliseconds * ROCKET_SPEED;
+
 			List<GameItemAction> actions = new List<GameItemAction>();
 			
 			if (!boundingBox.IntersectsWith(info.worldBounds)) //if rocket out of bounds, remove from world
 				actions.Add(new GameItemAction(GameItemAction.Action.REMOVE_ITEM, this));
 
-			boundingBox.Y -= info.gameTime.ElapsedGameTime.Milliseconds * ROCKET_SPEED;
+			foreach (GameItem item in info.contacts)
+			{
+				if (item.GetType() == typeof(Mushroom))
+				{
+					actions.Add(new GameItemAction(GameItemAction.Action.REMOVE_ITEM, this));
+					((Mushroom)item).currentHealth--;
+				}
+			}
 
 			return actions;
 		}
