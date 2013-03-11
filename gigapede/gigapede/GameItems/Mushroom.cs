@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework;
+using System.Drawing;
 
 namespace gigapede.GameItems
 {
@@ -12,7 +13,7 @@ namespace gigapede.GameItems
 		public static Texture2D texture;
 		private int health = 5;
 
-		public Mushroom(Point location) :
+		public Mushroom(PointF location) :
 			base(location)
 		{ }
 

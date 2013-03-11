@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using System.Drawing;
 
 namespace gigapede.GameItems
 {
@@ -12,7 +13,7 @@ namespace gigapede.GameItems
 		public static Texture2D texture;
 
 
-		public Shooter(Point location) :
+		public Shooter(PointF location) :
 			base(location)
 		{ }
 

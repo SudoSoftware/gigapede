@@ -5,16 +5,17 @@ using System.Text;
 using Microsoft.Xna.Framework;
 using gigapede.GameItems;
 using Microsoft.Xna.Framework.Graphics;
+using System.Drawing;
 
 namespace gigapede
 {
 	class World
 	{
 		protected List<GameItem> items = new List<GameItem>();
-		protected Rectangle bounds;
+		protected RectangleF bounds;
 
 
-		public World(Rectangle worldBounds)
+		public World(RectangleF worldBounds)
 		{
 			this.bounds = worldBounds;
 		}

@@ -9,6 +9,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
 using gigapede.GameItems;
+using System.Drawing;
 
 namespace gigapede
 {
@@ -36,7 +37,7 @@ namespace gigapede
 		protected override void Initialize()
 		{
 			userInput = new UserInput();
-			world = new World(new Rectangle(0, 0, graphics.PreferredBackBufferWidth, graphics.PreferredBackBufferHeight));
+			world = new World(new RectangleF(0, 0, graphics.PreferredBackBufferWidth, graphics.PreferredBackBufferHeight));
 
 			base.Initialize();
 		}
@@ -66,7 +67,7 @@ namespace gigapede
 
 		public void AddWorldContent()
 		{
-			world.AddItem(new Shooter(new Point(200, 200)));
+			world.AddItem(new Shooter(new PointF(200, 200)));
 		}
 
 
@@ -87,7 +88,7 @@ namespace gigapede
 
 		protected override void Draw(GameTime gameTime)
 		{
-			GraphicsDevice.Clear(Color.CornflowerBlue);
+			GraphicsDevice.Clear(Microsoft.Xna.Framework.Color.CornflowerBlue);
 
 			spriteBatch.Begin();
 			world.Draw(spriteBatch);

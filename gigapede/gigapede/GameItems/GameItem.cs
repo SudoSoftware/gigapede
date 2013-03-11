@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using System.Drawing;
 
 namespace gigapede.GameItems
 {
@@ -12,36 +13,42 @@ namespace gigapede.GameItems
 		public const int DEFAULT_WIDTH = 50;
 		public const int DEFAULT_HEIGHT = DEFAULT_WIDTH;
 
-		protected Rectangle boundingBox = new Rectangle(0, 0, DEFAULT_WIDTH, DEFAULT_HEIGHT);
+		protected RectangleF boundingBox = new RectangleF(0, 0, DEFAULT_WIDTH, DEFAULT_HEIGHT);
 
 		abstract public List<GameItemAction> Update(InfoForItem info);
 		abstract public Texture2D GetTexture();
 
 
-		public GameItem(Point origin)
+		public GameItem(PointF origin)
 		{
 			boundingBox.Location = origin;
 		}
 
 
 
-		public GameItem(Rectangle bounds)
+		public GameItem(RectangleF bounds)
 		{
 			boundingBox = bounds;
+			new RectangleF();
+
 		}
 
 
 		
 		public void Draw(SpriteBatch spriteBatch)
 		{
-			spriteBatch.Draw(GetTexture(), boundingBox, Color.White);
+			spriteBatch.Draw(
+				GetTexture(),
+				new Microsoft.Xna.Framework.Rectangle((int)boundingBox.X, (int)boundingBox.Y, (int)boundingBox.Width, (int)boundingBox.Height),
+				Microsoft.Xna.Framework.Color.White
+			);
 		}
 
 
 
 		public bool Intersects(GameItem otherItem)
 		{
-			return boundingBox.Intersects(otherItem.boundingBox);
+			return boundingBox.IntersectsWith(otherItem.boundingBox);
 		}
 
 

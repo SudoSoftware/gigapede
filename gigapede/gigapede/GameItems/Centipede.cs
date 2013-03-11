@@ -4,16 +4,17 @@ using System.Linq;
 using System.Text;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using System.Drawing;
 
 namespace gigapede.GameItems
 {
 	class Centipede : GameItem
 	{
 		public static Texture2D texture;
-		private List<Rectangle> positions;
+		private List<RectangleF> positions;
 
 
-		public Centipede(Point location) :
+		public Centipede(PointF location) :
 			base(location)
 		{ }
 
