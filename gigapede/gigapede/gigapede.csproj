@@ -78,6 +78,7 @@
     <Compile Include="GameItems\Mushroom.cs" />
     <Compile Include="GameItems\Rocket.cs" />
     <Compile Include="InfoForItem.cs" />
+    <Compile Include="MyRandom.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="CentipedeGame.cs" />

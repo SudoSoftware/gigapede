@@ -12,6 +12,7 @@ namespace gigapede.GameItems
 	{
 		public const float MOVEMENT_SPEED = 0.25f;
 		public static Texture2D texture;
+		public static float offLimitsPercentage;
 
 
 		public Shooter(PointF location) :
@@ -47,7 +48,7 @@ namespace gigapede.GameItems
 		{
 			RectangleF intersection = new RectangleF(proposedBounds.Location, proposedBounds.Size);
 			intersection.Intersect(worldBoundingBox);
-			return intersection.Equals(proposedBounds) && proposedBounds.Y >= worldBoundingBox.Height * 0.7 ;
+			return intersection.Equals(proposedBounds) && proposedBounds.Y >= worldBoundingBox.Height * offLimitsPercentage;
 		}
 
 

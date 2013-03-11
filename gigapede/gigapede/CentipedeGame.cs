@@ -18,11 +18,13 @@ namespace gigapede
 		GraphicsDeviceManager graphics;
 		SpriteBatch spriteBatch;
 
+		MyRandom prng = new MyRandom();
 		UserInput userInput;
 		World world;
 
 		public const int WIDTH = 720;
 		public const int HEIGHT = 480;
+		public const float OFF_LIMITS_PERCENTAGE = 0.7f;
 
 
 		public CentipedeGame()
@@ -41,6 +43,8 @@ namespace gigapede
 		{
 			userInput = new UserInput();
 			world = new World(new RectangleF(0, 0, WIDTH, HEIGHT));
+
+			Shooter.offLimitsPercentage = OFF_LIMITS_PERCENTAGE;
 
 			base.Initialize();
 		}
@@ -71,6 +75,17 @@ namespace gigapede
 		public void AddWorldContent()
 		{
 			world.AddItem(new Shooter(new PointF((WIDTH + GameItem.DEFAULT_WIDTH) / 2, HEIGHT - GameItem.DEFAULT_HEIGHT)));
+			AddMushrooms();
+		}
+
+
+
+		private void AddMushrooms()
+		{
+			for (int x = 0; x < WIDTH - GameItem.DEFAULT_WIDTH; x += GameItem.DEFAULT_WIDTH)
+				for (int y = 0; y < HEIGHT * OFF_LIMITS_PERCENTAGE - GameItem.DEFAULT_HEIGHT; y += GameItem.DEFAULT_HEIGHT)
+					if (prng.nextRange(0, 10) <= 1)
+						world.AddItem(new Mushroom(new PointF(x, y)));
 		}
 
 

@@ -10,7 +10,7 @@ namespace gigapede.GameItems
 {
 	class Rocket : GameItem
 	{
-		public const float ROCKET_SPEED = 0.5f;
+		public const float ROCKET_SPEED = 0.6f;
 		public static Texture2D texture;
 
 		public Rocket(PointF location) :
