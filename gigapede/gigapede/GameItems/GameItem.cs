@@ -10,10 +10,9 @@ namespace gigapede.GameItems
 {
 	abstract class GameItem
 	{
-		public const int DEFAULT_WIDTH = 30;
-		public const int DEFAULT_HEIGHT = DEFAULT_WIDTH;
-
-		protected RectangleF boundingBox = new RectangleF(0, 0, DEFAULT_WIDTH, DEFAULT_HEIGHT);
+		public static int defaultWidth = 30;
+		public static int defaultHeight = defaultWidth;
+		protected RectangleF boundingBox = new RectangleF(0, 0, defaultWidth, defaultHeight);
 
 		abstract public List<GameItemAction> Update(InfoForItem info);
 		abstract public Texture2D GetTexture();

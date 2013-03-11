@@ -22,18 +22,20 @@ namespace gigapede
 		UserInput userInput;
 		World world;
 
-		public const int WIDTH = 720;
-		public const int HEIGHT = 480;
-		public const float OFF_LIMITS_PERCENTAGE = 0.7f;
+		public const int GRID_SIZE = 30; //size of N-by-N grid
+		public const int EMPTY_HEADER_ROWS = 2; //free space for centipede
+		public const int EMPTY_FOOTER_ROWS = 3; //free space for shooter movement
+
+		public static readonly Size TARGET_RESOLUTION = new Size(1024, 768);
 
 
 		public CentipedeGame()
 		{
 			graphics = new GraphicsDeviceManager(this);
 			Content.RootDirectory = "Content";
-
-			graphics.PreferredBackBufferWidth = WIDTH;
-			graphics.PreferredBackBufferHeight = HEIGHT;
+			
+			graphics.PreferredBackBufferWidth = TARGET_RESOLUTION.Width;
+			graphics.PreferredBackBufferHeight = TARGET_RESOLUTION.Height;
 			graphics.IsFullScreen = true;
 		}
 
@@ -42,9 +44,12 @@ namespace gigapede
 		protected override void Initialize()
 		{
 			userInput = new UserInput();
-			world = new World(new RectangleF(0, 0, WIDTH, HEIGHT));
+			world = new World(new RectangleF(0, 0, graphics.PreferredBackBufferWidth, graphics.PreferredBackBufferHeight));
 
-			Shooter.offLimitsPercentage = OFF_LIMITS_PERCENTAGE;
+			GameItem.defaultWidth = (int)(TARGET_RESOLUTION.Width / GRID_SIZE);
+			GameItem.defaultHeight = (int)GameItem.defaultWidth;
+
+			Shooter.minY = world.getBounds().Height - GameItem.defaultWidth * EMPTY_FOOTER_ROWS;
 
 			base.Initialize();
 		}
@@ -74,17 +79,25 @@ namespace gigapede
 
 		public void AddWorldContent()
 		{
-			world.AddItem(new Shooter(new PointF((WIDTH + GameItem.DEFAULT_WIDTH) / 2, HEIGHT - GameItem.DEFAULT_HEIGHT)));
 			AddMushrooms();
+			world.AddItem(new Centipede(new PointF(0, 0)));
+			world.AddItem(new Shooter(new PointF(
+				(world.getBounds().Width + GameItem.defaultWidth) / 2,
+				world.getBounds().Height - GameItem.defaultHeight
+			)));
 		}
-
+		
 
 
 		private void AddMushrooms()
 		{
-			for (int x = 0; x < WIDTH - GameItem.DEFAULT_WIDTH; x += GameItem.DEFAULT_WIDTH)
-				for (int y = 0; y < HEIGHT * OFF_LIMITS_PERCENTAGE - GameItem.DEFAULT_HEIGHT; y += GameItem.DEFAULT_HEIGHT)
-					if (prng.nextRange(0, 10) <= 1)
+			int startY = EMPTY_HEADER_ROWS * GameItem.defaultHeight;
+			float endY = world.getBounds().Height - EMPTY_FOOTER_ROWS * GameItem.defaultHeight;
+			float endX = world.getBounds().Width - GameItem.defaultWidth;
+
+			for (int x = 0; x < endX; x += GameItem.defaultWidth)
+				for (int y = startY; y < endY; y += GameItem.defaultHeight)
+					if (!(x == 0 && y == 0) && prng.nextRange(0, 10) <= 1) //do not add a mushroom at location of Centipede, else 10% chance of adding
 						world.AddItem(new Mushroom(new PointF(x, y)));
 		}
 
@@ -107,6 +120,8 @@ namespace gigapede
 		protected override void Draw(GameTime gameTime)
 		{
 			GraphicsDevice.Clear(Microsoft.Xna.Framework.Color.CornflowerBlue);
+
+			
 
 			spriteBatch.Begin();
 			world.Draw(spriteBatch);

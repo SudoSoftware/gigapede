@@ -12,7 +12,7 @@ namespace gigapede.GameItems
 	{
 		public const float MOVEMENT_SPEED = 0.25f;
 		public static Texture2D texture;
-		public static float offLimitsPercentage;
+		public static float minY;
 
 
 		public Shooter(PointF location) :
@@ -38,17 +38,8 @@ namespace gigapede.GameItems
 		private void HandleMovement(InfoForItem info)
 		{
 			RectangleF newBounds = GetNewLocation(info);
-			if (IsLegalLocation(newBounds, info.worldBounds))
+			if (info.IsLegalLocation(newBounds) && newBounds.Y >= minY)
 				boundingBox = newBounds;
-		}
-
-
-
-		private bool IsLegalLocation(RectangleF proposedBounds, RectangleF worldBoundingBox)
-		{
-			RectangleF intersection = new RectangleF(proposedBounds.Location, proposedBounds.Size);
-			intersection.Intersect(worldBoundingBox);
-			return intersection.Equals(proposedBounds) && proposedBounds.Y >= worldBoundingBox.Height * offLimitsPercentage;
 		}
 
 
