@@ -9,6 +9,7 @@ namespace gigapede.GameItems
 {
 	class Mushroom: GameItem
 	{
+		public static Texture2D texture;
 		private int health = 5;
 
 		public Mushroom(Point location) :
@@ -24,6 +25,13 @@ namespace gigapede.GameItems
 		{
 			List<GameItemAction> actions = new List<GameItemAction>();
 			return actions;
+		}
+
+
+
+		public override Texture2D GetTexture()
+		{
+			return texture;
 		}
 	}
 }

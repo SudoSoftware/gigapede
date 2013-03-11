@@ -9,10 +9,10 @@ namespace gigapede.GameItems
 {
 	abstract class GameItem
 	{
-		public static Texture2D texture;
 		protected Rectangle boundingBox;
 
 		abstract public List<GameItemAction> Update(World.InfoForItem info);
+		abstract public Texture2D GetTexture();
 
 
 		public GameItem(Rectangle bounds)
@@ -24,7 +24,7 @@ namespace gigapede.GameItems
 		
 		public void Draw(SpriteBatch spriteBatch)
 		{
-			spriteBatch.Draw(texture, boundingBox, Color.White);
+			spriteBatch.Draw(GetTexture(), boundingBox, Color.White);
 		}
 
 

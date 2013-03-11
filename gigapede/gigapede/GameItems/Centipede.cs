@@ -3,11 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 
 namespace gigapede.GameItems
 {
 	class Centipede : GameItem
 	{
+		public static Texture2D texture;
+
 		private List<Rectangle> positions;
 
 
@@ -31,6 +34,13 @@ namespace gigapede.GameItems
 		public override bool IsMovable()
 		{
 			return true;
+		}
+
+
+
+		public override Texture2D GetTexture()
+		{
+			return texture;
 		}
 	}
 }

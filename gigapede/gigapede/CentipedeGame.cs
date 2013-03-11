@@ -29,8 +29,6 @@ namespace gigapede
 			graphics.PreferredBackBufferWidth = 720;
 			graphics.PreferredBackBufferHeight = 480;
 			graphics.IsFullScreen = true;
-
-			//System.Diagnostics.Debug.WriteLine("DERP");
 		}
 
 
