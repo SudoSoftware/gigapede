@@ -10,23 +10,23 @@ namespace gigapede.GameItems
 {
 	class Mushroom: GameItem
 	{
-		private const int MAX_HEALTH = 5;
-		internal int currentHealth = MAX_HEALTH;
+		private const int MAX_HEALTH = 4;
+		private int currentHealth = MAX_HEALTH;
+
 		public static Texture2D texture;
-		//private RectangleF backupBounds;
+		private RectangleF backupBounds;
+
 
 		public Mushroom(PointF location) :
 			base(location)
 		{
-			//backupBounds = boundingBox;
+			backupBounds = boundingBox;
 		}
 
 
 
 		public override List<GameItemAction> Update(InfoForItem info)
 		{
-			//boundingBox.Height = backupBounds.Height * getAliveness();
-
 			List<GameItemAction> actions = new List<GameItemAction>();
 			
 			if (currentHealth <= 0)
@@ -37,19 +37,15 @@ namespace gigapede.GameItems
 
 
 
-		public override void Draw(SpriteBatch spriteBatch)
+		public void Damage()
 		{
-			spriteBatch.Draw(
-				GetTexture(),
-				new Microsoft.Xna.Framework.Rectangle((int)boundingBox.X, (int)boundingBox.Y, (int)boundingBox.Width, (int)(boundingBox.Height * getAliveness())),
-				new Microsoft.Xna.Framework.Rectangle(0, 0, (int)texture.Bounds.Width, (int)(texture.Bounds.Height * getAliveness())),
-				Microsoft.Xna.Framework.Color.White
-			);
+			currentHealth--;
+			boundingBox.Height = backupBounds.Height * GetAliveness();
 		}
 
 
 
-		public float getAliveness()
+		public float GetAliveness()
 		{
 			return currentHealth / (float)MAX_HEALTH;
 		}
@@ -59,6 +55,13 @@ namespace gigapede.GameItems
 		public override Texture2D GetTexture()
 		{
 			return texture;
+		}
+
+
+
+		protected override Microsoft.Xna.Framework.Rectangle GetTextureRectangle()
+		{
+			return new Microsoft.Xna.Framework.Rectangle(0, 0, (int)texture.Bounds.Width, (int)(texture.Bounds.Height * GetAliveness() + 0.5f));
 		}
 	}
 }

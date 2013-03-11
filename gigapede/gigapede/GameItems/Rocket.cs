@@ -33,7 +33,7 @@ namespace gigapede.GameItems
 				if (item.GetType() == typeof(Mushroom))
 				{
 					actions.Add(new GameItemAction(GameItemAction.Action.REMOVE_ITEM, this));
-					((Mushroom)item).currentHealth--;
+					((Mushroom)item).Damage();
 				}
 			}
 

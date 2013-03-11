@@ -10,7 +10,7 @@ namespace gigapede.GameItems
 {
 	abstract class GameItem
 	{
-		public const int DEFAULT_WIDTH = 40;
+		public const int DEFAULT_WIDTH = 30;
 		public const int DEFAULT_HEIGHT = DEFAULT_WIDTH;
 
 		protected RectangleF boundingBox = new RectangleF(0, 0, DEFAULT_WIDTH, DEFAULT_HEIGHT);
@@ -40,6 +40,7 @@ namespace gigapede.GameItems
 			spriteBatch.Draw(
 				GetTexture(),
 				new Microsoft.Xna.Framework.Rectangle((int)boundingBox.X, (int)boundingBox.Y, (int)boundingBox.Width, (int)boundingBox.Height),
+				GetTextureRectangle(),
 				Microsoft.Xna.Framework.Color.White
 			);
 		}
@@ -56,6 +57,13 @@ namespace gigapede.GameItems
 		public virtual bool IsMovable()
 		{
 			return false;
+		}
+
+
+
+		protected virtual Microsoft.Xna.Framework.Rectangle GetTextureRectangle()
+		{
+			return GetTexture().Bounds;
 		}
 
 
