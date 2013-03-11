@@ -8,9 +8,9 @@ using System.Drawing;
 
 namespace gigapede.GameItems
 {
-	class Centipede : GameItem
+	class Centipede : DamageableGameItem
 	{
-		public const float CENTIPEDE_SPEED = 0.06f;
+		public const float CENTIPEDE_SPEED = 0.3f;
 
 		public static Texture2D texture;
 		//private List<RectangleF> positions;
@@ -29,21 +29,43 @@ namespace gigapede.GameItems
 
 		public override List<GameItemAction> Update(InfoForItem info)
 		{
+			BounceOffMushrooms(info);
+			BounceOffWalls(info);
+			UpdateLocation(info);
+
+			return base.Update(info);
+		}
+
+
+
+		private void BounceOffMushrooms(InfoForItem info)
+		{
 			foreach (GameItem item in info.contacts)
 			{
 				if (item.GetType() == typeof(Mushroom))
 				{
 					preciseOrigin.Y += boundingBox.Width;
 					movingRight = !movingRight; //invert
+					break;
 				}
 			}
+		}
 
-			/*if (!info.IsLegalLocation(new RectangleF(preciseOrigin, boundingBox.Size)))
+
+
+		private void BounceOffWalls(InfoForItem info)
+		{
+			if (!info.IsLegalLocation(new RectangleF(preciseOrigin, boundingBox.Size)))
 			{
-				preciseOrigin.Y += boundingBox.Width;
+				preciseOrigin.Y += boundingBox.Height;
 				movingRight = !movingRight; //invert
-			}*/
+			}
+		}
 
+
+
+		private void UpdateLocation(InfoForItem info)
+		{
 			float theta = info.gameTime.ElapsedGameTime.Milliseconds * CENTIPEDE_SPEED;
 			if (movingRight)
 				preciseOrigin.X += theta;
@@ -52,9 +74,6 @@ namespace gigapede.GameItems
 
 			boundingBox.X = preciseOrigin.X; //temporary, the Centipede should eventually stutter
 			boundingBox.Y = preciseOrigin.Y;
-
-			List<GameItemAction> actions = new List<GameItemAction>();
-			return actions;
 		}
 
 

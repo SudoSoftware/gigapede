@@ -74,6 +74,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="GameItems\Centipede.cs" />
+    <Compile Include="GameItems\DamageableGameItem.cs" />
     <Compile Include="GameItems\GameItem.cs" />
     <Compile Include="GameItems\Mushroom.cs" />
     <Compile Include="GameItems\Rocket.cs" />

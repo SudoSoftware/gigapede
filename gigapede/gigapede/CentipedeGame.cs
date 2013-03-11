@@ -24,7 +24,7 @@ namespace gigapede
 
 		public const int GRID_SIZE = 30; //size of N-by-N grid
 		public const int EMPTY_HEADER_ROWS = 2; //free space for centipede
-		public const int EMPTY_FOOTER_ROWS = 3; //free space for shooter movement
+		public const int EMPTY_FOOTER_ROWS = 5; //free space for shooter movement
 
 		public static readonly Size TARGET_RESOLUTION = new Size(1024, 768);
 

@@ -30,7 +30,21 @@ namespace gigapede
 		{
 			RectangleF intersection = new RectangleF(proposedBounds.Location, proposedBounds.Size);
 			intersection.Intersect(worldBounds);
-			return intersection.Equals(proposedBounds);
+
+			if (RectRoughEquals(intersection, proposedBounds, 0.0001f))
+				return true;
+			else if (intersection.Width <= 1 || intersection.Height <= 1) //tolerate a 1-pixel sliver
+				return true;
+			else
+				return false;
+		}
+
+
+
+		private bool RectRoughEquals(RectangleF a, RectangleF b, float tolerance)
+		{
+			return Math.Abs(a.X - b.X) <= tolerance && Math.Abs(a.Y - b.Y) <= tolerance
+				&& Math.Abs(a.Width - b.Width) <= tolerance && Math.Abs(a.Height - b.Height) <= tolerance;
 		}
 	}
 }

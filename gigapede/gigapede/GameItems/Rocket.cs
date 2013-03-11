@@ -30,10 +30,11 @@ namespace gigapede.GameItems
 
 			foreach (GameItem item in info.contacts)
 			{
-				if (item.GetType() == typeof(Mushroom))
+				if (item.GetType().IsSubclassOf(typeof(DamageableGameItem)))
 				{
 					actions.Add(new GameItemAction(GameItemAction.Action.REMOVE_ITEM, this));
-					((Mushroom)item).Damage();
+					((DamageableGameItem)item).Damage();
+					//break; //makes it only destroy one item
 				}
 			}
 
