@@ -61,7 +61,7 @@ namespace gigapede.GameItems
 
 		protected override Microsoft.Xna.Framework.Rectangle GetTextureRectangle()
 		{
-			return new Microsoft.Xna.Framework.Rectangle(0, 0, (int)texture.Bounds.Width, (int)(texture.Bounds.Height * GetAliveness() + 0.5f));
+			return new Microsoft.Xna.Framework.Rectangle(0, 0, (int)texture.Bounds.Width, (int)(texture.Bounds.Height * GetAliveness()));
 		}
 	}
 }
