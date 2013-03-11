@@ -13,15 +13,12 @@ namespace gigapede.GameItems
 
 
 		public Shooter(Point location) :
-			base(new Rectangle(location.X, location.Y, 0, 0))
-		{
-			boundingBox.Width = texture.Width;
-			boundingBox.Height = texture.Height;
-		}
+			base(location)
+		{ }
 
 
 
-		public override List<GameItemAction> Update(World.InfoForItem info)
+		public override List<GameItemAction> Update(InfoForItem info)
 		{
 			List<GameItemAction> actions = new List<GameItemAction>();
 

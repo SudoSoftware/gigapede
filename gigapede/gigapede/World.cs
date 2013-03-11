@@ -10,13 +10,13 @@ namespace gigapede
 {
 	class World
 	{
-		private List<GameItem> items = new List<GameItem>();
-		private Rectangle worldBounds;
+		protected List<GameItem> items = new List<GameItem>();
+		protected Rectangle bounds;
 
 
 		public World(Rectangle worldBounds)
 		{
-			this.worldBounds = worldBounds;
+			this.bounds = worldBounds;
 		}
 
 
@@ -28,7 +28,7 @@ namespace gigapede
 
 			foreach (GameItem item in items)
 			{
-				List<GameItem.GameItemAction> actions = item.Update(new InfoForItem(GetContacts(item), gameTime, inputState));
+				List<GameItem.GameItemAction> actions = item.Update(new InfoForItem(bounds, GetContacts(item), gameTime, inputState));
 				UpdateItemList(actions, itemsToBeAdded, itemsToBeRemoved);
 			}
 
@@ -91,33 +91,6 @@ namespace gigapede
 			}
 
 			return contacts;
-		}
-
-
-
-		public class InfoForItem
-		{
-			public List<GameItem> contacts;
-			public GameTime gameTime;
-			public UserInput inputState;
-
-
-			public InfoForItem(List<GameItem> contacts, GameTime gameTime, UserInput inputState)
-			{
-				this.contacts = contacts;
-				this.gameTime = gameTime;
-				this.inputState = inputState;
-			}
-
-
-
-			public Rectangle worldBounds
-			{
-				get
-				{
-					return worldBounds;
-				}
-			}
 		}
 	}
 }

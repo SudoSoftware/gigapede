@@ -9,10 +9,20 @@ namespace gigapede.GameItems
 {
 	abstract class GameItem
 	{
-		protected Rectangle boundingBox;
+		public const int DEFAULT_WIDTH = 50;
+		public const int DEFAULT_HEIGHT = DEFAULT_WIDTH;
 
-		abstract public List<GameItemAction> Update(World.InfoForItem info);
+		protected Rectangle boundingBox = new Rectangle(0, 0, DEFAULT_WIDTH, DEFAULT_HEIGHT);
+
+		abstract public List<GameItemAction> Update(InfoForItem info);
 		abstract public Texture2D GetTexture();
+
+
+		public GameItem(Point origin)
+		{
+			boundingBox.Location = origin;
+		}
+
 
 
 		public GameItem(Rectangle bounds)

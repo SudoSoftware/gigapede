@@ -10,20 +10,16 @@ namespace gigapede.GameItems
 	class Centipede : GameItem
 	{
 		public static Texture2D texture;
-
 		private List<Rectangle> positions;
 
 
 		public Centipede(Point location) :
-			base(new Rectangle(location.X, location.Y, 0, 0))
-		{
-			boundingBox.Width = texture.Width;
-			boundingBox.Height = texture.Height;
-		}
+			base(location)
+		{ }
 
 
 
-		public override List<GameItemAction> Update(World.InfoForItem info)
+		public override List<GameItemAction> Update(InfoForItem info)
 		{
 			List<GameItemAction> actions = new List<GameItemAction>();
 			return actions;
