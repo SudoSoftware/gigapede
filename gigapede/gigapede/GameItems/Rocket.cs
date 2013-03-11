@@ -10,6 +10,7 @@ namespace gigapede.GameItems
 {
 	class Rocket : GameItem
 	{
+		public const float ROCKET_SPEED = 0.5f;
 		public static Texture2D texture;
 
 		public Rocket(PointF location) :
@@ -25,7 +26,7 @@ namespace gigapede.GameItems
 			if (!boundingBox.IntersectsWith(info.worldBounds)) //if rocket out of bounds, remove from world
 				actions.Add(new GameItemAction(GameItemAction.Action.REMOVE_ITEM, this));
 
-			boundingBox.Y -= 1.5f;
+			boundingBox.Y -= info.gameTime.ElapsedGameTime.Milliseconds * ROCKET_SPEED;
 
 			return actions;
 		}
