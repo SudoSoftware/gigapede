@@ -12,7 +12,7 @@ namespace gigapede
 	class World
 	{
 		protected List<GameItem> items = new List<GameItem>();
-		protected RectangleF bounds;
+		private RectangleF bounds;
 
 
 		public World(RectangleF worldBounds)
@@ -60,6 +60,13 @@ namespace gigapede
 		public void RemoveItem(GameItem item)
 		{
 			items.Remove(item);
+		}
+
+
+
+		public RectangleF getBounds()
+		{
+			return bounds;
 		}
 
 

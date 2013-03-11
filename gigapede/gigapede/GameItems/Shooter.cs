@@ -10,7 +10,7 @@ namespace gigapede.GameItems
 {
 	class Shooter : GameItem
 	{
-		public const float MOVEMENT_SPEED = 0.1f;
+		public const float MOVEMENT_SPEED = 0.25f;
 		public static Texture2D texture;
 
 
@@ -22,23 +22,51 @@ namespace gigapede.GameItems
 
 		public override List<GameItemAction> Update(InfoForItem info)
 		{
+			HandleMovement(info);
+			
 			List<GameItemAction> actions = new List<GameItemAction>();
-
-			float movementTheta = info.gameTime.ElapsedGameTime.Milliseconds * MOVEMENT_SPEED;
-
-			if (info.inputState.onNow(UserInput.InputType.LEFT))
-				boundingBox.X -= movementTheta;
-			if (info.inputState.onNow(UserInput.InputType.RIGHT))
-				boundingBox.X += movementTheta;
-			if (info.inputState.onNow(UserInput.InputType.UP))
-				boundingBox.Y -= movementTheta;
-			if (info.inputState.onNow(UserInput.InputType.DOWN))
-				boundingBox.Y += movementTheta;
-
+			
 			if (info.inputState.justPressed(UserInput.InputType.FIRE))
 				actions.Add(new GameItemAction(GameItemAction.Action.ADD_ITEM, new Rocket(boundingBox.Location)));
 
 			return actions;
+		}
+
+
+
+		private void HandleMovement(InfoForItem info)
+		{
+			RectangleF newBounds = GetNewLocation(info);
+			if (IsLegalLocation(newBounds, info.worldBounds))
+				boundingBox = newBounds;
+		}
+
+
+
+		private bool IsLegalLocation(RectangleF proposedBounds, RectangleF worldBoundingBox)
+		{
+			RectangleF intersection = new RectangleF(proposedBounds.Location, proposedBounds.Size);
+			intersection.Intersect(worldBoundingBox);
+			return intersection.Equals(proposedBounds) && proposedBounds.Y >= worldBoundingBox.Height * 0.7 ;
+		}
+
+
+
+		private RectangleF GetNewLocation(InfoForItem info)
+		{
+			float movementTheta = info.gameTime.ElapsedGameTime.Milliseconds * MOVEMENT_SPEED;
+			RectangleF newBounds = new RectangleF(boundingBox.Location, boundingBox.Size);
+
+			if (info.inputState.onNow(UserInput.InputType.LEFT))
+				newBounds.X -= movementTheta;
+			if (info.inputState.onNow(UserInput.InputType.RIGHT))
+				newBounds.X += movementTheta;
+			if (info.inputState.onNow(UserInput.InputType.UP))
+				newBounds.Y -= movementTheta;
+			if (info.inputState.onNow(UserInput.InputType.DOWN))
+				newBounds.Y += movementTheta;
+
+			return newBounds;
 		}
 
 

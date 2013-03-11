@@ -21,14 +21,17 @@ namespace gigapede
 		UserInput userInput;
 		World world;
 
+		public const int WIDTH = 720;
+		public const int HEIGHT = 480;
+
 
 		public CentipedeGame()
 		{
 			graphics = new GraphicsDeviceManager(this);
 			Content.RootDirectory = "Content";
 
-			graphics.PreferredBackBufferWidth = 720;
-			graphics.PreferredBackBufferHeight = 480;
+			graphics.PreferredBackBufferWidth = WIDTH;
+			graphics.PreferredBackBufferHeight = HEIGHT;
 			graphics.IsFullScreen = true;
 		}
 
@@ -37,7 +40,7 @@ namespace gigapede
 		protected override void Initialize()
 		{
 			userInput = new UserInput();
-			world = new World(new RectangleF(0, 0, graphics.PreferredBackBufferWidth, graphics.PreferredBackBufferHeight));
+			world = new World(new RectangleF(0, 0, WIDTH, HEIGHT));
 
 			base.Initialize();
 		}
@@ -67,7 +70,7 @@ namespace gigapede
 
 		public void AddWorldContent()
 		{
-			world.AddItem(new Shooter(new PointF(200, 200)));
+			world.AddItem(new Shooter(new PointF((WIDTH + GameItem.DEFAULT_WIDTH) / 2, HEIGHT - GameItem.DEFAULT_HEIGHT)));
 		}
 
 
