@@ -40,9 +40,9 @@ namespace gigapede
             manager = new ScreenManager(graphics, Content, spriteBatch);
 
             manager.RM.FontHash["head_font"] = Content.Load<SpriteFont>("xkcd");
-            MenuStyle style = new MenuStyle(new Vector2(20, 10), new Vector2(20, 100),
+            MenuStyle style = new MenuStyle(new Vector2(20, 10), new Vector2(20, 100), new Vector2(0, 40),
                 (SpriteFont)manager.RM.FontHash["head_font"], (SpriteFont)manager.RM.FontHash["Default"],
-                Color.White, Color.White, new Vector2(0, 40));
+                Color.White, Color.White, Color.Chartreuse);
 
             Screen screen = new Screen(manager, null);
             MenuScreen main_menu = new MenuScreen(manager, screen, "Main Menu", style);

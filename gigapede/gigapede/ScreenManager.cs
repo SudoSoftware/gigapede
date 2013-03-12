@@ -26,6 +26,9 @@ namespace gigapede
         // The resource manager.
         ResourceManager rm;
 
+        // Input Class
+        UserInput input;
+
         // The resource manager's accessor.
         public ResourceManager RM
         {
@@ -38,6 +41,8 @@ namespace gigapede
             rm = new ResourceManager(graphics, content, spriteb);
 
             screenqueue = new List<Screen>();
+
+            input = new UserInput();
         }
 
     	public void AddScreen (Screen new_screen)
@@ -61,7 +66,8 @@ namespace gigapede
     	    foreach (Screen x in screenqueue.ToArray())
     	        x.Update (time);
 
-            UserInput input = new UserInput();
+            input.Update();
+
             if (focus != null)
     	        focus.HandleInput(time, input);
     	}

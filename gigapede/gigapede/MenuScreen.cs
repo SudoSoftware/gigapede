@@ -17,7 +17,7 @@ namespace gigapede
 
         private MenuStyle style;
 
-        private MenuItem selected_item;
+        private int selected_index;
 
         private List<MenuItem> menu_items;
 
@@ -26,6 +26,8 @@ namespace gigapede
         {
             this.head_text = head_text;
             this.style = style;
+
+            selected_index = 0;
 
             menu_items = new List<MenuItem>();
         }
@@ -59,6 +61,14 @@ namespace gigapede
             // Based on input, move the highlighted item across the screen.
             // If the input is not used here, pass it to the item.
 
+            if (input.justPressed(UserInput.InputType.DOWN) &&
+                selected_index +1 < menu_items.Count)
+                selected_index++;
+
+            if (input.justPressed(UserInput.InputType.UP) &&
+                selected_index > 0)
+                selected_index--;
+
             foreach (MenuItem x in menu_items)
                 x.HandleInput(time, input);
         }
@@ -78,7 +88,11 @@ namespace gigapede
 
             foreach (MenuItem x in menu_items)
             {
-                x.Draw(manager, style, position);
+                bool selected = false;
+                if (menu_items[selected_index].Equals(x))
+                    selected = true;
+
+                x.Draw(manager, style, position, selected);
                 position.X += style.menu_inc.X;
                 position.Y += style.menu_inc.Y;
             }

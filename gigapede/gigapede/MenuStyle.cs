@@ -22,11 +22,13 @@ namespace gigapede
 
         public Color head_color;
         public Color menu_color;
+        public Color selected_color;
 
         public Vector2 menu_inc;
 
-        public MenuStyle(Vector2 head_pos, Vector2 menu_start, SpriteFont head_font, SpriteFont font,
-            Color head_color, Color menu_color, Vector2 menu_inc)
+        public MenuStyle(Vector2 head_pos, Vector2 menu_start, Vector2 menu_inc,
+            SpriteFont head_font, SpriteFont font,
+            Color head_color, Color menu_color, Color selected_color)
         {
             this.head_font = head_font;
             this.font = font;
@@ -38,6 +40,7 @@ namespace gigapede
             this.menu_color = menu_color;
 
             this.menu_inc = menu_inc;
+            this.selected_color = selected_color;
         }
     }
 }

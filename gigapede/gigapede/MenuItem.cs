@@ -32,11 +32,13 @@ namespace gigapede
 	    {
     	}
 
-    	public void Draw (ScreenManager manager, MenuStyle style, Vector2 position)
+    	public void Draw (ScreenManager manager, MenuStyle style, Vector2 position, bool selected)
     	{
     	    SpriteBatch sb = manager.RM.SpriteB;
     	    SpriteFont font = style.font;
             Color color = style.menu_color;
+            if (selected)
+                color = style.selected_color;
 
             sb.Begin();
             sb.DrawString(font, display_text, position, color);
