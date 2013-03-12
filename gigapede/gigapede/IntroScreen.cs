@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Linq;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Content;
@@ -16,11 +15,21 @@ namespace gigapede
     class IntroScreen : Screen
     {
         private DateTime start_time;
+        private Screen main_menu;
 
-        public IntroScreen(ScreenManager manager, Screen exit_screen)
+        public IntroScreen(ScreenManager manager, Screen exit_screen, Screen menu_screen)
             : base(manager, exit_screen)
         {
             start_time = DateTime.Now;
+            this.main_menu = menu_screen;
+        }
+
+        public override void ExitScreen()
+        {
+            manager.KillScreen(this);
+            manager.AddScreen(exit_screen);
+            manager.AddScreen(main_menu);
+            manager.FocusScreen(main_menu);
         }
 
         public override void Update(GameTime time)

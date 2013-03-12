@@ -38,7 +38,9 @@ namespace gigapede
     	    SpriteFont font = style.font;
             Color color = style.menu_color;
 
+            sb.Begin();
             sb.DrawString(font, display_text, position, color);
+            sb.End();
     	}
     }
 }

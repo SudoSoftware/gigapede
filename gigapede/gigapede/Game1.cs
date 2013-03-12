@@ -36,10 +36,20 @@ namespace gigapede
         protected override void Initialize()
         {
             // TODO: Add your initialization logic here
-
+            spriteBatch = new SpriteBatch(GraphicsDevice);
             manager = new ScreenManager(graphics, Content, spriteBatch);
+
+            manager.RM.FontHash["head_font"] = Content.Load<SpriteFont>("xkcd");
+            MenuStyle style = new MenuStyle(new Vector2(20, 10), new Vector2(20, 100),
+                (SpriteFont)manager.RM.FontHash["head_font"], (SpriteFont)manager.RM.FontHash["Default"],
+                Color.White, Color.White, new Vector2(0, 40));
+
             Screen screen = new Screen(manager, null);
-            manager.AddScreen(new IntroScreen(manager, screen));
+            MenuScreen main_menu = new MenuScreen(manager, screen, "Main Menu", style);
+            main_menu.AddItem(new MenuItem("This is a dummy item."));
+            main_menu.AddItem(new MenuItem("Another dummy item."));
+
+            manager.AddScreen(new IntroScreen(manager, screen, main_menu));
 
             base.Initialize();
         }
@@ -51,7 +61,7 @@ namespace gigapede
         protected override void LoadContent()
         {
             // Create a new SpriteBatch, which can be used to draw textures.
-            spriteBatch = new SpriteBatch(GraphicsDevice);
+
 
             // TODO: use this.Content to load your game content here
         }

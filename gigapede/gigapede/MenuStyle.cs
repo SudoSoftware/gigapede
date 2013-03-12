@@ -23,8 +23,10 @@ namespace gigapede
         public Color head_color;
         public Color menu_color;
 
+        public Vector2 menu_inc;
+
         public MenuStyle(Vector2 head_pos, Vector2 menu_start, SpriteFont head_font, SpriteFont font,
-            Color head_color, Color menu_color)
+            Color head_color, Color menu_color, Vector2 menu_inc)
         {
             this.head_font = head_font;
             this.font = font;
@@ -34,6 +36,8 @@ namespace gigapede
 
             this.head_color = head_color;
             this.menu_color = menu_color;
+
+            this.menu_inc = menu_inc;
         }
     }
 }
