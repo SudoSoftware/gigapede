@@ -17,11 +17,11 @@ namespace gigapede
      * */
     class ScreenManager
     {
-	    // Screen with input focus.
-       	Screen focus;
+	// Screen with input focus.
+	Screen focus;
 
-    	// Queue of Screens.
-    	List<Screen> screenqueue;
+	// Queue of Screens.
+	List<Screen> screenqueue;
 
         // The resource manager.
         ResourceManager rm;
@@ -36,40 +36,35 @@ namespace gigapede
         public ScreenManager(GraphicsDeviceManager graphics, ContentManager content, SpriteBatch spriteb)
         {
             rm = new ResourceManager(graphics, content, spriteb);
-
-            screenqueue = new List<Screen>();
         }
 
-    	public void AddScreen (Screen new_screen)
-    	{
-           if (!screenqueue.Contains(new_screen))
-             screenqueue.Add(new_screen);
-	    }
+	public AddScreen (Screen new_screen)
+	{
+	    screenqueue.AddScreen(new_screen)
+	}
 
-    	public void KillScreen (Screen dead_screen)
-    	{
-    	    screenqueue.Remove(dead_screen);
-    	}
+	public KillScreen (Screen dead_screen)
+	{
+	    screenqueue.Remove(dead_screen);
+	}
 
-    	public void FocusScreen (Screen focus_screen)
-    	{
-           focus = focus_screen;
-    	}
+	public FocusScreen (Screen focus_screen)
+	{
+	    focus = focus_screen
+	}
 
-    	public void Update (GameTime time)
-    	{
-    	    foreach (Screen x in screenqueue.ToArray())
-    	        x.Update (time);
+	public Update (GameTime time)
+	{
+	    for (Screen x in screenqueue)
+	        x.Update (time)
 
-            UserInput input = new UserInput();
-            if (focus != null)
-    	        focus.HandleInput(time, input);
-    	}
+	    focus.HandleInput(time, input);
+	}
 
-    	public void Draw ()
-    	{
-    	    foreach (Screen x in screenqueue)
-	            if (! x.hidden_p) x.Draw();
-	    }
+	public Draw ()
+	{
+	    for (Screen x in screenqueue)
+	        if (! x.hiddenp) x.Draw();
+	}
     }
 }

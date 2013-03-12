@@ -16,6 +16,8 @@ namespace gigapede
     /// </summary>
     public class Game1 : Microsoft.Xna.Framework.Game
     {
+        ScreenManager manager;
+
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
 
@@ -34,6 +36,10 @@ namespace gigapede
         protected override void Initialize()
         {
             // TODO: Add your initialization logic here
+
+            manager = new ScreenManager(graphics, Content, spriteBatch);
+            Screen screen = new Screen(manager, null);
+            manager.AddScreen(new IntroScreen(manager, screen));
 
             base.Initialize();
         }
@@ -72,6 +78,8 @@ namespace gigapede
 
             // TODO: Add your update logic here
 
+            manager.Update(gameTime);
+
             base.Update(gameTime);
         }
 
@@ -84,6 +92,8 @@ namespace gigapede
             GraphicsDevice.Clear(Color.CornflowerBlue);
 
             // TODO: Add your drawing code here
+
+            manager.Draw();
 
             base.Draw(gameTime);
         }
