@@ -37,8 +37,8 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="xkcd.spritefont">
-      <Name>xkcd</Name>
+    <Compile Include="MenuHead.spritefont">
+      <Name>MenuHead</Name>
       <Importer>FontDescriptionImporter</Importer>
       <Processor>FontDescriptionProcessor</Processor>
     </Compile>
@@ -53,6 +53,13 @@
   <ItemGroup>
     <Compile Include="LcarsFont.spritefont">
       <Name>LcarsFont</Name>
+      <Importer>FontDescriptionImporter</Importer>
+      <Processor>FontDescriptionProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="MenuItem.spritefont">
+      <Name>MenuItem</Name>
       <Importer>FontDescriptionImporter</Importer>
       <Processor>FontDescriptionProcessor</Processor>
     </Compile>

@@ -11,15 +11,6 @@
       <Time>2013-03-12T22:51:19.902891-06:00</Time>
     </Item>
     <Item>
-      <Source>xkcd.spritefont</Source>
-      <Name>xkcd</Name>
-      <Importer>FontDescriptionImporter</Importer>
-      <Processor>FontDescriptionProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\pcm\Desktop\gigapede\gigapede\gigapede\bin\x86\Debug\Content\xkcd.xnb</Output>
-      <Time>2013-03-12T22:51:20.0098971-06:00</Time>
-    </Item>
-    <Item>
       <Source>lcars.jpg</Source>
       <Name>lcars</Name>
       <Importer>TextureImporter</Importer>
@@ -36,6 +27,24 @@
       <Options>None</Options>
       <Output>C:\Users\pcm\Desktop\gigapede\gigapede\gigapede\bin\x86\Debug\Content\LcarsFont.xnb</Output>
       <Time>2013-03-13T00:35:58.4140013-06:00</Time>
+    </Item>
+    <Item>
+      <Source>MenuHead.spritefont</Source>
+      <Name>MenuHead</Name>
+      <Importer>FontDescriptionImporter</Importer>
+      <Processor>FontDescriptionProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\pcm\Desktop\gigapede\gigapede\gigapede\bin\x86\Debug\Content\MenuHead.xnb</Output>
+      <Time>2013-03-13T01:02:00.3393383-06:00</Time>
+    </Item>
+    <Item>
+      <Source>MenuItem.spritefont</Source>
+      <Name>MenuItem</Name>
+      <Importer>FontDescriptionImporter</Importer>
+      <Processor>FontDescriptionProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\pcm\Desktop\gigapede\gigapede\gigapede\bin\x86\Debug\Content\MenuItem.xnb</Output>
+      <Time>2013-03-13T01:00:37.181582-06:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
