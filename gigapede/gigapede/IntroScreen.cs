@@ -19,19 +19,17 @@ namespace gigapede
 
         private String display_string;
 
-        public IntroScreen(ScreenManager manager, Screen exit_screen, Screen menu_screen)
+        public IntroScreen(ScreenManager manager, Screen exit_screen)
             : base(manager, exit_screen)
         {
             start_time = DateTime.Now;
-            this.main_menu = menu_screen;
         }
 
         public override void ExitScreen()
         {
             manager.KillScreen(this);
             manager.AddScreen(exit_screen);
-            manager.AddScreen(main_menu);
-            manager.FocusScreen(main_menu);
+            manager.FocusScreen(exit_screen);
         }
 
         public override void Update(GameTime time)
@@ -52,7 +50,7 @@ Current Bride Crew:
     Ensign Michaelson
 Welcome to the Starfleet Planar Combat Simulator";
 
-            if (intro_length.Seconds >= 20)
+            if (intro_length.Seconds >= 6)
                 ExitScreen();
         }
 

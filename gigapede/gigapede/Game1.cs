@@ -42,10 +42,10 @@ namespace gigapede
             //this.Window.AllowUserResizing = true;
             //this.Window.ClientSizeChanged += new EventHandler<EventArgs>(Window_ClientSizeChanged);
 
-            manager.RM.FontHash["head_font"] = Content.Load<SpriteFont>("xkcd");
-            MenuStyle style = new MenuStyle(new Vector2(20, 10), new Vector2(20, 100), new Vector2(0, 40),
+            manager.RM.FontHash["head_font"] = Content.Load<SpriteFont>("MenuHead");
+            MenuStyle style = new MenuStyle(new Vector2(270, 220), new Vector2(300, 260), new Vector2(0, 20),
                 (SpriteFont)manager.RM.FontHash["head_font"], (SpriteFont)manager.RM.FontHash["Default"],
-                Color.White, Color.White, Color.Chartreuse);
+                Color.Orange, Color.Orange, Color.OrangeRed);
 
             Screen screen = new Screen(manager, null);
             MenuScreen main_menu = new MenuScreen(manager, screen, "Main Menu", style);
@@ -56,7 +56,7 @@ namespace gigapede
             Texture2D background = Content.Load<Texture2D>("lcars");
 
             manager.AddScreen(new BackgroundScreen(manager, background));
-            manager.AddScreen(new IntroScreen(manager, screen, main_menu));
+            manager.AddScreen(new IntroScreen(manager, main_menu));
 
             base.Initialize();
         }
