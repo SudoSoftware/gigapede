@@ -42,10 +42,15 @@ namespace gigapede
             //this.Window.AllowUserResizing = true;
             //this.Window.ClientSizeChanged += new EventHandler<EventArgs>(Window_ClientSizeChanged);
 
+            //SoundEffect menutheme = Content.Load<SoundEffect>("menutheme");
+
+            Soundtrack menutrack = new Soundtrack();
+            //menutrack.AddAudio(menutheme);
+
             manager.RM.FontHash["head_font"] = Content.Load<SpriteFont>("MenuHead");
             MenuStyle style = new MenuStyle(new Vector2(270, 220), new Vector2(300, 260), new Vector2(0, 20),
                 (SpriteFont)manager.RM.FontHash["head_font"], (SpriteFont)manager.RM.FontHash["Default"],
-                Color.Orange, Color.Orange, Color.OrangeRed);
+                Color.Orange, Color.Orange, Color.OrangeRed, menutrack);
 
             Screen screen = new Screen(manager, null);
             MenuScreen main_menu = new MenuScreen(manager, screen, "Main Menu", style);

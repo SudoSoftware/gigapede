@@ -26,9 +26,11 @@ namespace gigapede
 
         public Vector2 menu_inc;
 
+        public Soundtrack soundtrack;
+
         public MenuStyle(Vector2 head_pos, Vector2 menu_start, Vector2 menu_inc,
             SpriteFont head_font, SpriteFont font,
-            Color head_color, Color menu_color, Color selected_color)
+            Color head_color, Color menu_color, Color selected_color, Soundtrack audio_manager)
         {
             this.head_font = head_font;
             this.font = font;
@@ -41,6 +43,8 @@ namespace gigapede
 
             this.menu_inc = menu_inc;
             this.selected_color = selected_color;
+
+            this.soundtrack = audio_manager;
         }
     }
 }

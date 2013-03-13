@@ -58,6 +58,9 @@ namespace gigapede
 
         public override void HandleInput(GameTime time, UserInput input)
         {
+            // Update Soundtrack
+            manager.AM.PlaySoundtrack(style.soundtrack);
+
             // Based on input, move the highlighted item across the screen.
             // If the input is not used here, pass it to the item.
 

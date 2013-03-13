@@ -26,6 +26,9 @@ namespace gigapede
         // The resource manager.
         ResourceManager rm;
 
+        // The audio manager.
+        SoundtrackManager am;
+
         // Input Class
         UserInput input;
 
@@ -35,10 +38,17 @@ namespace gigapede
             get { return rm; }
         }
 
+        // The audio manager's accessor.
+        public SoundtrackManager AM
+        {
+            get { return am; }
+        }
+
         // Constructor
         public ScreenManager(GraphicsDeviceManager graphics, ContentManager content, SpriteBatch spriteb)
         {
             rm = new ResourceManager(graphics, content, spriteb);
+            am = new SoundtrackManager();
 
             screenqueue = new List<Screen>();
 
@@ -70,6 +80,9 @@ namespace gigapede
 
             if (focus != null)
     	        focus.HandleInput(time, input);
+
+            // Update Soundtrack.
+            am.Update();
     	}
 
     	public void Draw ()
