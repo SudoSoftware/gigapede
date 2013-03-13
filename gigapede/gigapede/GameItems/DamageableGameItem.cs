@@ -3,13 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Drawing;
+using gigapede.Resources;
 
 namespace gigapede.GameItems
 {
 	abstract class DamageableGameItem : GameItem
 	{
-		protected const int MAX_HEALTH = 4;
-		protected int currentHealth = MAX_HEALTH;
+		protected int currentHealth = GameParameters.MAX_DAMAGEABLE_HEALTH;
 		protected RectangleF backupBounds;
 
 
@@ -43,7 +43,7 @@ namespace gigapede.GameItems
 
 		public float GetAliveness()
 		{
-			return currentHealth / (float)MAX_HEALTH;
+			return currentHealth / (float)GameParameters.MAX_DAMAGEABLE_HEALTH;
 		}
 
 

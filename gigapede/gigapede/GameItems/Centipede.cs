@@ -5,13 +5,12 @@ using System.Text;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System.Drawing;
+using gigapede.Resources;
 
 namespace gigapede.GameItems
 {
 	class Centipede : DamageableGameItem
 	{
-		public const float CENTIPEDE_SPEED = 0.3f;
-
 		public static Texture2D texture;
 		//private List<RectangleF> positions;
 		private PointF preciseOrigin;
@@ -66,7 +65,7 @@ namespace gigapede.GameItems
 
 		private void UpdateLocation(InfoForItem info)
 		{
-			float theta = info.gameTime.ElapsedGameTime.Milliseconds * CENTIPEDE_SPEED;
+			float theta = info.gameTime.ElapsedGameTime.Milliseconds * GameParameters.CENTIPEDE_SPEED;
 			if (movingRight)
 				preciseOrigin.X += theta;
 			else

@@ -78,6 +78,7 @@
     <Compile Include="GameItems\GameItem.cs" />
     <Compile Include="GameItems\Mushroom.cs" />
     <Compile Include="GameItems\Rocket.cs" />
+    <Compile Include="Resources\GameParameters.cs" />
     <Compile Include="Resources\InfoForItem.cs" />
     <Compile Include="Resources\MyRandom.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

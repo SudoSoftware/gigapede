@@ -11,7 +11,6 @@ namespace gigapede.GameItems
 	class Mushroom : DamageableGameItem
 	{
 		public static Texture2D texture;
-		private RectangleF backupBounds;
 
 
 		public Mushroom(PointF location) :

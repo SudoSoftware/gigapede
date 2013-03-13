@@ -5,12 +5,12 @@ using System.Text;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System.Drawing;
+using gigapede.Resources;
 
 namespace gigapede.GameItems
 {
 	class Rocket : GameItem
 	{
-		public const float ROCKET_SPEED = 0.6f;
 		public static Texture2D texture;
 
 		public Rocket(PointF location) :
@@ -21,7 +21,7 @@ namespace gigapede.GameItems
 
 		public override List<GameItemAction> Update(InfoForItem info)
 		{
-			boundingBox.Y -= info.gameTime.ElapsedGameTime.Milliseconds * ROCKET_SPEED;
+			boundingBox.Y -= info.gameTime.ElapsedGameTime.Milliseconds * GameParameters.ROCKET_SPEED;
 
 			List<GameItemAction> actions = new List<GameItemAction>();
 			

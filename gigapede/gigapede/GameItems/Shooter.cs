@@ -5,12 +5,12 @@ using System.Text;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System.Drawing;
+using gigapede.Resources;
 
 namespace gigapede.GameItems
 {
 	class Shooter : GameItem
 	{
-		public const float MOVEMENT_SPEED = 0.25f;
 		public static Texture2D texture;
 		public static float minY;
 
@@ -46,7 +46,7 @@ namespace gigapede.GameItems
 
 		private RectangleF GetNewLocation(InfoForItem info)
 		{
-			float movementTheta = info.gameTime.ElapsedGameTime.Milliseconds * MOVEMENT_SPEED;
+			float movementTheta = info.gameTime.ElapsedGameTime.Milliseconds * GameParameters.SHOOTER_MOVEMENT_THETA;
 			RectangleF newBounds = new RectangleF(boundingBox.Location, boundingBox.Size);
 
 			if (info.inputState.onNow(UserInput.InputType.LEFT))

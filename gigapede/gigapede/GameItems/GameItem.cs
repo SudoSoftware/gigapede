@@ -5,14 +5,13 @@ using System.Text;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System.Drawing;
+using gigapede.Resources;
 
 namespace gigapede.GameItems
 {
 	abstract class GameItem
 	{
-		public static int defaultWidth = 30;
-		public static int defaultHeight = defaultWidth;
-		protected RectangleF boundingBox = new RectangleF(0, 0, defaultWidth, defaultHeight);
+		protected RectangleF boundingBox = new RectangleF(0, 0, GameParameters.DEFAULT_ITEM_WIDTH, GameParameters.DEFAULT_ITEM_HEIGHT);
 
 		abstract public List<GameItemAction> Update(InfoForItem info);
 		abstract public Texture2D GetTexture();
