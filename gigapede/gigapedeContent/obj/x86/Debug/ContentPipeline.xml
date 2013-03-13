@@ -8,7 +8,7 @@
       <Processor>FontDescriptionProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\pcm\Desktop\gigapede\gigapede\gigapede\bin\x86\Debug\Content\Default.xnb</Output>
-      <Time>2013-03-12T01:11:58.0474361-06:00</Time>
+      <Time>2013-03-12T22:51:19.902891-06:00</Time>
     </Item>
     <Item>
       <Source>xkcd.spritefont</Source>
@@ -17,7 +17,25 @@
       <Processor>FontDescriptionProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\pcm\Desktop\gigapede\gigapede\gigapede\bin\x86\Debug\Content\xkcd.xnb</Output>
-      <Time>2013-03-12T11:02:05.4955114-06:00</Time>
+      <Time>2013-03-12T22:51:20.0098971-06:00</Time>
+    </Item>
+    <Item>
+      <Source>lcars.jpg</Source>
+      <Name>lcars</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\pcm\Desktop\gigapede\gigapede\gigapede\bin\x86\Debug\Content\lcars.xnb</Output>
+      <Time>2013-03-12T23:53:05.7218517-06:00</Time>
+    </Item>
+    <Item>
+      <Source>LcarsFont.spritefont</Source>
+      <Name>LcarsFont</Name>
+      <Importer>FontDescriptionImporter</Importer>
+      <Processor>FontDescriptionProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\pcm\Desktop\gigapede\gigapede\gigapede\bin\x86\Debug\Content\LcarsFont.xnb</Output>
+      <Time>2013-03-13T00:35:58.4140013-06:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>

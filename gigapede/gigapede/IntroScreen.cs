@@ -17,6 +17,8 @@ namespace gigapede
         private DateTime start_time;
         private Screen main_menu;
 
+        private String display_string;
+
         public IntroScreen(ScreenManager manager, Screen exit_screen, Screen menu_screen)
             : base(manager, exit_screen)
         {
@@ -36,15 +38,33 @@ namespace gigapede
         {
             base.Update(time);
 
-            if ((DateTime.Now - start_time).Seconds >= 3)
+            TimeSpan intro_length = DateTime.Now - start_time;
+
+            display_string = 
+@"Library Computer Access/Retrival System
+USS Enterprise-D (NCC 1701-D)\n
+Current Bride Crew:
+    Rear Admiral James T. Kirk
+    Captain Jean-Luc Picard
+    Cmdr. William Riker
+    Acting Ensign Crusher
+    Ensign Victors
+    Ensign Michaelson
+Welcome to the Starfleet Planar Combat Simulator";
+
+            if (intro_length.Seconds >= 20)
                 ExitScreen();
         }
 
         public override void Draw()
         {
-            base.Draw();
+            SpriteBatch sb = manager.RM.SpriteB;
 
-            manager.RM.Graphics.GraphicsDevice.Clear(Color.PowderBlue);
+            SpriteFont font = manager.RM.Content.Load<SpriteFont>("LcarsFont");
+
+            sb.Begin();
+            sb.DrawString(font, display_string, new Vector2(270, 220), Color.Orange); 
+            sb.End();
         }
     }
 }

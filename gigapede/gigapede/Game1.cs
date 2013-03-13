@@ -39,6 +39,9 @@ namespace gigapede
             spriteBatch = new SpriteBatch(GraphicsDevice);
             manager = new ScreenManager(graphics, Content, spriteBatch);
 
+            //this.Window.AllowUserResizing = true;
+            //this.Window.ClientSizeChanged += new EventHandler<EventArgs>(Window_ClientSizeChanged);
+
             manager.RM.FontHash["head_font"] = Content.Load<SpriteFont>("xkcd");
             MenuStyle style = new MenuStyle(new Vector2(20, 10), new Vector2(20, 100), new Vector2(0, 40),
                 (SpriteFont)manager.RM.FontHash["head_font"], (SpriteFont)manager.RM.FontHash["Default"],
@@ -49,6 +52,10 @@ namespace gigapede
             main_menu.AddItem(new MenuItem("This is a dummy item."));
             main_menu.AddItem(new MenuItem("Another dummy item."));
 
+            // Load Background
+            Texture2D background = Content.Load<Texture2D>("lcars");
+
+            manager.AddScreen(new BackgroundScreen(manager, background));
             manager.AddScreen(new IntroScreen(manager, screen, main_menu));
 
             base.Initialize();
@@ -106,6 +113,12 @@ namespace gigapede
             manager.Draw();
 
             base.Draw(gameTime);
+        }
+
+
+        void Window_ClientSizeChanged(object sender, EventArgs e)
+        {
+            // Make changes to handle the new window size.            
         }
     }
 }
