@@ -25,13 +25,13 @@ namespace gigapede.GameItems
 			PointF nextLoc = boundingBox.Location;
 			Move(ref nextLoc);
 
-			if (!info.world.IsLegalLocation(new RectangleF(nextLoc, boundingBox.Size)) || info.world.TypeAt(nextLoc, 1f, typeof(Mushroom)))
+			if (!info.world.IsLegalLocation(new RectangleF(nextLoc, boundingBox.Size)) || info.world.TypeAt(nextLoc, typeof(Mushroom)))
 			{
 				nextLoc.X = boundingBox.X;
 				nextLoc.Y += originalHeight;
 				movingRight = !movingRight;
 
-				if (info.world.TypeAt(nextLoc, 1f, typeof(Mushroom)))
+				if (info.world.TypeAt(nextLoc, typeof(Mushroom)))
 					Move(ref nextLoc);
 			}
 

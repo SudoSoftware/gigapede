@@ -25,5 +25,8 @@ namespace gigapede.Resources
 		public static readonly Microsoft.Xna.Framework.Rectangle screenSize = new Microsoft.Xna.Framework.Rectangle(0, 0, TARGET_RESOLUTION.Width, TARGET_RESOLUTION.Height);
 		public static readonly int DEFAULT_ITEM_WIDTH = (int)(TARGET_RESOLUTION.Width / GRID_SIZE);
 		public static readonly int DEFAULT_ITEM_HEIGHT = DEFAULT_ITEM_WIDTH;
+
+		//other
+		public static readonly float LOC_TOLERANCE = 1f;
 	}
 }

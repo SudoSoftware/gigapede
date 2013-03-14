@@ -2,12 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Audio;
-using Microsoft.Xna.Framework.Content;
-using Microsoft.Xna.Framework.GamerServices;
 using Microsoft.Xna.Framework.Graphics;
-using Microsoft.Xna.Framework.Input;
-using Microsoft.Xna.Framework.Media;
 using gigapede.GameItems;
 using System.Drawing;
 using gigapede.Resources;
@@ -60,6 +55,7 @@ namespace gigapede
 			Rocket.texture = this.Content.Load<Texture2D>("images/phaser");
 			Scorpion.texture = this.Content.Load<Texture2D>("images/borg cube1");
 			Shooter.texture = this.Content.Load<Texture2D>("images/enterprise");
+			Spider.texture = this.Content.Load<Texture2D>("images/ferangi vessel");
 
 			background = this.Content.Load<Texture2D>("images/starfield");
 
@@ -120,7 +116,7 @@ namespace gigapede
 		int centipedeCount = 10;
 		private void HandleCentipedeSpawning()
 		{
-			if (centipedeCount > 0 && !world.TypeAt(centipedeSpawnLoc, 1f, typeof(Centipede)))
+			if (centipedeCount > 0 && !world.TypeAt(centipedeSpawnLoc, typeof(Centipede)))
 			{
 				world.AddItem(new Centipede(centipedeSpawnLoc));
 				centipedeCount--;
@@ -131,7 +127,7 @@ namespace gigapede
 
 		private void HandleScorpionSpawning()
 		{
-			if (prng.nextRange(0, 1000) <= 1) // 0.2% of spawning
+			if (prng.nextRange(0, 1000) <= 1) // 0.1% of spawning
 			{
 				float range = prng.nextRange(GameParameters.EMPTY_HEADER_ROWS, GameParameters.GRID_SIZE - GameParameters.EMPTY_FOOTER_ROWS);
 				float x = 0; //temporary

@@ -6,6 +6,7 @@ using Microsoft.Xna.Framework;
 using gigapede.GameItems;
 using Microsoft.Xna.Framework.Graphics;
 using System.Drawing;
+using gigapede.Resources;
 
 namespace gigapede
 {
@@ -65,10 +66,10 @@ namespace gigapede
 
 
 
-		public GameItem ItemAt(PointF point, float locationTolerance)
+		public GameItem ItemAt(PointF point)
 		{
 			foreach (GameItem item in items)
-				if (Math.Abs(point.X - item.GetLocation().X) <= locationTolerance && Math.Abs(point.Y - item.GetLocation().Y) <= locationTolerance)
+				if (Math.Abs(point.X - item.GetLocation().X) <= GameParameters.LOC_TOLERANCE && Math.Abs(point.Y - item.GetLocation().Y) <= GameParameters.LOC_TOLERANCE)
 					return item;
 
 			return null;
@@ -76,9 +77,9 @@ namespace gigapede
 
 
 
-		public bool TypeAt(PointF point, float locationTolerance, Type itemType)
+		public bool TypeAt(PointF point, Type itemType)
 		{
-			GameItem item = ItemAt(point, locationTolerance);
+			GameItem item = ItemAt(point);
 			return item != null && item.GetType().Equals(itemType);
 		}
 
@@ -91,7 +92,7 @@ namespace gigapede
 
 
 
-		public List<GameItem> GetContacts(GameItem item)
+		private List<GameItem> GetContacts(GameItem item)
 		{
 			List<GameItem> contacts = new List<GameItem>();
 
@@ -109,8 +110,8 @@ namespace gigapede
 		{
 			RectangleF intersection = new RectangleF(proposedBounds.Location, proposedBounds.Size);
 			intersection.Intersect(bounds);
-			
-			if (RectRoughEquals(intersection, proposedBounds, 1f))
+
+			if (RectRoughEquals(intersection, proposedBounds, GameParameters.LOC_TOLERANCE))
 				return true;
 			else if (intersection.Width > 0 && intersection.Width <= 1 || intersection.Height > 0 && intersection.Height <= 1) //tolerate a 1-pixel sliver
 				return true;

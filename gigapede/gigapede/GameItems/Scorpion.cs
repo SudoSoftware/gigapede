@@ -24,7 +24,7 @@ namespace gigapede.GameItems
 			PointF nextLoc = boundingBox.Location;
 			Move(ref nextLoc);
 
-			GameItem item = info.world.ItemAt(nextLoc, 1f);
+			GameItem item = info.world.ItemAt(nextLoc);
 			if (item != null && item.GetType() == typeof(Mushroom))
 				((Mushroom)item).IsPoisoned = true;
 

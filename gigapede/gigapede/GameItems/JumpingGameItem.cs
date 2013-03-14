@@ -55,7 +55,7 @@ namespace gigapede.GameItems
 		{
 			PointF nextLoc = boundingBox.Location;
 			Move(ref nextLoc);
-			return !info.world.TypeAt(nextLoc, 1f, this.GetType());
+			return !info.world.TypeAt(nextLoc, this.GetType());
 		}
 
 
