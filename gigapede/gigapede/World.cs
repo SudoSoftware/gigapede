@@ -27,12 +27,13 @@ namespace gigapede
 			List<GameItem> itemsToBeAdded = new List<GameItem>();
 			List<GameItem> itemsToBeRemoved = new List<GameItem>();
 
-			foreach (GameItem item in items)
+			for (int j = 0; j < items.Count; j++)
 			{
-				List<GameItem.GameItemAction> actions = item.Update(new InfoForItem(this, GetContacts(item), gameTime, inputState));
+				List<GameItem.GameItemAction> actions = items[j].Update(new InfoForItem(this, GetContacts(items[j]), gameTime, inputState));
 				UpdateItemList(actions, itemsToBeAdded, itemsToBeRemoved);
+				CheckAndPerformImmediateReplacements(actions);
 			}
-
+			
 			foreach (GameItem item in itemsToBeRemoved)
 				RemoveItem(item);
 
@@ -82,20 +83,6 @@ namespace gigapede
 
 
 
-		private void UpdateItemList(List<GameItem.GameItemAction> actions, List<GameItem> itemsToBeAdded, List<GameItem> itemsToBeRemoved)
-		{
-			foreach (GameItem.GameItemAction itemAction in actions)
-			{
-				if (itemAction.action == GameItem.GameItemAction.Action.ADD_ITEM)
-					itemsToBeAdded.Add(itemAction.item);
-
-				if (itemAction.action == GameItem.GameItemAction.Action.REMOVE_ITEM)
-					itemsToBeRemoved.Add(itemAction.item);
-			}
-		}
-
-
-
 		public List<GameItem> GetContacts(GameItem item)
 		{
 			List<GameItem> contacts = new List<GameItem>();
@@ -129,6 +116,34 @@ namespace gigapede
 		{
 			return Math.Abs(a.X - b.X) <= tolerance && Math.Abs(a.Y - b.Y) <= tolerance
 				&& Math.Abs(a.Width - b.Width) <= tolerance && Math.Abs(a.Height - b.Height) <= tolerance;
+		}
+
+
+
+		private void UpdateItemList(List<GameItem.GameItemAction> actions, List<GameItem> itemsToBeAdded, List<GameItem> itemsToBeRemoved)
+		{
+			foreach (GameItem.GameItemAction itemAction in actions)
+			{
+				if (itemAction.action == GameItem.GameItemAction.Action.ADD_ITEM)
+					itemsToBeAdded.Add(itemAction.item);
+
+				if (itemAction.action == GameItem.GameItemAction.Action.REMOVE_ITEM)
+					itemsToBeRemoved.Add(itemAction.item);
+			}
+		}
+
+
+
+		private void CheckAndPerformImmediateReplacements(List<GameItem.GameItemAction> actions)
+		{
+			foreach (GameItem.GameItemAction itemAction in actions) //check for items that need immediate replacement
+			{
+				if (itemAction.action == GameItem.GameItemAction.Action.REPLACE_ITEM)
+				{
+					int index = items.IndexOf(itemAction.item);
+					items[index] = itemAction.secondaryItem;
+				}
+			}
 		}
 	}
 }

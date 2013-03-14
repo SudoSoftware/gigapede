@@ -12,7 +12,7 @@ namespace gigapede.GameItems
 	class Centipede : DamageableGameItem
 	{
 		public static Texture2D texture;
-		private LinkedList<RectangleF> body = new LinkedList<RectangleF>();
+		//private LinkedList<RectangleF> body = new LinkedList<RectangleF>();
 		private bool movingRight = true;
 		private float movementTillJump;
 
@@ -21,18 +21,32 @@ namespace gigapede.GameItems
 			base(location)
 		{
 			ResetJumpWait();
-
+			/*
 			RectangleF currentSegment = boundingBox;
 			for (int j = 0; j < 10; j++)
 			{
 				body.AddLast(currentSegment);
 				currentSegment = new RectangleF(new PointF(currentSegment.X - boundingBox.Width, currentSegment.Y), currentSegment.Size);
-			}
+			}*/
 		}
 
 
 
 		public override List<GameItemAction> Update(InfoForItem info)
+		{
+			List<GameItemAction> actions = new List<GameItemAction>();
+
+			if (currentHealth <= 0)
+				actions.Add(new GameItemAction(this, new Mushroom(boundingBox.Location))); //replace "this" with a new Mushroom
+			else
+				HandleMovement(info);
+
+			return actions;
+		}
+
+
+
+		private void HandleMovement(InfoForItem info)
 		{
 			float theta = info.gameTime.ElapsedGameTime.Milliseconds * GameParameters.CENTIPEDE_SPEED;
 			movementTillJump -= theta;
@@ -42,33 +56,39 @@ namespace gigapede.GameItems
 				Jump(info);
 				ResetJumpWait();
 			}
-
-			return base.Update(info);
 		}
 
 
 
 		private void Jump(InfoForItem info)
 		{
-			PointF headLocation = body.First.Value.Location;
+			PointF headLocation = boundingBox.Location; //body.First.Value.Location;
 			
 			PointF nextLoc = headLocation;
 			Move(ref nextLoc);
 
-			if (!info.world.IsLegalLocation(new RectangleF(nextLoc, boundingBox.Size)) || info.world.ItemAt(nextLoc, 1f) != null)
+			if (!info.world.IsLegalLocation(new RectangleF(nextLoc, boundingBox.Size)) || IntersectsWithMushroom(nextLoc, info))
 			{
 				nextLoc.X = headLocation.X;
 				nextLoc.Y += boundingBox.Height;
 				movingRight = !movingRight;
 
-				if (info.world.ItemAt(nextLoc, 1f) != null)
+				if (IntersectsWithMushroom(nextLoc, info))
 					Move(ref nextLoc);
 			}
 
 			boundingBox.Location = nextLoc;
 
-			body.RemoveLast();
-			body.AddFirst(new RectangleF(nextLoc, boundingBox.Size));
+			//body.RemoveLast();
+			//body.AddFirst(new RectangleF(nextLoc, boundingBox.Size));
+		}
+
+
+
+		private bool IntersectsWithMushroom(PointF loc, InfoForItem info)
+		{
+			GameItem item = info.world.ItemAt(loc, 1f);
+			return item != null && item.GetType() == typeof(Mushroom);
 		}
 
 
@@ -87,13 +107,6 @@ namespace gigapede.GameItems
 		{
 			movementTillJump = boundingBox.Width;
 		}
-
-
-
-		/*public virtual bool Intersects(GameItem otherItem)
-		{
-			return boundingBox.IntersectsWith(otherItem.boundingBox);
-		}*/
 
 
 
