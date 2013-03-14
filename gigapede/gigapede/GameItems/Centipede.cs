@@ -12,7 +12,6 @@ namespace gigapede.GameItems
 	class Centipede : DamageableGameItem
 	{
 		public static Texture2D texture;
-		//private LinkedList<RectangleF> body = new LinkedList<RectangleF>();
 		private bool movingRight = true;
 		private float movementTillJump;
 
@@ -21,32 +20,11 @@ namespace gigapede.GameItems
 			base(location)
 		{
 			ResetJumpWait();
-			/*
-			RectangleF currentSegment = boundingBox;
-			for (int j = 0; j < 10; j++)
-			{
-				body.AddLast(currentSegment);
-				currentSegment = new RectangleF(new PointF(currentSegment.X - boundingBox.Width, currentSegment.Y), currentSegment.Size);
-			}*/
 		}
 
 
 
 		public override List<GameItemAction> Update(InfoForItem info)
-		{
-			List<GameItemAction> actions = new List<GameItemAction>();
-
-			if (GetAliveness() <= 0)
-				actions.Add(new GameItemAction(this, new Mushroom(boundingBox.Location))); //replace "this" with a new Mushroom
-			else
-				HandleMovement(info);
-
-			return actions;
-		}
-
-
-
-		private void HandleMovement(InfoForItem info)
 		{
 			float theta = info.gameTime.ElapsedGameTime.Milliseconds * GameParameters.CENTIPEDE_SPEED;
 			movementTillJump -= theta;
@@ -56,15 +34,22 @@ namespace gigapede.GameItems
 				Jump(info);
 				ResetJumpWait();
 			}
+
+			return base.Update(info);
+		}
+
+
+
+		protected override void Die(ref List<GameItemAction> itemActions)
+		{
+			itemActions.Add(new GameItemAction(this, new Mushroom(boundingBox.Location))); //replace "this" with a new Mushroom
 		}
 
 
 
 		private void Jump(InfoForItem info)
 		{
-			//PointF headLocation = ; 
-			
-			PointF nextLoc = boundingBox.Location;//body.First.Value.Location;
+			PointF nextLoc = boundingBox.Location;
 			Move(ref nextLoc);
 
 			if (!info.world.IsLegalLocation(new RectangleF(nextLoc, boundingBox.Size)) || info.world.TypeAt(nextLoc, 1f, typeof(Mushroom)))
@@ -78,9 +63,6 @@ namespace gigapede.GameItems
 			}
 
 			boundingBox.Location = nextLoc;
-
-			//body.RemoveLast();
-			//body.AddFirst(new RectangleF(nextLoc, boundingBox.Size));
 		}
 
 

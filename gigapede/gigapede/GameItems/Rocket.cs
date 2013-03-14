@@ -36,11 +36,16 @@ namespace gigapede.GameItems
 
 			foreach (GameItem item in info.contacts)
 			{
-				if (item.GetType().IsSubclassOf(typeof(DamageableGameItem)))
+				Type itemType = item.GetType();
+				if (itemType.IsSubclassOf(typeof(DamageableGameItem)))
 				{
+					if (itemType == typeof(Mushroom))
+						((Mushroom)item).Damage();
+					else if (itemType == typeof(Centipede))
+						((Centipede)item).KillOff();
+
 					actions.Add(new GameItemAction(GameItemAction.Action.REMOVE_ITEM, this));
-					((DamageableGameItem)item).Damage();
-					//break; //makes it only destroy one item
+					break; //makes it only destroy one item
 				}
 			}
 

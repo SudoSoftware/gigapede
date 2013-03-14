@@ -25,10 +25,25 @@ namespace gigapede.GameItems
 		{
 			List<GameItemAction> actions = new List<GameItemAction>();
 
-			if (currentHealth <= 0)
-				actions.Add(new GameItemAction(GameItemAction.Action.REMOVE_ITEM, this));
+			if (GetAliveness() <= 0)
+				Die(ref actions);
 
 			return actions;
+		}
+
+
+
+		protected virtual void Die(ref List<GameItemAction> itemActions)
+		{
+			itemActions.Add(new GameItemAction(GameItemAction.Action.REMOVE_ITEM, this));
+		}
+
+
+
+		public void KillOff()
+		{
+			currentHealth = 0;
+			boundingBox.Height = originalHeight * GetAliveness();
 		}
 
 
