@@ -9,8 +9,8 @@ namespace gigapede.Resources
 	class GameParameters
 	{
 		//behavior
-		public const float CENTIPEDE_SPEED = 0.3f;
-		public const float ROCKET_SPEED = 0.7f;
+		public const float CENTIPEDE_SPEED = 0.4f;
+		public const float ROCKET_SPEED = 0.8f;
 		public const float SHOOTER_MOVEMENT_THETA = 0.25f;
 		public const int MAX_DAMAGEABLE_HEALTH = 4;
 

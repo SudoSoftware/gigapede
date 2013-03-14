@@ -76,8 +76,10 @@
     <Compile Include="GameItems\Centipede.cs" />
     <Compile Include="GameItems\DamageableGameItem.cs" />
     <Compile Include="GameItems\GameItem.cs" />
+    <Compile Include="GameItems\JumpingGameItem.cs" />
     <Compile Include="GameItems\Mushroom.cs" />
     <Compile Include="GameItems\Rocket.cs" />
+    <Compile Include="GameItems\Scorpion.cs" />
     <Compile Include="Resources\GameParameters.cs" />
     <Compile Include="Resources\InfoForItem.cs" />
     <Compile Include="Resources\MyRandom.cs" />

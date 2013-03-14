@@ -3,18 +3,17 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Microsoft.Xna.Framework.Graphics;
-using Microsoft.Xna.Framework;
 using System.Drawing;
+using gigapede.Resources;
 
 namespace gigapede.GameItems
 {
-	class Mushroom : DamageableGameItem
+	class Scorpion : DamageableGameItem
 	{
 		public static Texture2D texture;
-		public bool IsPoisoned;
 
 
-		public Mushroom(PointF location) :
+		public Scorpion(PointF location) :
 			base(location)
 		{ }
 
