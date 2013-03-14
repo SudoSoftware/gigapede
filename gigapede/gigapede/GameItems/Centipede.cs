@@ -20,6 +20,26 @@ namespace gigapede.GameItems
 
 
 
+		protected override void Jump(InfoForItem info)
+		{
+			PointF nextLoc = boundingBox.Location;
+			Move(ref nextLoc);
+
+			if (!info.world.IsLegalLocation(new RectangleF(nextLoc, boundingBox.Size)) || info.world.TypeAt(nextLoc, 1f, typeof(Mushroom)))
+			{
+				nextLoc.X = boundingBox.X;
+				nextLoc.Y += originalHeight;
+				movingRight = !movingRight;
+
+				if (info.world.TypeAt(nextLoc, 1f, typeof(Mushroom)))
+					Move(ref nextLoc);
+			}
+
+			boundingBox.Location = nextLoc;
+		}
+
+
+
 		protected override void Die(ref List<GameItemAction> itemActions)
 		{
 			itemActions.Add(new GameItemAction(this, new Mushroom(boundingBox.Location))); //replace "this" with a new Mushroom

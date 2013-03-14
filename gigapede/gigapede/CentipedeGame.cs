@@ -54,8 +54,10 @@ namespace gigapede
 			spriteBatch = new SpriteBatch(GraphicsDevice);
 			
 			Centipede.texture = this.Content.Load<Texture2D>("images/klingon bird of prey");
-			Mushroom.texture = this.Content.Load<Texture2D>("images/asteroid1");
+			Mushroom.normalTexture = this.Content.Load<Texture2D>("images/asteroid1");
+			Mushroom.poisonedTexture = this.Content.Load<Texture2D>("images/asteroid2");
 			Rocket.texture = this.Content.Load<Texture2D>("images/phaser");
+			Scorpion.texture = this.Content.Load<Texture2D>("images/borg cube1");
 			Shooter.texture = this.Content.Load<Texture2D>("images/enterprise");
 
 			background = this.Content.Load<Texture2D>("images/starfield");

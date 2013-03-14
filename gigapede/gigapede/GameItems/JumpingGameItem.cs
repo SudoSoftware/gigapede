@@ -38,25 +38,7 @@ namespace gigapede.GameItems
 		}
 
 
-
-		protected void Jump(InfoForItem info)
-		{
-			PointF nextLoc = boundingBox.Location;
-			Move(ref nextLoc);
-
-			if (!info.world.IsLegalLocation(new RectangleF(nextLoc, boundingBox.Size)) || info.world.TypeAt(nextLoc, 1f, typeof(Mushroom)))
-			{
-				nextLoc.X = boundingBox.X;
-				nextLoc.Y += originalHeight;
-				movingRight = !movingRight;
-
-				if (info.world.TypeAt(nextLoc, 1f, typeof(Mushroom)))
-					Move(ref nextLoc);
-			}
-
-			boundingBox.Location = nextLoc;
-		}
-
+		protected abstract void Jump(InfoForItem info);
 
 
 		protected void Move(ref PointF pt)
@@ -73,7 +55,7 @@ namespace gigapede.GameItems
 		{
 			PointF nextLoc = boundingBox.Location;
 			Move(ref nextLoc);
-			return !info.world.TypeAt(nextLoc, 1f, typeof(Centipede));
+			return !info.world.TypeAt(nextLoc, 1f, this.GetType());
 		}
 
 

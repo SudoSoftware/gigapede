@@ -10,7 +10,8 @@ namespace gigapede.GameItems
 {
 	class Mushroom : DamageableGameItem
 	{
-		public static Texture2D texture;
+		public static Texture2D normalTexture;
+		public static Texture2D poisonedTexture;
 		public bool IsPoisoned;
 
 
@@ -22,7 +23,10 @@ namespace gigapede.GameItems
 
 		public override Texture2D GetTexture()
 		{
-			return texture;
+			if (IsPoisoned)
+				return poisonedTexture;
+			else
+				return normalTexture;
 		}
 	}
 }
