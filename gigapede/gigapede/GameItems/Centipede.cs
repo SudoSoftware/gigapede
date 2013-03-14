@@ -40,8 +40,9 @@ namespace gigapede.GameItems
 
 
 
-		protected override void Die(ref List<GameItemAction> itemActions)
+		protected override void Die(ref List<GameItemAction> itemActions, InfoForItem info)
 		{
+			info.world.getHUD().AddToScore(GameParameters.CENTIPEDE_POINTS);
 			itemActions.Add(new GameItemAction(this, new Mushroom(boundingBox.Location))); //replace "this" with a new Mushroom
 		}
 

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using Microsoft.Xna.Framework.Graphics;
 using System.Drawing;
+using gigapede.Resources;
 
 namespace gigapede.GameItems
 {
@@ -23,7 +24,7 @@ namespace gigapede.GameItems
 			List<GameItemAction> actions = new List<GameItemAction>();
 
 			if (GetAliveness() <= 0)
-				Die(ref actions);
+				Die(ref actions, info);
 
 			Mushroom contactingMushroom = GetContactingMushroom(info.contacts);
 			if (contactingMushroom != null && prng.nextRange(0, 5) <= 1) //20% of eating the mushroom it's touching
@@ -40,6 +41,14 @@ namespace gigapede.GameItems
 				if (item.GetType() == typeof(Mushroom))
 					return (Mushroom)item;
 			return null;
+		}
+
+
+
+		protected override void Die(ref List<GameItemAction> itemActions, InfoForItem info)
+		{
+			info.world.getHUD().AddToScore(GameParameters.SPIDER_MID_POINTS); //todo: implement distance judgement
+			base.Die(ref itemActions, info);
 		}
 
 

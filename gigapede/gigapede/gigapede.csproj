@@ -82,6 +82,7 @@
     <Compile Include="GameItems\Rocket.cs" />
     <Compile Include="GameItems\Scorpion.cs" />
     <Compile Include="GameItems\Spider.cs" />
+    <Compile Include="HeadsUpDisplay.cs" />
     <Compile Include="Resources\GameParameters.cs" />
     <Compile Include="Resources\InfoForItem.cs" />
     <Compile Include="Resources\MyRandom.cs" />

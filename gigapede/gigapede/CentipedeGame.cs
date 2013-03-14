@@ -48,8 +48,10 @@ namespace gigapede
 		protected override void LoadContent()
 		{
 			spriteBatch = new SpriteBatch(GraphicsDevice);
-			
+
+			background = this.Content.Load<Texture2D>("images/starfield");
 			Centipede.texture = this.Content.Load<Texture2D>("images/klingon bird of prey");
+			Flea.texture = this.Content.Load<Texture2D>("images/romulan warbird");
 			Mushroom.normalTexture = this.Content.Load<Texture2D>("images/asteroid1");
 			Mushroom.poisonedTexture = this.Content.Load<Texture2D>("images/asteroid2");
 			Rocket.primaryTexture = this.Content.Load<Texture2D>("images/phaser");
@@ -58,7 +60,7 @@ namespace gigapede
 			Shooter.texture = this.Content.Load<Texture2D>("images/enterprise");
 			Spider.texture = this.Content.Load<Texture2D>("images/ferangi vessel");
 
-			background = this.Content.Load<Texture2D>("images/starfield");
+			HeadsUpDisplay.font = Content.Load<SpriteFont>("temporaryFont");
 
 			AddWorldContent();
 		}

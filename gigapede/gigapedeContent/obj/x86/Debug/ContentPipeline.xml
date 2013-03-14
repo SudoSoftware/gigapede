@@ -91,6 +91,15 @@
       <Output>C:\Users\Admin\Documents\GitHub\gigapede\gigapede\gigapede\bin\x86\Debug\Content\images\klingon bird of prey.xnb</Output>
       <Time>2013-03-13T17:13:26-06:00</Time>
     </Item>
+    <Item>
+      <Source>temporaryFont.spritefont</Source>
+      <Name>temporaryFont</Name>
+      <Importer>FontDescriptionImporter</Importer>
+      <Processor>FontDescriptionProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Admin\Documents\GitHub\gigapede\gigapede\gigapede\bin\x86\Debug\Content\temporaryFont.xnb</Output>
+      <Time>2013-03-14T15:03:49.4840392-06:00</Time>
+    </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
       <TargetPlatform>Windows</TargetPlatform>

@@ -26,14 +26,14 @@ namespace gigapede.GameItems
 			List<GameItemAction> actions = new List<GameItemAction>();
 
 			if (GetAliveness() <= 0)
-				Die(ref actions);
+				Die(ref actions, info);
 
 			return actions;
 		}
 
 
 
-		protected virtual void Die(ref List<GameItemAction> itemActions)
+		protected virtual void Die(ref List<GameItemAction> itemActions, InfoForItem info)
 		{
 			itemActions.Add(new GameItemAction(GameItemAction.Action.REMOVE_ITEM, this));
 		}

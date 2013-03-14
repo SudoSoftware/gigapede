@@ -12,7 +12,8 @@ namespace gigapede
 {
 	class World
 	{
-		protected List<GameItem> items = new List<GameItem>();
+		private HeadsUpDisplay hud = new HeadsUpDisplay();
+		private List<GameItem> items = new List<GameItem>();
 		private RectangleF bounds;
 
 
@@ -48,6 +49,8 @@ namespace gigapede
 		{
 			foreach (GameItem item in items)
 				item.Draw(spriteBatch);
+
+			hud.Draw(spriteBatch);
 		}
 
 
@@ -69,7 +72,8 @@ namespace gigapede
 		public GameItem ItemAt(PointF point)
 		{
 			foreach (GameItem item in items)
-				if (Math.Abs(point.X - item.GetLocation().X) <= GameParameters.LOC_TOLERANCE && Math.Abs(point.Y - item.GetLocation().Y) <= GameParameters.LOC_TOLERANCE)
+				if (Math.Abs(point.X - item.GetLocation().X) <= GameParameters.LOCATION_TOLERANCE
+					&& Math.Abs(point.Y - item.GetLocation().Y) <= GameParameters.LOCATION_TOLERANCE)
 					return item;
 
 			return null;
@@ -88,6 +92,13 @@ namespace gigapede
 		public RectangleF getBounds()
 		{
 			return bounds;
+		}
+
+
+
+		public HeadsUpDisplay getHUD()
+		{
+			return hud;
 		}
 
 
@@ -111,7 +122,7 @@ namespace gigapede
 			RectangleF intersection = new RectangleF(proposedBounds.Location, proposedBounds.Size);
 			intersection.Intersect(bounds);
 
-			if (RectRoughEquals(intersection, proposedBounds, GameParameters.LOC_TOLERANCE))
+			if (RectRoughEquals(intersection, proposedBounds, GameParameters.LOCATION_TOLERANCE))
 				return true;
 			else if (intersection.Width > 0 && intersection.Width <= 1 || intersection.Height > 0 && intersection.Height <= 1) //tolerate a 1-pixel sliver
 				return true;

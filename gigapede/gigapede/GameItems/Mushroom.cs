@@ -5,6 +5,7 @@ using System.Text;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework;
 using System.Drawing;
+using gigapede.Resources;
 
 namespace gigapede.GameItems
 {
@@ -18,6 +19,14 @@ namespace gigapede.GameItems
 		public Mushroom(PointF location) :
 			base(location)
 		{ }
+
+
+
+		protected override void Die(ref List<GameItemAction> itemActions, InfoForItem info)
+		{
+			info.world.getHUD().AddToScore(GameParameters.MUSHROOM_POINTS);
+			base.Die(ref itemActions, info);
+		}
 
 
 
