@@ -23,6 +23,9 @@ namespace gigapede
     	// Queue of Screens.
     	List<Screen> screenqueue;
 
+        // The parent Game.
+        Game gm;
+
         // The resource manager.
         ResourceManager rm;
 
@@ -31,6 +34,12 @@ namespace gigapede
 
         // Input Class
         UserInput input;
+
+        // The game accessor.
+        public Game GM
+        {
+            get { return gm; }
+        }
 
         // The resource manager's accessor.
         public ResourceManager RM
@@ -45,8 +54,9 @@ namespace gigapede
         }
 
         // Constructor
-        public ScreenManager(GraphicsDeviceManager graphics, ContentManager content, SpriteBatch spriteb)
+        public ScreenManager(Game game, GraphicsDeviceManager graphics, ContentManager content, SpriteBatch spriteb)
         {
+            gm = game;
             rm = new ResourceManager(graphics, content, spriteb);
             am = new SoundtrackManager();
 

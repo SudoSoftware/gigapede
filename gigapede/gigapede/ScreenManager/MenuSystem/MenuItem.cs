@@ -13,9 +13,9 @@ namespace gigapede
 {
     class MenuItem
     {
-        private bool active;
+        protected bool active;
 
-	    private String display_text;
+	    protected String display_text;
 
         public MenuItem (String init_text)
 	    {
@@ -28,11 +28,11 @@ namespace gigapede
             active = setbool;
         }
 
-    	public void HandleInput (GameTime time, UserInput input)
+    	public virtual void HandleInput (GameTime time, UserInput input)
 	    {
     	}
 
-    	public void Draw (ScreenManager manager, MenuStyle style, Vector2 position, bool selected)
+    	public virtual void Draw (ScreenManager manager, MenuStyle style, Vector2 position, bool selected)
     	{
     	    SpriteBatch sb = manager.RM.SpriteB;
     	    SpriteFont font = style.font;

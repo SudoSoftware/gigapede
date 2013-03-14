@@ -37,7 +37,7 @@ namespace gigapede
         {
             // TODO: Add your initialization logic here
             spriteBatch = new SpriteBatch(GraphicsDevice);
-            manager = new ScreenManager(graphics, Content, spriteBatch);
+            manager = new ScreenManager(this, graphics, Content, spriteBatch);
 
             //this.Window.AllowUserResizing = true;
             //this.Window.ClientSizeChanged += new EventHandler<EventArgs>(Window_ClientSizeChanged);
@@ -52,10 +52,10 @@ namespace gigapede
                 (SpriteFont)manager.RM.FontHash["head_font"], (SpriteFont)manager.RM.FontHash["Default"],
                 Color.Orange, Color.Orange, Color.OrangeRed, menutrack);
 
-            Screen screen = new Screen(manager, null);
-            MenuScreen main_menu = new MenuScreen(manager, screen, "Main Menu", style);
+            MenuScreen main_menu = new MenuScreen(manager, new ExitScreen(manager, null), "Main Menu", style);
             main_menu.AddItem(new MenuItem("This is a dummy item."));
             main_menu.AddItem(new MenuItem("Another dummy item."));
+            main_menu.AddItem(new MenuButton("Quit"));
 
             // Load Background
             Texture2D background = Content.Load<Texture2D>("lcars");

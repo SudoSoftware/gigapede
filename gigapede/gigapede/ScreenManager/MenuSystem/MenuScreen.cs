@@ -64,6 +64,9 @@ namespace gigapede
             // Based on input, move the highlighted item across the screen.
             // If the input is not used here, pass it to the item.
 
+            if (input.justPressed(UserInput.InputType.ESCAPE))
+                ExitScreen();
+
             if (input.justPressed(UserInput.InputType.DOWN) &&
                 selected_index +1 < menu_items.Count)
                 selected_index++;

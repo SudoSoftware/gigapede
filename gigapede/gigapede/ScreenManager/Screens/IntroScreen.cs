@@ -40,11 +40,11 @@ namespace gigapede
 
             display_string = 
 @"Library Computer Access/Retrival System
-USS Enterprise-D (NCC 1701-D)\n
-Current Bride Crew:
+USS Enterprise-D (NCC 1701-D)
+Current Bridge Crew:
     Rear Admiral James T. Kirk
     Captain Jean-Luc Picard
-    Cmdr. William Riker
+    Commander William Riker
     Acting Ensign Crusher
     Ensign Victors
     Ensign Michaelson
@@ -61,7 +61,7 @@ Welcome to the Starfleet Planar Combat Simulator";
             SpriteFont font = manager.RM.Content.Load<SpriteFont>("LcarsFont");
 
             sb.Begin();
-            sb.DrawString(font, display_string, new Vector2(270, 220), Color.Orange); 
+            sb.DrawString(font, display_string, new Vector2(270, 220), Color.Orange);
             sb.End();
         }
     }
