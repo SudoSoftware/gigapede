@@ -9,7 +9,7 @@ namespace gigapede.GameItems
 {
 	abstract class DamageableGameItem : GameItem
 	{
-		protected int currentHealth = GameParameters.MAX_DAMAGEABLE_HEALTH;
+		private int currentHealth = GameParameters.MAX_DAMAGEABLE_HEALTH;
 		protected float originalHeight;
 
 
@@ -43,7 +43,7 @@ namespace gigapede.GameItems
 
 		public float GetAliveness()
 		{
-			return currentHealth / (float)GameParameters.MAX_DAMAGEABLE_HEALTH;
+			return Math.Max(0, currentHealth / (float)GameParameters.MAX_DAMAGEABLE_HEALTH);
 		}
 
 

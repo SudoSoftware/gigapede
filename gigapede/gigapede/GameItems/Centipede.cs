@@ -36,7 +36,7 @@ namespace gigapede.GameItems
 		{
 			List<GameItemAction> actions = new List<GameItemAction>();
 
-			if (currentHealth <= 0)
+			if (GetAliveness() <= 0)
 				actions.Add(new GameItemAction(this, new Mushroom(boundingBox.Location))); //replace "this" with a new Mushroom
 			else
 				HandleMovement(info);
@@ -51,7 +51,7 @@ namespace gigapede.GameItems
 			float theta = info.gameTime.ElapsedGameTime.Milliseconds * GameParameters.CENTIPEDE_SPEED;
 			movementTillJump -= theta;
 
-			if (movementTillJump <= 0)
+			if (movementTillJump <= 0 && CanJump(info))
 			{
 				Jump(info);
 				ResetJumpWait();
@@ -62,18 +62,18 @@ namespace gigapede.GameItems
 
 		private void Jump(InfoForItem info)
 		{
-			PointF headLocation = boundingBox.Location; //body.First.Value.Location;
+			//PointF headLocation = ; 
 			
-			PointF nextLoc = headLocation;
+			PointF nextLoc = boundingBox.Location;//body.First.Value.Location;
 			Move(ref nextLoc);
 
-			if (!info.world.IsLegalLocation(new RectangleF(nextLoc, boundingBox.Size)) || IntersectsWithMushroom(nextLoc, info))
+			if (!info.world.IsLegalLocation(new RectangleF(nextLoc, boundingBox.Size)) || info.world.TypeAt(nextLoc, 1f, typeof(Mushroom)))
 			{
-				nextLoc.X = headLocation.X;
+				nextLoc.X = boundingBox.X;
 				nextLoc.Y += originalHeight;
 				movingRight = !movingRight;
 
-				if (IntersectsWithMushroom(nextLoc, info))
+				if (info.world.TypeAt(nextLoc, 1f, typeof(Mushroom)))
 					Move(ref nextLoc);
 			}
 
@@ -85,20 +85,21 @@ namespace gigapede.GameItems
 
 
 
-		private bool IntersectsWithMushroom(PointF loc, InfoForItem info)
-		{
-			GameItem item = info.world.ItemAt(loc, 1f);
-			return item != null && item.GetType() == typeof(Mushroom);
-		}
-
-
-
 		private void Move(ref PointF pt)
 		{
 			if (movingRight)
 				pt.X += boundingBox.Width;
 			else
 				pt.X -= boundingBox.Width;
+		}
+
+
+
+		private bool CanJump(InfoForItem info)
+		{
+			PointF nextLoc = boundingBox.Location;
+			Move(ref nextLoc);
+			return !info.world.TypeAt(nextLoc, 1f, typeof(Centipede));
 		}
 
 

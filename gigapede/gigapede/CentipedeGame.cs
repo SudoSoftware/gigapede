@@ -96,7 +96,7 @@ namespace gigapede
 						world.AddItem(new Mushroom(new PointF(x, y)));
 		}
 
-
+		int centipedeCount = 10;
 
 		protected override void Update(GameTime gameTime)
 		{
@@ -106,6 +106,11 @@ namespace gigapede
 				this.Exit();
 
 			world.Update(gameTime, userInput);
+			if (centipedeCount > 0 && !world.TypeAt(new PointF(0, 0), 1f, typeof(Centipede)))
+			{
+				world.AddItem(new Centipede(new PointF(0, 0)));
+				centipedeCount--;
+			}
 
 			base.Update(gameTime);
 		}
@@ -117,7 +122,7 @@ namespace gigapede
 			GraphicsDevice.Clear(Microsoft.Xna.Framework.Color.CornflowerBlue);
 			
 			spriteBatch.Begin();
-			spriteBatch.Draw(background, new Microsoft.Xna.Framework.Rectangle(0, 0, GameParameters.TARGET_RESOLUTION.Width, GameParameters.TARGET_RESOLUTION.Height), Microsoft.Xna.Framework.Color.White);
+			spriteBatch.Draw(background, GameParameters.screenSize, Microsoft.Xna.Framework.Color.White);
 			world.Draw(spriteBatch);
 			spriteBatch.End();
 

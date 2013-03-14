@@ -76,6 +76,14 @@ namespace gigapede
 
 
 
+		public bool TypeAt(PointF point, float locationTolerance, Type itemType)
+		{
+			GameItem item = ItemAt(point, locationTolerance);
+			return item != null && item.GetType().Equals(itemType);
+		}
+
+
+
 		public RectangleF getBounds()
 		{
 			return bounds;
