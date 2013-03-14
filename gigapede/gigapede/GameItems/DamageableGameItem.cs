@@ -10,13 +10,13 @@ namespace gigapede.GameItems
 	abstract class DamageableGameItem : GameItem
 	{
 		protected int currentHealth = GameParameters.MAX_DAMAGEABLE_HEALTH;
-		protected RectangleF backupBounds;
+		protected float originalHeight;
 
 
 		public DamageableGameItem(PointF location) :
 			base(location)
 		{
-			backupBounds = boundingBox;
+			originalHeight = boundingBox.Height;
 		}
 
 
@@ -36,7 +36,7 @@ namespace gigapede.GameItems
 		public void Damage()
 		{
 			currentHealth--;
-			boundingBox.Height = backupBounds.Height * GetAliveness();
+			boundingBox.Height = originalHeight * GetAliveness();
 		}
 
 

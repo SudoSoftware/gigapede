@@ -70,7 +70,7 @@ namespace gigapede.GameItems
 			if (!info.world.IsLegalLocation(new RectangleF(nextLoc, boundingBox.Size)) || IntersectsWithMushroom(nextLoc, info))
 			{
 				nextLoc.X = headLocation.X;
-				nextLoc.Y += boundingBox.Height;
+				nextLoc.Y += originalHeight;
 				movingRight = !movingRight;
 
 				if (IntersectsWithMushroom(nextLoc, info))
