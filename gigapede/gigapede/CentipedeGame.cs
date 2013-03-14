@@ -52,7 +52,8 @@ namespace gigapede
 			Centipede.texture = this.Content.Load<Texture2D>("images/klingon bird of prey");
 			Mushroom.normalTexture = this.Content.Load<Texture2D>("images/asteroid1");
 			Mushroom.poisonedTexture = this.Content.Load<Texture2D>("images/asteroid2");
-			Rocket.texture = this.Content.Load<Texture2D>("images/phaser");
+			Rocket.primaryTexture = this.Content.Load<Texture2D>("images/phaser");
+			Rocket.secondaryTexture = this.Content.Load<Texture2D>("images/photon torpedo");
 			Scorpion.texture = this.Content.Load<Texture2D>("images/borg cube1");
 			Shooter.texture = this.Content.Load<Texture2D>("images/enterprise");
 			Spider.texture = this.Content.Load<Texture2D>("images/ferangi vessel");

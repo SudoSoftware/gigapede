@@ -11,7 +11,9 @@ namespace gigapede.GameItems
 {
 	class Rocket : GameItem
 	{
-		public static Texture2D texture;
+		public static Texture2D primaryTexture;
+		public static Texture2D secondaryTexture;
+		public bool HasExtraPower = false;
 
 		public Rocket(PointF location) :
 			base(location)
@@ -40,7 +42,11 @@ namespace gigapede.GameItems
 				if (itemType.IsSubclassOf(typeof(DamageableGameItem)))
 				{
 					if (itemType == typeof(Mushroom))
+					{
 						((Mushroom)item).Damage();
+						if (HasExtraPower)
+							((Mushroom)item).Damage(); //do damage again
+					}
 					else if (itemType == typeof(Centipede))
 						((Centipede)item).KillOff();
 
@@ -63,7 +69,10 @@ namespace gigapede.GameItems
 
 		public override Texture2D GetTexture()
 		{
-			return texture;
+			if (HasExtraPower)
+				return secondaryTexture;
+			else
+				return primaryTexture;
 		}
 	}
 }
