@@ -15,7 +15,7 @@ namespace gigapede.Resources
 		public const int MAX_DAMAGEABLE_HEALTH = 4;
 
 		//world parameters
-		public const int GRID_SIZE = 30; //size of N-by-N grid
+		public const int GRID_SIZE = 24; //size of N-by-N grid. The original game was around 30 or 35
 		public const int EMPTY_HEADER_ROWS = 2; //free space for centipede
 		public const int EMPTY_FOOTER_ROWS = 5; //free space for shooter movement
 

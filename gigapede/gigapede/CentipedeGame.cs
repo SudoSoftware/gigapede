@@ -19,6 +19,7 @@ namespace gigapede
 		GraphicsDeviceManager graphics;
 		SpriteBatch spriteBatch;
 
+		Texture2D background;
 		MyRandom prng = new MyRandom();
 		UserInput userInput;
 		World world;
@@ -51,11 +52,13 @@ namespace gigapede
 		protected override void LoadContent()
 		{
 			spriteBatch = new SpriteBatch(GraphicsDevice);
+			
+			Centipede.texture = this.Content.Load<Texture2D>("images/klingon bird of prey");
+			Mushroom.texture = this.Content.Load<Texture2D>("images/asteroid1");
+			Rocket.texture = this.Content.Load<Texture2D>("images/phaser");
+			Shooter.texture = this.Content.Load<Texture2D>("images/enterprise");
 
-			Centipede.texture = this.Content.Load<Texture2D>("popcorn");
-			Mushroom.texture = this.Content.Load<Texture2D>("mushroom");
-			Rocket.texture = this.Content.Load<Texture2D>("rocket");
-			Shooter.texture = this.Content.Load<Texture2D>("shooter");
+			background = this.Content.Load<Texture2D>("images/starfield");
 
 			AddWorldContent();
 		}
@@ -112,10 +115,9 @@ namespace gigapede
 		protected override void Draw(GameTime gameTime)
 		{
 			GraphicsDevice.Clear(Microsoft.Xna.Framework.Color.CornflowerBlue);
-
 			
-
 			spriteBatch.Begin();
+			spriteBatch.Draw(background, new Microsoft.Xna.Framework.Rectangle(0, 0, GameParameters.TARGET_RESOLUTION.Width, GameParameters.TARGET_RESOLUTION.Height), Microsoft.Xna.Framework.Color.White);
 			world.Draw(spriteBatch);
 			spriteBatch.End();
 

@@ -2,40 +2,94 @@
 <XnaContent xmlns:Pipeline="Microsoft.Xna.Framework.Content.Pipeline">
   <Asset Type="Pipeline:BuildItemCollection">
     <Item>
-      <Source>mushroom.png</Source>
-      <Name>mushroom</Name>
+      <Source>images\asteroid1.png</Source>
+      <Name>images\asteroid1</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Admin\Documents\GitHub\gigapede\gigapede\gigapede\bin\x86\Debug\Content\mushroom.xnb</Output>
-      <Time>2013-03-01T11:53:45.3525138-07:00</Time>
+      <Output>C:\Users\Admin\Documents\GitHub\gigapede\gigapede\gigapede\bin\x86\Debug\Content\images\asteroid1.xnb</Output>
+      <Time>2013-03-13T16:46:06-06:00</Time>
     </Item>
     <Item>
-      <Source>rocket.png</Source>
-      <Name>rocket</Name>
+      <Source>images\asteroid2.png</Source>
+      <Name>images\asteroid2</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Admin\Documents\GitHub\gigapede\gigapede\gigapede\bin\x86\Debug\Content\rocket.xnb</Output>
-      <Time>2013-03-01T11:59:17.700523-07:00</Time>
+      <Output>C:\Users\Admin\Documents\GitHub\gigapede\gigapede\gigapede\bin\x86\Debug\Content\images\asteroid2.xnb</Output>
+      <Time>2013-03-13T16:50:04-06:00</Time>
     </Item>
     <Item>
-      <Source>popcorn.png</Source>
-      <Name>popcorn</Name>
+      <Source>images\borg cube1.png</Source>
+      <Name>images\borg cube1</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Admin\Documents\GitHub\gigapede\gigapede\gigapede\bin\x86\Debug\Content\popcorn.xnb</Output>
-      <Time>2013-03-10T16:07:51.7937229-06:00</Time>
+      <Output>C:\Users\Admin\Documents\GitHub\gigapede\gigapede\gigapede\bin\x86\Debug\Content\images\borg cube1.xnb</Output>
+      <Time>2013-03-13T16:39:48-06:00</Time>
     </Item>
     <Item>
-      <Source>shooter.jpg</Source>
-      <Name>shooter</Name>
+      <Source>images\enterprise.png</Source>
+      <Name>images\enterprise</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Admin\Documents\GitHub\gigapede\gigapede\gigapede\bin\x86\Debug\Content\shooter.xnb</Output>
-      <Time>2013-03-10T16:38:54.5915086-06:00</Time>
+      <Output>C:\Users\Admin\Documents\GitHub\gigapede\gigapede\gigapede\bin\x86\Debug\Content\images\enterprise.xnb</Output>
+      <Time>2013-03-13T17:04:38-06:00</Time>
+    </Item>
+    <Item>
+      <Source>images\ferangi vessel.png</Source>
+      <Name>images\ferangi vessel</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Admin\Documents\GitHub\gigapede\gigapede\gigapede\bin\x86\Debug\Content\images\ferangi vessel.xnb</Output>
+      <Time>2013-03-13T17:09:24-06:00</Time>
+    </Item>
+    <Item>
+      <Source>images\phaser.png</Source>
+      <Name>images\phaser</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Admin\Documents\GitHub\gigapede\gigapede\gigapede\bin\x86\Debug\Content\images\phaser.xnb</Output>
+      <Time>2013-03-13T17:25:52-06:00</Time>
+    </Item>
+    <Item>
+      <Source>images\photon torpedo.png</Source>
+      <Name>images\photon torpedo</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Admin\Documents\GitHub\gigapede\gigapede\gigapede\bin\x86\Debug\Content\images\photon torpedo.xnb</Output>
+      <Time>2013-03-13T17:28:50-06:00</Time>
+    </Item>
+    <Item>
+      <Source>images\romulan warbird.png</Source>
+      <Name>images\romulan warbird</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Admin\Documents\GitHub\gigapede\gigapede\gigapede\bin\x86\Debug\Content\images\romulan warbird.xnb</Output>
+      <Time>2013-03-13T17:37:48-06:00</Time>
+    </Item>
+    <Item>
+      <Source>images\starfield.jpg</Source>
+      <Name>images\starfield</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Admin\Documents\GitHub\gigapede\gigapede\gigapede\bin\x86\Debug\Content\images\starfield.xnb</Output>
+      <Time>2013-03-13T13:47:20-06:00</Time>
+    </Item>
+    <Item>
+      <Source>images\klingon bird of prey.png</Source>
+      <Name>images\klingon bird of prey</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Admin\Documents\GitHub\gigapede\gigapede\gigapede\bin\x86\Debug\Content\images\klingon bird of prey.xnb</Output>
+      <Time>2013-03-13T17:13:26-06:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>

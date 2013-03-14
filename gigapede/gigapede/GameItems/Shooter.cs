@@ -28,7 +28,11 @@ namespace gigapede.GameItems
 			List<GameItemAction> actions = new List<GameItemAction>();
 			
 			if (info.inputState.justPressed(UserInput.InputType.FIRE))
-				actions.Add(new GameItemAction(GameItemAction.Action.ADD_ITEM, new Rocket(boundingBox.Location)));
+			{
+				PointF rocketLocation = new PointF(boundingBox.X + boundingBox.Width / 3, boundingBox.Y - boundingBox.Height * 0.8f);
+				SizeF rocketSize = new SizeF(GameParameters.DEFAULT_ITEM_WIDTH / 3, GameParameters.DEFAULT_ITEM_HEIGHT);
+				actions.Add(new GameItemAction(GameItemAction.Action.ADD_ITEM, new Rocket(rocketLocation, rocketSize)));
+			}
 
 			return actions;
 		}

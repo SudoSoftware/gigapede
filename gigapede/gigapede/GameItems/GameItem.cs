@@ -27,8 +27,6 @@ namespace gigapede.GameItems
 		public GameItem(RectangleF bounds)
 		{
 			boundingBox = bounds;
-			new RectangleF();
-
 		}
 
 

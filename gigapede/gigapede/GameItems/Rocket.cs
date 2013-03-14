@@ -19,6 +19,12 @@ namespace gigapede.GameItems
 
 
 
+		public Rocket(PointF location, SizeF size) :
+			base(new RectangleF(location, size))
+		{ }
+
+
+
 		public override List<GameItemAction> Update(InfoForItem info)
 		{
 			boundingBox.Y -= info.gameTime.ElapsedGameTime.Milliseconds * GameParameters.ROCKET_SPEED;
