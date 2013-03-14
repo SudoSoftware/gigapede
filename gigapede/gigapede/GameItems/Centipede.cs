@@ -12,53 +12,118 @@ namespace gigapede.GameItems
 	class Centipede : DamageableGameItem
 	{
 		public static Texture2D texture;
-		//private List<RectangleF> positions;
-		private PointF preciseOrigin;
+		private List<RectangleF> body = new List<RectangleF>();
 		private bool movingRight = true;
-
+		private float movementTillJump;
 
 
 		public Centipede(PointF location) :
 			base(location)
 		{
-			preciseOrigin = boundingBox.Location;
+			//preciseOrigin = boundingBox.Location;
+			ResetJumpWait();
 		}
 
 
 
 		public override List<GameItemAction> Update(InfoForItem info)
 		{
-			BounceOffMushrooms(info);
-			BounceOffWalls(info);
-			UpdateLocation(info);
+			float theta = info.gameTime.ElapsedGameTime.Milliseconds * GameParameters.CENTIPEDE_SPEED;
+			movementTillJump -= theta;
+
+			if (movementTillJump < 0)
+			{
+				Jump(info);
+				ResetJumpWait();
+			}
 
 			return base.Update(info);
 		}
 
 
 
-		private void BounceOffMushrooms(InfoForItem info)
+		private void Jump(InfoForItem info)
 		{
-			foreach (GameItem item in info.contacts)
+			PointF nextLoc = new PointF(boundingBox.Location.X, boundingBox.Location.Y);
+			Move(ref nextLoc);
+
+
+			if (!info.world.IsLegalLocation(new RectangleF(nextLoc, boundingBox.Size)) || info.world.ItemAt(nextLoc, 1f) != null)
 			{
-				if (item.GetType() == typeof(Mushroom))
-				{
-					preciseOrigin.Y += boundingBox.Width;
-					movingRight = !movingRight; //invert
-					break;
-				}
+				nextLoc.X = boundingBox.Location.X;
+				nextLoc.Y += boundingBox.Height;
+				movingRight = !movingRight;
+
+				if (info.world.ItemAt(nextLoc, 1f) != null)
+					Move(ref nextLoc);
 			}
+
+			boundingBox.Location = nextLoc;
 		}
 
 
 
-		private void BounceOffWalls(InfoForItem info)
+		private void Move(ref PointF pt)
 		{
-			if (!info.IsLegalLocation(new RectangleF(preciseOrigin, boundingBox.Size)))
+			if (movingRight)
+				pt.X += boundingBox.Width;
+			else
+				pt.X -= boundingBox.Width;
+		}
+
+
+
+		private void ResetJumpWait()
+		{
+			movementTillJump = boundingBox.Width;
+		}
+
+			/*
+			PointF nextLoc = new PointF(preciseOrigin.X, preciseOrigin.Y);
+			
+			if (!info.world.IsLegalLocation(new RectangleF(nextLoc, boundingBox.Size)) || IsContactingMushroom(info))
 			{
-				preciseOrigin.Y += boundingBox.Height;
-				movingRight = !movingRight; //invert
+				nextLoc.Y += boundingBox.Height;
+				movingRight = !movingRight;
+
+				//GameItem obj = info.world.ItemAt(nextLoc, 1f);
+				//if (obj != null && obj.GetType() == typeof(Mushroom))
+				if (info.world.GetContacts(
+				{
+					if (movingRight)
+						nextLoc.X += boundingBox.Width + 3;
+					else
+						nextLoc.X -= boundingBox.Width + 3;
+				}
 			}
+
+			float theta = info.gameTime.ElapsedGameTime.Milliseconds * GameParameters.CENTIPEDE_SPEED;
+			if (movingRight)
+				nextLoc.X += theta;
+			else
+				nextLoc.X -= theta;
+
+			preciseOrigin = nextLoc;
+			boundingBox.Location = preciseOrigin; //temporary, the Centipede should eventually stutter
+			
+			return base.Update(info);
+		}
+
+
+
+		private bool IsContactingMushroom(InfoForItem info)
+		{
+			foreach (GameItem item in info.contacts)
+				if (item.GetType() == typeof(Mushroom))
+					return true;
+			return false;
+		}
+
+
+
+		private bool BounceOffWalls(InfoForItem info)
+		{
+			return !info.world.IsLegalLocation(new RectangleF(preciseOrigin, boundingBox.Size));
 		}
 
 
@@ -73,7 +138,14 @@ namespace gigapede.GameItems
 
 			boundingBox.X = preciseOrigin.X; //temporary, the Centipede should eventually stutter
 			boundingBox.Y = preciseOrigin.Y;
-		}
+		}*/
+
+
+
+		/*public virtual bool Intersects(GameItem otherItem)
+		{
+			return boundingBox.IntersectsWith(otherItem.boundingBox);
+		}*/
 
 
 

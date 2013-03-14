@@ -42,7 +42,7 @@ namespace gigapede.GameItems
 		private void HandleMovement(InfoForItem info)
 		{
 			RectangleF newBounds = GetNewLocation(info);
-			if (info.IsLegalLocation(newBounds) && newBounds.Y >= minY)
+			if (info.world.IsLegalLocation(newBounds) && newBounds.Y >= minY)
 				boundingBox = newBounds;
 		}
 

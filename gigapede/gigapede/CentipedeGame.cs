@@ -92,7 +92,7 @@ namespace gigapede
 
 			for (int x = 0; x < endX; x += GameParameters.DEFAULT_ITEM_WIDTH)
 				for (int y = startY; y < endY; y += GameParameters.DEFAULT_ITEM_HEIGHT)
-					if (!(x == 0 && y == 0) && prng.nextRange(0, 10) <= 1) //do not add a mushroom at location of Centipede, else 10% chance of adding
+					if (prng.nextRange(0, 10) <= 1) //if there isn't a mushroom directly northwest, 10% chance of adding
 						world.AddItem(new Mushroom(new PointF(x, y)));
 		}
 

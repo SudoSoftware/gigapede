@@ -29,7 +29,7 @@ namespace gigapede
 
 			foreach (GameItem item in items)
 			{
-				List<GameItem.GameItemAction> actions = item.Update(new InfoForItem(bounds, GetContacts(item), gameTime, inputState));
+				List<GameItem.GameItemAction> actions = item.Update(new InfoForItem(this, GetContacts(item), gameTime, inputState));
 				UpdateItemList(actions, itemsToBeAdded, itemsToBeRemoved);
 			}
 
@@ -64,6 +64,17 @@ namespace gigapede
 
 
 
+		public GameItem ItemAt(PointF point, float locationTolerance)
+		{
+			foreach (GameItem item in items)
+				if (Math.Abs(point.X - item.GetLocation().X) <= locationTolerance && Math.Abs(point.Y - item.GetLocation().Y) <= locationTolerance)
+					return item;
+
+			return null;
+		}
+
+
+
 		public RectangleF getBounds()
 		{
 			return bounds;
@@ -85,20 +96,39 @@ namespace gigapede
 
 
 
-		private List<GameItem> GetContacts(GameItem item)
+		public List<GameItem> GetContacts(GameItem item)
 		{
 			List<GameItem> contacts = new List<GameItem>();
 
 			if (item.IsMovable())
-			{
 				foreach (GameItem otherItem in items)
-				{
 					if (otherItem != item && item.Intersects(otherItem))
 						contacts.Add(otherItem);
-				}
-			}
 
 			return contacts;
+		}
+
+
+
+		public bool IsLegalLocation(RectangleF proposedBounds)
+		{
+			RectangleF intersection = new RectangleF(proposedBounds.Location, proposedBounds.Size);
+			intersection.Intersect(bounds);
+			
+			if (RectRoughEquals(intersection, proposedBounds, 1f))
+				return true;
+			else if (intersection.Width > 0 && intersection.Width <= 1 || intersection.Height > 0 && intersection.Height <= 1) //tolerate a 1-pixel sliver
+				return true;
+			else
+				return false;
+		}
+
+
+
+		private bool RectRoughEquals(RectangleF a, RectangleF b, float tolerance)
+		{
+			return Math.Abs(a.X - b.X) <= tolerance && Math.Abs(a.Y - b.Y) <= tolerance
+				&& Math.Abs(a.Width - b.Width) <= tolerance && Math.Abs(a.Height - b.Height) <= tolerance;
 		}
 	}
 }

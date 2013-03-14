@@ -43,7 +43,7 @@ namespace gigapede.GameItems
 
 
 
-		public bool Intersects(GameItem otherItem)
+		public virtual bool Intersects(GameItem otherItem)
 		{
 			return boundingBox.IntersectsWith(otherItem.boundingBox);
 		}
@@ -61,6 +61,14 @@ namespace gigapede.GameItems
 		{
 			return GetTexture().Bounds;
 		}
+
+
+
+		public PointF GetLocation()
+		{
+			return boundingBox.Location;
+		}
+
 
 
 

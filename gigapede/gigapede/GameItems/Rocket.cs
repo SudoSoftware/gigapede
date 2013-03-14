@@ -31,7 +31,7 @@ namespace gigapede.GameItems
 
 			List<GameItemAction> actions = new List<GameItemAction>();
 			
-			if (!boundingBox.IntersectsWith(info.worldBounds)) //if rocket out of bounds, remove from world
+			if (!info.world.IsLegalLocation(boundingBox)) //if rocket out of bounds, remove from world
 				actions.Add(new GameItemAction(GameItemAction.Action.REMOVE_ITEM, this));
 
 			foreach (GameItem item in info.contacts)
