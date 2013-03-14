@@ -20,10 +20,12 @@ namespace gigapede.GameItems
 		}
 
 
+		public abstract float GetSpeed();
+
 
 		public override List<GameItemAction> Update(InfoForItem info)
 		{
-			float theta = info.gameTime.ElapsedGameTime.Milliseconds * GameParameters.CENTIPEDE_SPEED;
+			float theta = info.gameTime.ElapsedGameTime.Milliseconds * GetSpeed();
 			movementTillJump -= theta;
 
 			if (movementTillJump <= 0 && CanJump(info))
@@ -37,7 +39,7 @@ namespace gigapede.GameItems
 
 
 
-		private void Jump(InfoForItem info)
+		protected void Jump(InfoForItem info)
 		{
 			PointF nextLoc = boundingBox.Location;
 			Move(ref nextLoc);
@@ -57,7 +59,7 @@ namespace gigapede.GameItems
 
 
 
-		private void Move(ref PointF pt)
+		protected void Move(ref PointF pt)
 		{
 			if (movingRight)
 				pt.X += boundingBox.Width;
@@ -67,7 +69,7 @@ namespace gigapede.GameItems
 
 
 
-		private bool CanJump(InfoForItem info)
+		protected bool CanJump(InfoForItem info)
 		{
 			PointF nextLoc = boundingBox.Location;
 			Move(ref nextLoc);
@@ -76,7 +78,7 @@ namespace gigapede.GameItems
 
 
 
-		private void ResetJumpWait()
+		protected void ResetJumpWait()
 		{
 			movementTillJump = boundingBox.Width;
 		}

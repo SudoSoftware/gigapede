@@ -27,6 +27,13 @@ namespace gigapede.GameItems
 
 
 
+		public override float GetSpeed()
+		{
+			return GameParameters.CENTIPEDE_SPEED;
+		}
+
+
+
 		public override Texture2D GetTexture()
 		{
 			return texture;
