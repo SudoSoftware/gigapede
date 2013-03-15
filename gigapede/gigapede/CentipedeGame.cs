@@ -49,6 +49,7 @@ namespace gigapede
 		{
 			spriteBatch = new SpriteBatch(GraphicsDevice);
 
+			//load all textures
 			background = this.Content.Load<Texture2D>("images/starfield");
 			Centipede.texture = this.Content.Load<Texture2D>("images/klingon bird of prey");
 			Flea.texture = this.Content.Load<Texture2D>("images/romulan warbird");

@@ -13,17 +13,16 @@ namespace gigapede.GameItems
 	{
 		public static Texture2D primaryTexture;
 		public static Texture2D secondaryTexture;
-		public bool HasExtraPower = false;
+		private bool IsPoweredUp;
 
-		public Rocket(PointF location) :
+
+		public Rocket(PointF location, bool poweredUp) :
 			base(location)
-		{ }
-
-
-
-		public Rocket(PointF location, SizeF size) :
-			base(new RectangleF(location, size))
-		{ }
+		{
+			if (!poweredUp)
+				boundingBox.Width = GameParameters.DEFAULT_ITEM_WIDTH / 3;
+			IsPoweredUp = poweredUp;
+		}
 
 
 
@@ -43,9 +42,10 @@ namespace gigapede.GameItems
 				{
 					if (itemType == typeof(Mushroom))
 					{
-						((Mushroom)item).Damage();
-						if (HasExtraPower)
-							((Mushroom)item).Damage(); //do damage again
+						if (IsPoweredUp)
+							((Mushroom)item).KillOff();
+						else
+							((Mushroom)item).Damage();
 					}
 					else if (itemType == typeof(Centipede))
 						((Centipede)item).KillOff();
@@ -69,7 +69,7 @@ namespace gigapede.GameItems
 
 		public override Texture2D GetTexture()
 		{
-			if (HasExtraPower)
+			if (IsPoweredUp)
 				return secondaryTexture;
 			else
 				return primaryTexture;

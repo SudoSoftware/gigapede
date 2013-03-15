@@ -76,26 +76,16 @@ namespace gigapede.GameItems
 		{
 			public enum Action
 			{
-				ADD_ITEM, REMOVE_ITEM, REPLACE_ITEM
+				ADD_ITEM, REMOVE_ITEM, REPLACE_ME
 			}
 
 			public GameItem item;
-			public GameItem secondaryItem;
 			public Action action;
-
 
 			public GameItemAction(Action action, GameItem item)
 			{
 				this.action = action;
 				this.item = item;
-			}
-
-
-
-			public GameItemAction(GameItem from, GameItem to):
-				this(Action.REPLACE_ITEM, from)
-			{
-				this.secondaryItem = to;
 			}
 		}
 	}

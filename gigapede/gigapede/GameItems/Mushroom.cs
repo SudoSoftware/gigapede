@@ -13,6 +13,7 @@ namespace gigapede.GameItems
 	{
 		public static Texture2D normalTexture;
 		public static Texture2D poisonedTexture;
+		private MyRandom prng = new MyRandom();
 		public bool IsPoisoned;
 
 
@@ -25,7 +26,16 @@ namespace gigapede.GameItems
 		protected override void Die(ref List<GameItemAction> itemActions, InfoForItem info)
 		{
 			info.world.getHUD().AddToScore(GameParameters.MUSHROOM_POINTS, this);
+			PossiblyGivePowerup(ref itemActions);
 			base.Die(ref itemActions, info);
+		}
+
+
+
+		private void PossiblyGivePowerup(ref List<GameItemAction> itemActions)
+		{
+			if (prng.nextRange(0, 10) <= 1) //10% chance
+				itemActions.Add(new GameItemAction(GameItemAction.Action.ADD_ITEM, new Powerup(boundingBox.Location, Powerup.PowerupType.ROCKET_BOOST)));
 		}
 
 

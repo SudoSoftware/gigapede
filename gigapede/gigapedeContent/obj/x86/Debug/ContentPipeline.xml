@@ -47,6 +47,15 @@
       <Time>2013-03-13T17:09:24-06:00</Time>
     </Item>
     <Item>
+      <Source>images\klingon bird of prey.png</Source>
+      <Name>images\klingon bird of prey</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Admin\Documents\GitHub\gigapede\gigapede\gigapede\bin\x86\Debug\Content\images\klingon bird of prey.xnb</Output>
+      <Time>2013-03-13T17:13:26-06:00</Time>
+    </Item>
+    <Item>
       <Source>images\phaser.png</Source>
       <Name>images\phaser</Name>
       <Importer>TextureImporter</Importer>
@@ -83,13 +92,13 @@
       <Time>2013-03-13T13:47:20-06:00</Time>
     </Item>
     <Item>
-      <Source>images\klingon bird of prey.png</Source>
-      <Name>images\klingon bird of prey</Name>
+      <Source>images\US coin.png</Source>
+      <Name>images\US coin</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Admin\Documents\GitHub\gigapede\gigapede\gigapede\bin\x86\Debug\Content\images\klingon bird of prey.xnb</Output>
-      <Time>2013-03-13T17:13:26-06:00</Time>
+      <Output>C:\Users\Admin\Documents\GitHub\gigapede\gigapede\gigapede\bin\x86\Debug\Content\images\US coin.xnb</Output>
+      <Time>2013-03-15T12:06:34.2464658-06:00</Time>
     </Item>
     <Item>
       <Source>temporaryFont.spritefont</Source>
@@ -99,15 +108,6 @@
       <Options>None</Options>
       <Output>C:\Users\Admin\Documents\GitHub\gigapede\gigapede\gigapede\bin\x86\Debug\Content\temporaryFont.xnb</Output>
       <Time>2013-03-14T15:03:49.4840392-06:00</Time>
-    </Item>
-    <Item>
-      <Source>images\US coin.png</Source>
-      <Name>images\US coin</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\Admin\Documents\GitHub\gigapede\gigapede\gigapede\bin\x86\Debug\Content\images\US coin.xnb</Output>
-      <Time>2013-03-15T12:06:34.2464658-06:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>

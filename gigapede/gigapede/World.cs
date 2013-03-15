@@ -33,7 +33,10 @@ namespace gigapede
 			{
 				List<GameItem.GameItemAction> actions = items[j].Update(new InfoForItem(this, GetContacts(items[j]), gameTime, inputState));
 				UpdateItemList(actions, itemsToBeAdded, itemsToBeRemoved);
-				CheckAndPerformImmediateReplacements(actions);
+
+				foreach (GameItem.GameItemAction itemAction in actions) //check for items that need immediate replacement
+					if (itemAction.action == GameItem.GameItemAction.Action.REPLACE_ME)
+						items[j] = itemAction.item;
 			}
 			
 			foreach (GameItem item in itemsToBeRemoved)
@@ -151,20 +154,6 @@ namespace gigapede
 
 				if (itemAction.action == GameItem.GameItemAction.Action.REMOVE_ITEM)
 					itemsToBeRemoved.Add(itemAction.item);
-			}
-		}
-
-
-
-		private void CheckAndPerformImmediateReplacements(List<GameItem.GameItemAction> actions)
-		{
-			foreach (GameItem.GameItemAction itemAction in actions) //check for items that need immediate replacement
-			{
-				if (itemAction.action == GameItem.GameItemAction.Action.REPLACE_ITEM)
-				{
-					int index = items.IndexOf(itemAction.item);
-					items[index] = itemAction.secondaryItem;
-				}
 			}
 		}
 	}

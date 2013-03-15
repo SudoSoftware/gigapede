@@ -13,6 +13,7 @@ namespace gigapede.GameItems
 	{
 		public static Texture2D texture;
 		public static float minY;
+		private int extraPowerUsesLeft = 0;
 
 
 		public Shooter(PointF location) :
@@ -26,14 +27,8 @@ namespace gigapede.GameItems
 			HandleMovement(info);
 			
 			List<GameItemAction> actions = new List<GameItemAction>();
-			
 			if (info.inputState.justPressed(UserInput.InputType.FIRE))
-			{
-				PointF rocketLocation = new PointF(boundingBox.X + boundingBox.Width / 3, boundingBox.Y - boundingBox.Height * 0.8f);
-				SizeF rocketSize = new SizeF(GameParameters.DEFAULT_ITEM_WIDTH / 3, GameParameters.DEFAULT_ITEM_HEIGHT);
-				actions.Add(new GameItemAction(GameItemAction.Action.ADD_ITEM, new Rocket(rocketLocation, rocketSize)));
-			}
-
+				SpawnRocket(ref actions);
 			return actions;
 		}
 
@@ -44,6 +39,24 @@ namespace gigapede.GameItems
 			RectangleF newBounds = GetNewLocation(info);
 			if (info.world.IsLegalLocation(newBounds) && newBounds.Y >= minY)
 				boundingBox = newBounds;
+		}
+
+
+
+		private void SpawnRocket(ref List<GameItemAction> itemActions)
+		{
+			PointF rocketLocation = new PointF(boundingBox.X, boundingBox.Y - boundingBox.Height * 0.8f);
+			bool rocketIsPoweredUp = false;
+
+			if (extraPowerUsesLeft > 0)
+			{
+				rocketIsPoweredUp = true;
+				extraPowerUsesLeft--;
+			}
+			else
+				rocketLocation.X += boundingBox.Width / 3;
+
+			itemActions.Add(new GameItemAction(GameItemAction.Action.ADD_ITEM, new Rocket(rocketLocation, rocketIsPoweredUp)));
 		}
 
 
@@ -63,6 +76,20 @@ namespace gigapede.GameItems
 				newBounds.Y += movementTheta;
 
 			return newBounds;
+		}
+
+
+
+		public void Powerup()
+		{
+			extraPowerUsesLeft = GameParameters.ROCKET_POWERUP_USES;
+		}
+
+
+
+		public bool IsPoweredUp()
+		{
+			return extraPowerUsesLeft > 0;
 		}
 
 
