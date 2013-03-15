@@ -15,3 +15,4 @@ C:\Users\Admin\Documents\GitHub\gigapede\gigapede\gigapede\bin\x86\Debug\Content
 C:\Users\Admin\Documents\GitHub\gigapede\gigapede\gigapede\bin\x86\Debug\Content\images\klingon bird of prey.xnb
 C:\Users\Admin\Documents\GitHub\gigapede\gigapede\gigapede\bin\x86\Debug\Content\temporaryFont.xnb
 C:\Users\Admin\Documents\GitHub\gigapede\gigapede\gigapede\obj\x86\Debug\gigapede.csprojResolveAssemblyReference.cache
+C:\Users\Admin\Documents\GitHub\gigapede\gigapede\gigapede\bin\x86\Debug\Content\images\US coin.xnb

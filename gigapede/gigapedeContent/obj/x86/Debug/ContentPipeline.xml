@@ -100,6 +100,15 @@
       <Output>C:\Users\Admin\Documents\GitHub\gigapede\gigapede\gigapede\bin\x86\Debug\Content\temporaryFont.xnb</Output>
       <Time>2013-03-14T15:03:49.4840392-06:00</Time>
     </Item>
+    <Item>
+      <Source>images\US coin.png</Source>
+      <Name>images\US coin</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Admin\Documents\GitHub\gigapede\gigapede\gigapede\bin\x86\Debug\Content\images\US coin.xnb</Output>
+      <Time>2013-03-15T12:06:34.2464658-06:00</Time>
+    </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
       <TargetPlatform>Windows</TargetPlatform>

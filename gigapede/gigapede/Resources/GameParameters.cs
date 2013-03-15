@@ -14,6 +14,7 @@ namespace gigapede.Resources
 		public const float ROCKET_SPEED = 0.8f;
 		public const float FLEA_SPEED = 0.3f;
 		public const float SHOOTER_MOVEMENT_THETA = 0.25f;
+		public const float GRAVITY = 0.1f;
 
 		//world parameters
 		public const int GRID_SIZE = 24; //size of N-by-N grid. The original game was around 30 or 35

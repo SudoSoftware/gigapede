@@ -80,6 +80,7 @@
     <Compile Include="GameItems\GameItem.cs" />
     <Compile Include="GameItems\JumpingGameItem.cs" />
     <Compile Include="GameItems\Mushroom.cs" />
+    <Compile Include="GameItems\Powerup.cs" />
     <Compile Include="GameItems\Rocket.cs" />
     <Compile Include="GameItems\Scorpion.cs" />
     <Compile Include="GameItems\Spider.cs" />
