@@ -35,6 +35,12 @@ namespace gigapede
         // Input Class
         UserInput input;
 
+        // The screen which currently has focus.
+        public Screen Focus
+        {
+            get { return focus; }
+        }
+
         // The game accessor.
         public Game GM
         {

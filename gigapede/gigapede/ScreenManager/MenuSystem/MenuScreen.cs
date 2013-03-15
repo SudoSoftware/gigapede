@@ -75,8 +75,9 @@ namespace gigapede
                 selected_index > 0)
                 selected_index--;
 
-            foreach (MenuItem x in menu_items)
-                x.HandleInput(time, input);
+            if (input.justPressed(UserInput.InputType.FIRE) &&
+                selected_index != null)
+                menu_items[selected_index].HandleInput(time, input);
         }
 
         public override void Draw()

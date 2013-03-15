@@ -29,6 +29,7 @@ namespace gigapede
 	    public virtual void ExitScreen ()
     	{
        	    manager.KillScreen(this);
+            exit_screen.hidden_p = false;
     	    manager.AddScreen(exit_screen);
     	    manager.FocusScreen(exit_screen);
     	}

@@ -7,8 +7,44 @@
       <Importer>FontDescriptionImporter</Importer>
       <Processor>FontDescriptionProcessor</Processor>
       <Options>None</Options>
-      <Output>c:\users\foobar\documents\visual studio 2010\Projects\gigapede\gigapede\gigapede\bin\x86\Debug\Content\Default.xnb</Output>
-      <Time>2013-02-26T00:16:55.9326172-07:00</Time>
+      <Output>C:\Users\foobar\Desktop\gigapede\gigapede\gigapede\bin\x86\Debug\Content\Default.xnb</Output>
+      <Time>2013-03-14T21:54:56.3740234-06:00</Time>
+    </Item>
+    <Item>
+      <Source>MenuHead.spritefont</Source>
+      <Name>MenuHead</Name>
+      <Importer>FontDescriptionImporter</Importer>
+      <Processor>FontDescriptionProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\foobar\Desktop\gigapede\gigapede\gigapede\bin\x86\Debug\Content\MenuHead.xnb</Output>
+      <Time>2013-03-14T21:54:56.3769531-06:00</Time>
+    </Item>
+    <Item>
+      <Source>LcarsFont.spritefont</Source>
+      <Name>LcarsFont</Name>
+      <Importer>FontDescriptionImporter</Importer>
+      <Processor>FontDescriptionProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\foobar\Desktop\gigapede\gigapede\gigapede\bin\x86\Debug\Content\LcarsFont.xnb</Output>
+      <Time>2013-03-14T21:54:56.3759765-06:00</Time>
+    </Item>
+    <Item>
+      <Source>MenuItem.spritefont</Source>
+      <Name>MenuItem</Name>
+      <Importer>FontDescriptionImporter</Importer>
+      <Processor>FontDescriptionProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\foobar\Desktop\gigapede\gigapede\gigapede\bin\x86\Debug\Content\MenuItem.xnb</Output>
+      <Time>2013-03-14T21:54:56.3769531-06:00</Time>
+    </Item>
+    <Item>
+      <Source>lcars.jpg</Source>
+      <Name>lcars</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\foobar\Desktop\gigapede\gigapede\gigapede\bin\x86\Debug\Content\lcars.xnb</Output>
+      <Time>2013-03-14T21:54:56.3847656-06:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
@@ -17,10 +53,10 @@
       <TargetProfile>Reach</TargetProfile>
       <BuildConfiguration>Debug</BuildConfiguration>
       <CompressContent>false</CompressContent>
-      <RootDirectory>c:\users\foobar\documents\visual studio 2010\Projects\gigapede\gigapede\gigapedeContent\</RootDirectory>
-      <LoggerRootDirectory>c:\users\foobar\documents\visual studio 2010\Projects\gigapede\gigapede\gigapede\</LoggerRootDirectory>
-      <IntermediateDirectory>c:\users\foobar\documents\visual studio 2010\Projects\gigapede\gigapede\gigapede\obj\x86\Debug\</IntermediateDirectory>
-      <OutputDirectory>c:\users\foobar\documents\visual studio 2010\Projects\gigapede\gigapede\gigapede\bin\x86\Debug\Content\</OutputDirectory>
+      <RootDirectory>C:\Users\foobar\Desktop\gigapede\gigapede\gigapedeContent\</RootDirectory>
+      <LoggerRootDirectory>C:\Users\foobar\Desktop\gigapede\gigapede\gigapede\</LoggerRootDirectory>
+      <IntermediateDirectory>C:\Users\foobar\Desktop\gigapede\gigapede\gigapede\obj\x86\Debug\</IntermediateDirectory>
+      <OutputDirectory>C:\Users\foobar\Desktop\gigapede\gigapede\gigapede\bin\x86\Debug\Content\</OutputDirectory>
     </Settings>
     <Assemblies>
       <Assembly>

@@ -26,11 +26,7 @@ namespace gigapede
             display_text = new_text;
         }
 
-        public void SetAction()
-        {
-        }
-
-        public void RunAction()
+        public virtual void RunAction()
         {
         }
 

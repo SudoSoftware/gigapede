@@ -16,13 +16,15 @@ namespace gigapede
     {
         private DateTime start_time;
         private Screen main_menu;
+        private Vector2 position;
 
         private String display_string;
 
-        public IntroScreen(ScreenManager manager, Screen exit_screen)
+        public IntroScreen(ScreenManager manager, Screen exit_screen, Vector2 position)
             : base(manager, exit_screen)
         {
             start_time = DateTime.Now;
+            this.position = position;
         }
 
         public override void ExitScreen()
@@ -61,7 +63,7 @@ Welcome to the Starfleet Planar Combat Simulator";
             SpriteFont font = manager.RM.Content.Load<SpriteFont>("LcarsFont");
 
             sb.Begin();
-            sb.DrawString(font, display_string, new Vector2(270, 220), Color.Orange);
+            sb.DrawString(font, display_string, position, Color.Orange);
             sb.End();
         }
     }

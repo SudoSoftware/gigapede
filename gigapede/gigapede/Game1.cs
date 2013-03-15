@@ -24,6 +24,10 @@ namespace gigapede
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
+            //graphics.IsFullScreen = true;
+            graphics.PreferredBackBufferHeight = 768;
+            graphics.PreferredBackBufferWidth = 1024;
+
             Content.RootDirectory = "Content";
         }
 
@@ -47,21 +51,31 @@ namespace gigapede
             Soundtrack menutrack = new Soundtrack();
             //menutrack.AddAudio(menutheme);
 
+            int width = graphics.PreferredBackBufferWidth;
+            int height = graphics.PreferredBackBufferHeight;
+
             manager.RM.FontHash["head_font"] = Content.Load<SpriteFont>("MenuHead");
-            MenuStyle style = new MenuStyle(new Vector2(270, 220), new Vector2(300, 260), new Vector2(0, 20),
+            MenuStyle style = new MenuStyle(
+                new Vector2(((float)2.7 / 8) * width, ((float)2.7 / 6) * height),
+                new Vector2(((float)3.0 / 8) * width, ((float)3.1 / 6) * height),
+                new Vector2(0, ((float)1.0 / 20) * graphics.PreferredBackBufferHeight),
                 (SpriteFont)manager.RM.FontHash["head_font"], (SpriteFont)manager.RM.FontHash["Default"],
                 Color.Orange, Color.Orange, Color.OrangeRed, menutrack);
 
             MenuScreen main_menu = new MenuScreen(manager, new ExitScreen(manager, null), "Main Menu", style);
-            main_menu.AddItem(new MenuItem("This is a dummy item."));
-            main_menu.AddItem(new MenuItem("Another dummy item."));
-            main_menu.AddItem(new MenuButton("Quit"));
+            main_menu.AddItem(new AddScreenButton("Go to submenu", manager, typeof(MenuScreen),
+                new Object[] {manager, main_menu, "Sub Menu", style}));
+            main_menu.AddItem(new MenuQuitButton("Quit", main_menu));
 
             // Load Background
             Texture2D background = Content.Load<Texture2D>("lcars");
 
             manager.AddScreen(new BackgroundScreen(manager, background));
-            manager.AddScreen(new IntroScreen(manager, main_menu));
+            manager.AddScreen(new IntroScreen(manager, main_menu, style.head_pos));
+
+
+            MenuScreen sub_menu = new MenuScreen(manager, main_menu, "Sub Menu", style);
+            sub_menu.AddItem(new MenuQuitButton("Go Back", sub_menu));
 
             base.Initialize();
         }
