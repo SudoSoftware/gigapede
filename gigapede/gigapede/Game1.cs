@@ -64,7 +64,9 @@ namespace gigapede
 
             MenuScreen main_menu = new MenuScreen(manager, new ExitScreen(manager, null), "Main Menu", style);
             main_menu.AddItem(new AddScreenButton("Go to submenu", manager, typeof(MenuScreen),
-                new Object[] {manager, main_menu, "Sub Menu", style}));
+                new Object[] { manager, main_menu, "Sub Menu", style }));
+            main_menu.AddItem(new AddScreenButton("Credits", manager, typeof(CreditsScreen),
+       new Object[] { manager, main_menu, style.head_pos}));
             main_menu.AddItem(new MenuQuitButton("Quit", main_menu));
 
             // Load Background

@@ -41,7 +41,8 @@ namespace gigapede
 
         public virtual void HandleInput (GameTime time, UserInput input)
         {
-
+            if (input.justPressed(UserInput.InputType.ESCAPE))
+                ExitScreen();
         }
 
         public virtual void Draw ()

@@ -25,6 +25,18 @@ namespace gigapede
         {
             start_time = DateTime.Now;
             this.position = position;
+
+            display_string =
+@"Library Computer Access/Retrival System
+USS Enterprise-D (NCC 1701-D)
+Current Bridge Crew:
+    Rear Admiral James T. Kirk
+    Captain Jean-Luc Picard
+    Commander William Riker
+    Acting Ensign Crusher
+    Ensign Victors
+    Ensign Michaelson
+Welcome to the Starfleet Planar Combat Simulator";
         }
 
         public override void ExitScreen()
@@ -39,18 +51,6 @@ namespace gigapede
             base.Update(time);
 
             TimeSpan intro_length = DateTime.Now - start_time;
-
-            display_string = 
-@"Library Computer Access/Retrival System
-USS Enterprise-D (NCC 1701-D)
-Current Bridge Crew:
-    Rear Admiral James T. Kirk
-    Captain Jean-Luc Picard
-    Commander William Riker
-    Acting Ensign Crusher
-    Ensign Victors
-    Ensign Michaelson
-Welcome to the Starfleet Planar Combat Simulator";
 
             if (intro_length.Seconds >= 6)
                 ExitScreen();

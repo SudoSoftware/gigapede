@@ -8,7 +8,7 @@
       <Processor>FontDescriptionProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\foobar\Desktop\gigapede\gigapede\gigapede\bin\x86\Debug\Content\Default.xnb</Output>
-      <Time>2013-03-14T21:54:56.3740234-06:00</Time>
+      <Time>2013-03-15T15:36:31.0410157-06:00</Time>
     </Item>
     <Item>
       <Source>MenuHead.spritefont</Source>
@@ -17,7 +17,7 @@
       <Processor>FontDescriptionProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\foobar\Desktop\gigapede\gigapede\gigapede\bin\x86\Debug\Content\MenuHead.xnb</Output>
-      <Time>2013-03-14T21:54:56.3769531-06:00</Time>
+      <Time>2013-03-15T15:36:31.0576172-06:00</Time>
     </Item>
     <Item>
       <Source>LcarsFont.spritefont</Source>
@@ -26,7 +26,7 @@
       <Processor>FontDescriptionProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\foobar\Desktop\gigapede\gigapede\gigapede\bin\x86\Debug\Content\LcarsFont.xnb</Output>
-      <Time>2013-03-14T21:54:56.3759765-06:00</Time>
+      <Time>2013-03-15T15:36:31.0566407-06:00</Time>
     </Item>
     <Item>
       <Source>MenuItem.spritefont</Source>
@@ -35,7 +35,7 @@
       <Processor>FontDescriptionProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\foobar\Desktop\gigapede\gigapede\gigapede\bin\x86\Debug\Content\MenuItem.xnb</Output>
-      <Time>2013-03-14T21:54:56.3769531-06:00</Time>
+      <Time>2013-03-15T15:36:31.0595704-06:00</Time>
     </Item>
     <Item>
       <Source>lcars.jpg</Source>
@@ -44,7 +44,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\foobar\Desktop\gigapede\gigapede\gigapede\bin\x86\Debug\Content\lcars.xnb</Output>
-      <Time>2013-03-14T21:54:56.3847656-06:00</Time>
+      <Time>2013-03-15T15:36:31.1132813-06:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>

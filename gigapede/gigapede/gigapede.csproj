@@ -79,6 +79,7 @@
     <Compile Include="ScreenManager\Base\Soundtrack.cs" />
     <Compile Include="ScreenManager\Base\SoundtrackManager.cs" />
     <Compile Include="ScreenManager\Screens\BackgroundScreen.cs" />
+    <Compile Include="ScreenManager\Screens\CreditsScreen.cs" />
     <Compile Include="ScreenManager\Screens\ExitScreen.cs" />
     <Compile Include="ScreenManager\Screens\IntroScreen.cs" />
     <Compile Include="ScreenManager\MenuSystem\MenuItem.cs" />
