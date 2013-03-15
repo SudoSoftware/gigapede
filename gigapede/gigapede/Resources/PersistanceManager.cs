@@ -46,5 +46,8 @@ namespace gigapede.Resources
 
 			return value;
 		}
+
+		//www.dotnetperls.com/xmlwriter
+		//www.dotnetperls.com/xmlreader
 	}
 }

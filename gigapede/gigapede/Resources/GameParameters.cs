@@ -38,6 +38,7 @@ namespace gigapede.Resources
 		public static readonly int DEFAULT_ITEM_HEIGHT = DEFAULT_ITEM_WIDTH;
 
 		//other
-		public static readonly float LOCATION_TOLERANCE = 1f;
+		public const float LOCATION_TOLERANCE = 1f;
+		public const int ALERT_MILLISECONDS = 1500; //how long the scoring alert is shown for
 	}
 }

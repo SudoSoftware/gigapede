@@ -24,7 +24,7 @@ namespace gigapede.GameItems
 
 		protected override void Die(ref List<GameItemAction> itemActions, InfoForItem info)
 		{
-			info.world.getHUD().AddToScore(GameParameters.MUSHROOM_POINTS);
+			info.world.getHUD().AddToScore(GameParameters.MUSHROOM_POINTS, this);
 			base.Die(ref itemActions, info);
 		}
 

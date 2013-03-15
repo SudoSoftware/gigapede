@@ -41,6 +41,8 @@ namespace gigapede
 
 			foreach (GameItem item in itemsToBeAdded)
 				AddItem(item);
+
+			hud.Update();
 		}
 
 

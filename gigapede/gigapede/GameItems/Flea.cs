@@ -28,7 +28,7 @@ namespace gigapede.GameItems
 
 		protected override void Die(ref List<GameItemAction> itemActions, InfoForItem info)
 		{
-			info.world.getHUD().AddToScore(GameParameters.FLEA_POINTS);
+			info.world.getHUD().AddToScore(GameParameters.FLEA_POINTS, this);
 			base.Die(ref itemActions, info);
 		}
 
