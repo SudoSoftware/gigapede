@@ -1,0 +1,5 @@
+Content\Default.xnb
+Content\MenuHead.xnb
+Content\LcarsFont.xnb
+Content\MenuItem.xnb
+Content\lcars.xnb
