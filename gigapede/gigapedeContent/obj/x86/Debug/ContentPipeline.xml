@@ -1,0 +1,91 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<XnaContent xmlns:Pipeline="Microsoft.Xna.Framework.Content.Pipeline">
+  <Asset Type="Pipeline:BuildItemCollection">
+    <Item>
+      <Source>Default.spritefont</Source>
+      <Name>Default</Name>
+      <Importer>FontDescriptionImporter</Importer>
+      <Processor>FontDescriptionProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\pcm\Desktop\gigapede\gigapede\gigapede\bin\x86\Debug\Content\Default.xnb</Output>
+      <Time>2013-03-13T18:42:03.2882217-06:00</Time>
+    </Item>
+    <Item>
+      <Source>lcars.jpg</Source>
+      <Name>lcars</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\pcm\Desktop\gigapede\gigapede\gigapede\bin\x86\Debug\Content\lcars.xnb</Output>
+      <Time>2013-03-13T18:42:03.5142346-06:00</Time>
+    </Item>
+    <Item>
+      <Source>LcarsFont.spritefont</Source>
+      <Name>LcarsFont</Name>
+      <Importer>FontDescriptionImporter</Importer>
+      <Processor>FontDescriptionProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\pcm\Desktop\gigapede\gigapede\gigapede\bin\x86\Debug\Content\LcarsFont.xnb</Output>
+      <Time>2013-03-13T18:42:03.3042226-06:00</Time>
+    </Item>
+    <Item>
+      <Source>MenuHead.spritefont</Source>
+      <Name>MenuHead</Name>
+      <Importer>FontDescriptionImporter</Importer>
+      <Processor>FontDescriptionProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\pcm\Desktop\gigapede\gigapede\gigapede\bin\x86\Debug\Content\MenuHead.xnb</Output>
+      <Time>2013-03-13T18:42:03.3522254-06:00</Time>
+    </Item>
+    <Item>
+      <Source>MenuItem.spritefont</Source>
+      <Name>MenuItem</Name>
+      <Importer>FontDescriptionImporter</Importer>
+      <Processor>FontDescriptionProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\pcm\Desktop\gigapede\gigapede\gigapede\bin\x86\Debug\Content\MenuItem.xnb</Output>
+      <Time>2013-03-13T18:42:03.3672262-06:00</Time>
+    </Item>
+    <BuildSuccessful>true</BuildSuccessful>
+    <Settings>
+      <TargetPlatform>Windows</TargetPlatform>
+      <TargetProfile>Reach</TargetProfile>
+      <BuildConfiguration>Debug</BuildConfiguration>
+      <CompressContent>false</CompressContent>
+      <RootDirectory>C:\Users\pcm\Desktop\gigapede\gigapede\gigapedeContent\</RootDirectory>
+      <LoggerRootDirectory>C:\Users\pcm\Desktop\gigapede\gigapede\gigapede\</LoggerRootDirectory>
+      <IntermediateDirectory>C:\Users\pcm\Desktop\gigapede\gigapede\gigapedeContent\obj\x86\Debug\</IntermediateDirectory>
+      <OutputDirectory>C:\Users\pcm\Desktop\gigapede\gigapede\gigapede\bin\x86\Debug\Content\</OutputDirectory>
+    </Settings>
+    <Assemblies>
+      <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.XImporter.dll</Key>
+        <Value>2010-08-23T12:41:18-06:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.VideoImporters.dll</Key>
+        <Value>2010-08-23T12:41:18-06:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.TextureImporter.dll</Key>
+        <Value>2010-08-23T12:41:18-06:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.FBXImporter.dll</Key>
+        <Value>2010-08-23T12:41:18-06:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.EffectImporter.dll</Key>
+        <Value>2010-08-23T12:41:18-06:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.AudioImporters.dll</Key>
+        <Value>2010-08-23T12:41:18-06:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Windows\Microsoft.Net\assembly\GAC_32\Microsoft.Xna.Framework.Content.Pipeline\v4.0_4.0.0.0__842cf8be1de50553\Microsoft.Xna.Framework.Content.Pipeline.dll</Key>
+        <Value>2013-03-11T22:46:38.5047068-06:00</Value>
+      </Assembly>
+    </Assemblies>
+  </Asset>
+</XnaContent>

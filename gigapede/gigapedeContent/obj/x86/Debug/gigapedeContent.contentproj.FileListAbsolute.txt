@@ -1,0 +1,3 @@
+c:\users\foobar\documents\visual studio 2010\Projects\gigapede\gigapede\gigapedeContent\obj\x86\Debug\gigapedeContent.contentprojResolveAssemblyReference.cache
+C:\Users\pcm\Desktop\gigapede\gigapede\gigapedeContent\obj\x86\Debug\gigapedeContent.contentprojResolveAssemblyReference.cache
+C:\Users\foobar\Desktop\gigapede\gigapede\gigapedeContent\obj\x86\Debug\gigapedeContent.contentprojResolveAssemblyReference.cache

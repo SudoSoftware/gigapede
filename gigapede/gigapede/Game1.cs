@@ -16,12 +16,18 @@ namespace gigapede
     /// </summary>
     public class Game1 : Microsoft.Xna.Framework.Game
     {
+        ScreenManager manager;
+
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
 
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
+            //graphics.IsFullScreen = true;
+            graphics.PreferredBackBufferHeight = 768;
+            graphics.PreferredBackBufferWidth = 1024;
+
             Content.RootDirectory = "Content";
         }
 
@@ -34,6 +40,44 @@ namespace gigapede
         protected override void Initialize()
         {
             // TODO: Add your initialization logic here
+            spriteBatch = new SpriteBatch(GraphicsDevice);
+            manager = new ScreenManager(this, graphics, Content, spriteBatch);
+
+            //this.Window.AllowUserResizing = true;
+            //this.Window.ClientSizeChanged += new EventHandler<EventArgs>(Window_ClientSizeChanged);
+
+            //SoundEffect menutheme = Content.Load<SoundEffect>("menutheme");
+
+            Soundtrack menutrack = new Soundtrack();
+            //menutrack.AddAudio(menutheme);
+
+            int width = graphics.PreferredBackBufferWidth;
+            int height = graphics.PreferredBackBufferHeight;
+
+            manager.RM.FontHash["head_font"] = Content.Load<SpriteFont>("MenuHead");
+            MenuStyle style = new MenuStyle(
+                new Vector2(((float)2.7 / 8) * width, ((float)2.7 / 6) * height),
+                new Vector2(((float)3.0 / 8) * width, ((float)3.1 / 6) * height),
+                new Vector2(0, ((float)1.0 / 20) * graphics.PreferredBackBufferHeight),
+                (SpriteFont)manager.RM.FontHash["head_font"], (SpriteFont)manager.RM.FontHash["Default"],
+                Color.Orange, Color.Orange, Color.OrangeRed, menutrack);
+
+            MenuScreen main_menu = new MenuScreen(manager, new ExitScreen(manager, null), "Main Menu", style);
+            main_menu.AddItem(new AddScreenButton("Go to submenu", manager, typeof(MenuScreen),
+                new Object[] { manager, main_menu, "Sub Menu", style }));
+            main_menu.AddItem(new AddScreenButton("Credits", manager, typeof(CreditsScreen),
+       new Object[] { manager, main_menu, style.head_pos}));
+            main_menu.AddItem(new MenuQuitButton("Quit", main_menu));
+
+            // Load Background
+            Texture2D background = Content.Load<Texture2D>("lcars");
+
+            manager.AddScreen(new BackgroundScreen(manager, background));
+            manager.AddScreen(new IntroScreen(manager, main_menu, style.head_pos));
+
+
+            MenuScreen sub_menu = new MenuScreen(manager, main_menu, "Sub Menu", style);
+            sub_menu.AddItem(new MenuQuitButton("Go Back", sub_menu));
 
             base.Initialize();
         }
@@ -45,7 +89,7 @@ namespace gigapede
         protected override void LoadContent()
         {
             // Create a new SpriteBatch, which can be used to draw textures.
-            spriteBatch = new SpriteBatch(GraphicsDevice);
+
 
             // TODO: use this.Content to load your game content here
         }
@@ -72,6 +116,8 @@ namespace gigapede
 
             // TODO: Add your update logic here
 
+            manager.Update(gameTime);
+
             base.Update(gameTime);
         }
 
@@ -85,7 +131,15 @@ namespace gigapede
 
             // TODO: Add your drawing code here
 
+            manager.Draw();
+
             base.Draw(gameTime);
+        }
+
+
+        void Window_ClientSizeChanged(object sender, EventArgs e)
+        {
+            // Make changes to handle the new window size.            
         }
     }
 }
