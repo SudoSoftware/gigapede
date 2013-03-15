@@ -17,7 +17,8 @@ namespace gigapede
 		private int currentScore = 0;
 		private int highScore = 0;
 		private PersistanceManager manager = new PersistanceManager("highScores.xml");
-		private List<ScoreAlert> scoringAlerts = new List<ScoreAlert>();
+		private List<GameAlert> scoringAlerts = new List<GameAlert>();
+		private int padding = 10;
 
 
 		public HeadsUpDisplay()
@@ -34,6 +35,13 @@ namespace gigapede
 
 
 
+		public void IndicateAdditionalLife()
+		{
+			livesLeft++;
+		}
+
+
+
 		public void AddToScore(int pointValue, GameItem source)
 		{
 			currentScore += pointValue;
@@ -45,20 +53,20 @@ namespace gigapede
 			}
 
 			PointF itemLocation = source.GetLocation();
-			scoringAlerts.Add(new ScoreAlert(new Vector2(itemLocation.X, itemLocation.Y), pointValue));
+			scoringAlerts.Add(new GameAlert(new Vector2(itemLocation.X, itemLocation.Y), pointValue));
 		}
 
 
 
 		public void Update()
 		{
-			List<ScoreAlert> expiredAlerts = new List<ScoreAlert>();
+			List<GameAlert> expiredAlerts = new List<GameAlert>();
 
-			foreach (ScoreAlert alert in scoringAlerts)
+			foreach (GameAlert alert in scoringAlerts)
 				if (alert.HasExpired())
 					expiredAlerts.Add(alert);
 
-			foreach (ScoreAlert alert in expiredAlerts)
+			foreach (GameAlert alert in expiredAlerts)
 				scoringAlerts.Remove(alert);
 		}
 
@@ -67,6 +75,7 @@ namespace gigapede
 		public void Draw(SpriteBatch spriteBatch)
 		{
 			DrawScores(spriteBatch);
+			DrawLife(spriteBatch);
 			DrawAlerts(spriteBatch);
 		}
 
@@ -74,45 +83,61 @@ namespace gigapede
 
 		private void DrawScores(SpriteBatch spriteBatch)
 		{
-			int y = 10;
-
+			String scoreStr = "Score: " + currentScore;
 			spriteBatch.DrawString(
 				font,
-				currentScore + "",
-				new Microsoft.Xna.Framework.Vector2(30, y),
-				Microsoft.Xna.Framework.Color.Wheat);
+				scoreStr,
+				new Microsoft.Xna.Framework.Vector2(padding, padding),
+				Microsoft.Xna.Framework.Color.Wheat
+			);
 
+			String highScoreStr = "Record: " + highScore;
 			spriteBatch.DrawString(
 				font,
-				highScore + "",
-				new Microsoft.Xna.Framework.Vector2(GameParameters.TARGET_RESOLUTION.Width / 2, y),
-				Microsoft.Xna.Framework.Color.Wheat);
+				highScoreStr,
+				new Microsoft.Xna.Framework.Vector2(GameParameters.TARGET_RESOLUTION.Width / 2 - font.MeasureString(highScoreStr).X / 3, padding),
+				Microsoft.Xna.Framework.Color.Wheat
+			);
+		}
+
+
+
+		private void DrawLife(SpriteBatch spriteBatch)
+		{
+			String livesLeftStr = "Lives: " + livesLeft;
+			spriteBatch.DrawString(
+				font,
+				livesLeftStr,
+				new Microsoft.Xna.Framework.Vector2(GameParameters.TARGET_RESOLUTION.Width - font.MeasureString(livesLeftStr).X - padding, padding),
+				Microsoft.Xna.Framework.Color.Wheat
+			);
 		}
 
 
 
 		private void DrawAlerts(SpriteBatch spriteBatch)
 		{
-			foreach (ScoreAlert alert in scoringAlerts)
+			foreach (GameAlert alert in scoringAlerts)
 			{
 				spriteBatch.DrawString(
-				font,
-				alert.value + "",
-				alert.location,
-				Microsoft.Xna.Framework.Color.Wheat);
+					font, //may want to use a seperate and smaller font
+					alert.value + "",
+					alert.location,
+					Microsoft.Xna.Framework.Color.Green
+				);
 			}
 		}
 
 
 
-		public class ScoreAlert
+		public class GameAlert
 		{
 			public Vector2 location;
 			public int value;
 			private DateTime spawnTime;
 
 
-			public ScoreAlert(Vector2 location, int value)
+			public GameAlert(Vector2 location, int value)
 			{
 				this.location = location;
 				this.value = value;

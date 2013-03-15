@@ -13,7 +13,7 @@ namespace gigapede.GameItems
 	{
 		public static Texture2D normalTexture;
 		public static Texture2D poisonedTexture;
-		private MyRandom prng = new MyRandom();
+		private static MyRandom prng = new MyRandom();
 		public bool IsPoisoned;
 
 
@@ -34,8 +34,8 @@ namespace gigapede.GameItems
 
 		private void PossiblyGivePowerup(ref List<GameItemAction> itemActions)
 		{
-			if (prng.nextRange(0, 10) <= 1) //10% chance
-				itemActions.Add(new GameItemAction(GameItemAction.Action.ADD_ITEM, new Powerup(boundingBox.Location, Powerup.PowerupType.ROCKET_BOOST)));
+			if (prng.nextRange(0, 40) <= 1) //2.5% chance
+				itemActions.Add(new GameItemAction(GameItemAction.Action.ADD_ITEM, new Powerup(boundingBox.Location, Powerup.PowerupType.SHOOTER_POWERUP)));
 		}
 
 

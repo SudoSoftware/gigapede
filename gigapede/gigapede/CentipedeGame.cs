@@ -62,6 +62,7 @@ namespace gigapede
 			Shooter.texture = this.Content.Load<Texture2D>("images/enterprise");
 			Spider.texture = this.Content.Load<Texture2D>("images/ferangi vessel");
 
+			//load all fonts
 			HeadsUpDisplay.font = Content.Load<SpriteFont>("temporaryFont");
 
 			AddWorldContent();

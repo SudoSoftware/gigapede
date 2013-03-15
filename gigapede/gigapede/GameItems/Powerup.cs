@@ -11,12 +11,14 @@ namespace gigapede.GameItems
 	class Powerup : GameItem
 	{
 		public static Texture2D texture;
-		private PowerupType type;
+		public static MyRandom prng = new MyRandom();
 		private float verticalVelocity = GameParameters.POWERUP_INITIAL_UPWARD_THRUST;
+		private PowerupType type;
+		
 
 		public enum PowerupType
 		{
-			ROCKET_BOOST, EXTRA_LIFE
+			SHOOTER_POWERUP, EXTRA_LIFE
 		}
 
 
@@ -36,8 +38,15 @@ namespace gigapede.GameItems
 			List<GameItemAction> itemActions = new List<GameItemAction>();
 
 			foreach (GameItem contact in info.contacts)
+			{
 				if (contact.GetType() == typeof(Shooter))
-					PowerupShooter((Shooter)contact, ref itemActions);
+				{
+					if (type == PowerupType.SHOOTER_POWERUP)
+						PowerupShooter((Shooter)contact, ref itemActions);
+					else if (type == PowerupType.EXTRA_LIFE)
+						info.world.getHUD().IndicateAdditionalLife();
+				}
+			}
 
 			return itemActions;
 		}
