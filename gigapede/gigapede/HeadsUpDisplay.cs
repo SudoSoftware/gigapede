@@ -10,11 +10,17 @@ namespace gigapede
 {
 	class HeadsUpDisplay
 	{
+		public static SpriteFont font;
 		private int livesLeft = GameParameters.MAX_LIVES;
 		private int currentScore = 0;
 		private int highScore = 0;
+		private PersistanceManager manager = new PersistanceManager("highScores.xml");
 
-		public static SpriteFont font;
+
+		public HeadsUpDisplay()
+		{
+			highScore = Convert.ToInt32(manager.Load());
+		}
 
 
 		public void IndicateLostLife()
@@ -29,7 +35,10 @@ namespace gigapede
 			currentScore += additionalPoints;
 
 			if (currentScore > highScore)
+			{
 				highScore = currentScore;
+				manager.Save(highScore);
+			}
 		}
 
 

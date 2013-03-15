@@ -64,6 +64,7 @@
     <Reference Include="Microsoft.Xna.Framework.Game, Version=4.0.0.0, Culture=neutral, PublicKeyToken=842cf8be1de50553, processorArchitecture=x86" />
     <Reference Include="Microsoft.Xna.Framework.Graphics, Version=4.0.0.0, Culture=neutral, PublicKeyToken=842cf8be1de50553, processorArchitecture=x86" />
     <Reference Include="Microsoft.Xna.Framework.GamerServices, Version=4.0.0.0, Culture=neutral, PublicKeyToken=842cf8be1de50553, processorArchitecture=x86" />
+    <Reference Include="Microsoft.Xna.Framework.Storage, Version=4.0.0.0, Culture=neutral, PublicKeyToken=842cf8be1de50553, processorArchitecture=MSIL" />
     <Reference Include="mscorlib" />
     <Reference Include="System" />
     <Reference Include="System.Drawing" />
@@ -90,6 +91,7 @@
     <Compile Include="Program.cs" />
     <Compile Include="CentipedeGame.cs" />
     <Compile Include="GameItems\Shooter.cs" />
+    <Compile Include="Resources\PersistanceManager.cs" />
     <Compile Include="Resources\UserInput.cs" />
     <Compile Include="World.cs" />
   </ItemGroup>
