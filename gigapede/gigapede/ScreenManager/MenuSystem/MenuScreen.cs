@@ -81,12 +81,17 @@ namespace gigapede
         public override void Draw()
         {
             SpriteBatch sb = manager.RM.SpriteB;
-            SpriteFont head_font = style.head_font;
+            String title_font = style.title_font;
             Color head_color = style.head_color;
+            Vector2 position = new Vector2(style.head_pos.X, style.head_pos.Y);
 
             sb.Begin();
-            Vector2 position = new Vector2(style.head_pos.X, style.head_pos.Y);
-            sb.DrawString(head_font, head_text, position, head_color);
+            sb.DrawString(
+                manager.RM.Content.Load<SpriteFont>(title_font),
+                head_text,
+                position,
+                head_color
+            );
             sb.End();
 
             position = new Vector2(style.menu_start.X, style.menu_start.Y);

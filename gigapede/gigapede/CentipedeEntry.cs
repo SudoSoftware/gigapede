@@ -52,8 +52,8 @@ namespace gigapede
                     GameParameters.DEFAULT_TITLE_FACTOR * SCREEN_PARAMETERS,
     				GameParameters.DEFAULT_MENU_FACTOR * SCREEN_PARAMETERS,
                     GameParameters.DEFAULT_MENU_ITEM_DISPLACEMENT * SCREEN_PARAMETERS,
-		    		Content.Load<SpriteFont>(GameParameters.DEFAULT_TITLE_FONT),
-                    Content.Load<SpriteFont>(GameParameters.DEFAULT_MENU_FONT),
+		    		"TitleFont",
+                    "MenuFont",
 				    GameParameters.DEFAULT_TITLE_COLOR,
                     GameParameters.DEFAULT_MENU_COLOR,
                     GameParameters.DEFAULT_SELECTED_ITEM_COLOR,
@@ -92,7 +92,7 @@ namespace gigapede
 			Scorpion.texture = this.Content.Load<Texture2D>("textures/borg cube1");
 			Shooter.texture = this.Content.Load<Texture2D>("textures/enterprise");
 			Spider.texture = this.Content.Load<Texture2D>("textures/ferangi vessel");
-
+             
 			//load all game fonts
 			HeadsUpDisplay.font = Content.Load<SpriteFont>("temporaryFont");
 
