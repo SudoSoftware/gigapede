@@ -15,7 +15,6 @@ namespace gigapede
     class IntroScreen : Screen
     {
         private DateTime start_time;
-        private Screen main_menu;
         private Vector2 position;
 
         private String display_string;
@@ -62,10 +61,13 @@ Welcome to the Starfleet Planar Combat Simulator";
         {
             SpriteBatch sb = manager.RM.SpriteB;
 
-            SpriteFont font = manager.RM.Content.Load<SpriteFont>("LcarsFont");
-
             sb.Begin();
-            sb.DrawString(font, display_string, position, Color.Orange);
+            sb.DrawString(
+                (SpriteFont) manager.RM.FontHash["LcarsFont"],
+                display_string,
+                position,
+                Color.Orange
+            );
             sb.End();
         }
     }

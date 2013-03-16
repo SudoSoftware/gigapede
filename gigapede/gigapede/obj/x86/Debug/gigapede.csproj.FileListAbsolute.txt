@@ -16,7 +16,6 @@ C:\Users\pcm\Desktop\gigapede\gigapede\gigapede\bin\x86\Debug\Content\lcars.xnb
 C:\Users\pcm\Desktop\gigapede\gigapede\gigapede\bin\x86\Debug\Content\LcarsFont.xnb
 C:\Users\pcm\Desktop\gigapede\gigapede\gigapede\bin\x86\Debug\Content\MenuHead.xnb
 C:\Users\pcm\Desktop\gigapede\gigapede\gigapede\bin\x86\Debug\Content\MenuItem.xnb
-C:\Users\foobar\Desktop\gigapede\gigapede\gigapede\bin\x86\Debug\Content\Default.xnb
 C:\Users\foobar\Desktop\gigapede\gigapede\gigapede\bin\x86\Debug\Content\MenuHead.xnb
 C:\Users\foobar\Desktop\gigapede\gigapede\gigapede\bin\x86\Debug\Content\LcarsFont.xnb
 C:\Users\foobar\Desktop\gigapede\gigapede\gigapede\bin\x86\Debug\Content\MenuItem.xnb
@@ -61,3 +60,4 @@ C:\Users\foobar\Desktop\gigapede\gigapede\gigapede\bin\x86\Debug\Content\texture
 C:\Users\foobar\Desktop\gigapede\gigapede\gigapede\bin\x86\Debug\Content\textures\starfield.xnb
 C:\Users\foobar\Desktop\gigapede\gigapede\gigapede\bin\x86\Debug\Content\textures\US coin.xnb
 C:\Users\foobar\Desktop\gigapede\gigapede\gigapede\obj\x86\Debug\gigapede.csprojResolveAssemblyReference.cache
+C:\Users\foobar\Desktop\gigapede\gigapede\gigapede\bin\x86\Debug\Content\MenuFont.xnb

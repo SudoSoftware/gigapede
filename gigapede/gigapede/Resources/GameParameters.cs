@@ -48,7 +48,8 @@ namespace gigapede.Resources
         public static readonly Vector2 DEFAULT_MENU_FACTOR = new Vector2 ((float)3.0 / 8, (float)3.1 / 6);
         public static readonly Vector2 DEFAULT_MENU_ITEM_DISPLACEMENT = new Vector2(0, ((float)1.0 / 20));
         public static readonly String DEFAULT_TITLE_FONT = "MenuHead";
-        public static readonly String DEFAULT_MENU_FONT = "Default";
+        public static readonly String DEFAULT_MENU_FONT = "MenuFont";
+        public static readonly String DEFAULT_LCARS_FONT = "LcarsFont";
         public static readonly String DEFAULT_MENU_BACKGROUND = "lcars";
         public static readonly Microsoft.Xna.Framework.Color DEFAULT_TITLE_COLOR =
             Microsoft.Xna.Framework.Color.Orange;

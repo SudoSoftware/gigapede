@@ -28,7 +28,8 @@ namespace gigapede
 USS Enterprise-D (NCC 1701-D)
 Processing Request 'GetCredits':
 Returned:
-    The Starfleet Planar Combat Simulator was developed by:
+    The Starfleet Planar Combat Simulator
+    was developed by:
         Ensign Parker C. Michaelson
         Ensign Jesse Victors
         Commander James D. Mathias (supervisory)";

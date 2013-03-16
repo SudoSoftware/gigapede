@@ -1,4 +1,3 @@
-Content\Default.xnb
 Content\MenuHead.xnb
 Content\LcarsFont.xnb
 Content\MenuItem.xnb
@@ -15,3 +14,4 @@ Content\textures\photon torpedo.xnb
 Content\textures\romulan warbird.xnb
 Content\textures\starfield.xnb
 Content\textures\US coin.xnb
+Content\MenuFont.xnb

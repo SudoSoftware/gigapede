@@ -100,6 +100,7 @@ namespace gigapede
             manager.RM.Background = Content.Load<Texture2D>(GameParameters.DEFAULT_MENU_BACKGROUND);
             manager.RM.FontHash.Add("TitleFont", Content.Load<SpriteFont>(GameParameters.DEFAULT_TITLE_FONT));
             manager.RM.FontHash.Add("MenuFont", Content.Load<SpriteFont>(GameParameters.DEFAULT_MENU_FONT));
+            manager.RM.FontHash.Add("LcarsFont", Content.Load<SpriteFont>(GameParameters.DEFAULT_LCARS_FONT));
 		}
 
 		
