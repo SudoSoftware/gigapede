@@ -37,6 +37,8 @@ Current Bridge Crew:
     Ensign Victors
     Ensign Michaelson
 Welcome to the Starfleet Planar Combat Simulator";
+
+            manager.FocusScreen(this);
         }
 
         public override void ExitScreen()

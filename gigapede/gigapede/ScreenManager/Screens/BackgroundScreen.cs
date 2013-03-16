@@ -14,12 +14,9 @@ namespace gigapede
 {
     class BackgroundScreen : Screen
     {
-        Texture2D background;
-
-        public BackgroundScreen(ScreenManager manager, Texture2D background)
+        public BackgroundScreen(ScreenManager manager)
             : base(manager, null)
         {
-            this.background = background;
         }
 
         public override void Draw()
@@ -28,7 +25,7 @@ namespace gigapede
             GraphicsDeviceManager gm = manager.RM.Graphics;
 
             sb.Begin();
-            sb.Draw(background,
+            sb.Draw(manager.RM.Background,
                 new Rectangle(0, 0,
                     gm.PreferredBackBufferWidth, gm.PreferredBackBufferHeight),
                     Color.White);

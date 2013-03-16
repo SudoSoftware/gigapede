@@ -53,7 +53,7 @@ namespace gigapede
     				GameParameters.DEFAULT_MENU_FACTOR * SCREEN_PARAMETERS,
                     GameParameters.DEFAULT_MENU_ITEM_DISPLACEMENT * SCREEN_PARAMETERS,
 		    		Content.Load<SpriteFont>(GameParameters.DEFAULT_TITLE_FONT),
-                    (SpriteFont)manager.RM.FontHash["Default"],
+                    Content.Load<SpriteFont>(GameParameters.DEFAULT_MENU_FONT),
 				    GameParameters.DEFAULT_TITLE_COLOR,
                     GameParameters.DEFAULT_MENU_COLOR,
                     GameParameters.DEFAULT_SELECTED_ITEM_COLOR,
@@ -65,10 +65,7 @@ namespace gigapede
 			
 
 			manager.AddScreen(
-                new BackgroundScreen(
-                    manager,
-                    Content.Load<Texture2D>(GameParameters.DEFAULT_MENU_BACKGROUND)
-                )
+                new BackgroundScreen(manager)
             );
 
 			manager.AddScreen(new IntroScreen(manager, main_menu, style.head_pos));
@@ -96,8 +93,13 @@ namespace gigapede
 			Shooter.texture = this.Content.Load<Texture2D>("textures/enterprise");
 			Spider.texture = this.Content.Load<Texture2D>("textures/ferangi vessel");
 
-			//load all fonts
+			//load all game fonts
 			HeadsUpDisplay.font = Content.Load<SpriteFont>("temporaryFont");
+
+            // Load up all menu resources.
+            manager.RM.Background = Content.Load<Texture2D>(GameParameters.DEFAULT_MENU_BACKGROUND);
+            manager.RM.FontHash.Add("TitleFont", Content.Load<SpriteFont>(GameParameters.DEFAULT_TITLE_FONT));
+            manager.RM.FontHash.Add("MenuFont", Content.Load<SpriteFont>(GameParameters.DEFAULT_MENU_FONT));
 		}
 
 		

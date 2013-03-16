@@ -33,6 +33,9 @@ namespace gigapede
         // Sprite Batch
         SpriteBatch spriteb;
 
+        // Background Texture
+        Texture2D background;
+
         // Accessors for content, spriteb and graphics.
         public GraphicsDeviceManager Graphics
         {
@@ -47,6 +50,12 @@ namespace gigapede
         public SpriteBatch SpriteB
         {
             get { return spriteb; }
+        }
+
+        public Texture2D Background
+        {
+            get { return background; }
+            set { this.background = value; }
         }
 
 
@@ -71,9 +80,6 @@ namespace gigapede
             
             // Initialize FontHash
             fonthash = new Hashtable();
-
-            // Add the default font to the fonthash.
-            fonthash.Add("Default", content.Load<SpriteFont>("Default"));
         }
     }
 }
