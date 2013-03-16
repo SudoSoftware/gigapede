@@ -73,6 +73,7 @@
     <Reference Include="System.Net" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AI.cs" />
     <Compile Include="CentipedeGame.cs" />
     <Compile Include="GameItems\Centipede.cs" />
     <Compile Include="GameItems\DamageableGameItem.cs" />
