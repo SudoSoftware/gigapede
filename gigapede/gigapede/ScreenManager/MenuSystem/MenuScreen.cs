@@ -13,13 +13,13 @@ namespace gigapede
 {
     class MenuScreen : Screen
     {
-        private String head_text;
+        protected String head_text;
 
-        private MenuStyle style;
+        protected MenuStyle style;
 
-        private int selected_index;
+        protected int selected_index;
 
-        private List<MenuItem> menu_items;
+        protected List<MenuItem> menu_items;
 
         public MenuScreen(ScreenManager manager, Screen exit_screen, String head_text, MenuStyle style)
             : base(manager, exit_screen)

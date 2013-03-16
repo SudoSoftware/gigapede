@@ -100,6 +100,7 @@
     <Compile Include="ScreenManager\Screens\BackgroundScreen.cs" />
     <Compile Include="ScreenManager\Screens\CreditsScreen.cs" />
     <Compile Include="ScreenManager\Screens\ExitScreen.cs" />
+    <Compile Include="ScreenManager\Screens\HighScoresScreen.cs" />
     <Compile Include="ScreenManager\Screens\IntroScreen.cs" />
     <Compile Include="ScreenManager\MenuSystem\MenuItem.cs" />
     <Compile Include="ScreenManager\MenuSystem\MenuScreen.cs" />
@@ -110,6 +111,8 @@
     <Compile Include="ScreenManager\Base\ResourceManager.cs" />
     <Compile Include="ScreenManager\Base\Screen.cs" />
     <Compile Include="ScreenManager\Base\ScreenManager.cs" />
+    <Compile Include="ScreenManager\Screens\MainMenuScreen.cs" />
+    <Compile Include="ScreenManager\Screens\OptionsScreen.cs" />
     <Compile Include="World.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -8,7 +8,7 @@
       <Processor>FontDescriptionProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\foobar\Desktop\gigapede\gigapede\gigapede\bin\x86\Debug\Content\Default.xnb</Output>
-      <Time>2013-03-15T15:36:31.0410157-06:00</Time>
+      <Time>2013-03-16T09:56:54.1943359-06:00</Time>
     </Item>
     <Item>
       <Source>MenuHead.spritefont</Source>
@@ -17,7 +17,7 @@
       <Processor>FontDescriptionProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\foobar\Desktop\gigapede\gigapede\gigapede\bin\x86\Debug\Content\MenuHead.xnb</Output>
-      <Time>2013-03-15T15:36:31.0576172-06:00</Time>
+      <Time>2013-03-16T09:56:54.21875-06:00</Time>
     </Item>
     <Item>
       <Source>LcarsFont.spritefont</Source>
@@ -26,7 +26,7 @@
       <Processor>FontDescriptionProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\foobar\Desktop\gigapede\gigapede\gigapede\bin\x86\Debug\Content\LcarsFont.xnb</Output>
-      <Time>2013-03-15T15:36:31.0566407-06:00</Time>
+      <Time>2013-03-16T09:56:54.2167968-06:00</Time>
     </Item>
     <Item>
       <Source>MenuItem.spritefont</Source>
@@ -35,7 +35,7 @@
       <Processor>FontDescriptionProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\foobar\Desktop\gigapede\gigapede\gigapede\bin\x86\Debug\Content\MenuItem.xnb</Output>
-      <Time>2013-03-15T15:36:31.0595704-06:00</Time>
+      <Time>2013-03-16T09:56:54.2363281-06:00</Time>
     </Item>
     <Item>
       <Source>lcars.jpg</Source>
@@ -44,7 +44,115 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\foobar\Desktop\gigapede\gigapede\gigapede\bin\x86\Debug\Content\lcars.xnb</Output>
-      <Time>2013-03-15T15:36:31.1132813-06:00</Time>
+      <Time>2013-03-16T09:56:54.3134765-06:00</Time>
+    </Item>
+    <Item>
+      <Source>temporaryFont.spritefont</Source>
+      <Name>temporaryFont</Name>
+      <Importer>FontDescriptionImporter</Importer>
+      <Processor>FontDescriptionProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\foobar\Desktop\gigapede\gigapede\gigapede\bin\x86\Debug\Content\temporaryFont.xnb</Output>
+      <Time>2013-03-16T09:56:54.3388672-06:00</Time>
+    </Item>
+    <Item>
+      <Source>textures\asteroid1.png</Source>
+      <Name>textures\asteroid1</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\foobar\Desktop\gigapede\gigapede\gigapede\bin\x86\Debug\Content\textures\asteroid1.xnb</Output>
+      <Time>2013-03-16T09:56:54.5351562-06:00</Time>
+    </Item>
+    <Item>
+      <Source>textures\asteroid2.png</Source>
+      <Name>textures\asteroid2</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\foobar\Desktop\gigapede\gigapede\gigapede\bin\x86\Debug\Content\textures\asteroid2.xnb</Output>
+      <Time>2013-03-16T09:56:54.5800781-06:00</Time>
+    </Item>
+    <Item>
+      <Source>textures\borg cube1.png</Source>
+      <Name>textures\borg cube1</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\foobar\Desktop\gigapede\gigapede\gigapede\bin\x86\Debug\Content\textures\borg cube1.xnb</Output>
+      <Time>2013-03-16T09:56:55.5673828-06:00</Time>
+    </Item>
+    <Item>
+      <Source>textures\enterprise.png</Source>
+      <Name>textures\enterprise</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\foobar\Desktop\gigapede\gigapede\gigapede\bin\x86\Debug\Content\textures\enterprise.xnb</Output>
+      <Time>2013-03-16T09:56:55.7236328-06:00</Time>
+    </Item>
+    <Item>
+      <Source>textures\ferangi vessel.png</Source>
+      <Name>textures\ferangi vessel</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\foobar\Desktop\gigapede\gigapede\gigapede\bin\x86\Debug\Content\textures\ferangi vessel.xnb</Output>
+      <Time>2013-03-16T09:56:55.8203125-06:00</Time>
+    </Item>
+    <Item>
+      <Source>textures\klingon bird of prey.png</Source>
+      <Name>textures\klingon bird of prey</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\foobar\Desktop\gigapede\gigapede\gigapede\bin\x86\Debug\Content\textures\klingon bird of prey.xnb</Output>
+      <Time>2013-03-16T09:56:55.8427734-06:00</Time>
+    </Item>
+    <Item>
+      <Source>textures\phaser.png</Source>
+      <Name>textures\phaser</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\foobar\Desktop\gigapede\gigapede\gigapede\bin\x86\Debug\Content\textures\phaser.xnb</Output>
+      <Time>2013-03-16T09:56:55.8447265-06:00</Time>
+    </Item>
+    <Item>
+      <Source>textures\photon torpedo.png</Source>
+      <Name>textures\photon torpedo</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\foobar\Desktop\gigapede\gigapede\gigapede\bin\x86\Debug\Content\textures\photon torpedo.xnb</Output>
+      <Time>2013-03-16T09:56:55.8466797-06:00</Time>
+    </Item>
+    <Item>
+      <Source>textures\romulan warbird.png</Source>
+      <Name>textures\romulan warbird</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\foobar\Desktop\gigapede\gigapede\gigapede\bin\x86\Debug\Content\textures\romulan warbird.xnb</Output>
+      <Time>2013-03-16T09:56:56.0722656-06:00</Time>
+    </Item>
+    <Item>
+      <Source>textures\starfield.jpg</Source>
+      <Name>textures\starfield</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\foobar\Desktop\gigapede\gigapede\gigapede\bin\x86\Debug\Content\textures\starfield.xnb</Output>
+      <Time>2013-03-16T09:56:56.1308593-06:00</Time>
+    </Item>
+    <Item>
+      <Source>textures\US coin.png</Source>
+      <Name>textures\US coin</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\foobar\Desktop\gigapede\gigapede\gigapede\bin\x86\Debug\Content\textures\US coin.xnb</Output>
+      <Time>2013-03-16T09:56:54.3417968-06:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>

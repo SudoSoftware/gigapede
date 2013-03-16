@@ -41,31 +41,36 @@ namespace gigapede
 			Soundtrack menutrack = new Soundtrack();
 			//menutrack.AddAudio(menutheme);
 
-			int width = graphics.PreferredBackBufferWidth;
-			int height = graphics.PreferredBackBufferHeight;
+            Vector2 SCREEN_PARAMETERS =
+                new Vector2(
+                    GameParameters.TARGET_RESOLUTION.Width,
+                    GameParameters.TARGET_RESOLUTION.Height
+                );
 
-			manager.RM.FontHash["head_font"] = Content.Load<SpriteFont>("MenuHead");
-			MenuStyle style = new MenuStyle(
-				new Vector2(((float)2.7 / 8) * width, ((float)2.7 / 6) * height),
-				new Vector2(((float)3.0 / 8) * width, ((float)3.1 / 6) * height),
-				new Vector2(0, ((float)1.0 / 20) * graphics.PreferredBackBufferHeight),
-				(SpriteFont)manager.RM.FontHash["head_font"], (SpriteFont)manager.RM.FontHash["Default"],
-				Color.Orange, Color.Orange, Color.OrangeRed, menutrack
-			);
+			MenuStyle style =
+                new MenuStyle(
+                    GameParameters.DEFAULT_TITLE_FACTOR * SCREEN_PARAMETERS,
+    				GameParameters.DEFAULT_MENU_FACTOR * SCREEN_PARAMETERS,
+                    GameParameters.DEFAULT_MENU_ITEM_DISPLACEMENT * SCREEN_PARAMETERS,
+		    		Content.Load<SpriteFont>(GameParameters.DEFAULT_TITLE_FONT),
+                    (SpriteFont)manager.RM.FontHash["Default"],
+				    GameParameters.DEFAULT_TITLE_COLOR,
+                    GameParameters.DEFAULT_MENU_COLOR,
+                    GameParameters.DEFAULT_SELECTED_ITEM_COLOR,
+                    menutrack
+			    );
 
-			MenuScreen main_menu = new MenuScreen(manager, new ExitScreen(manager, null), "Main Menu", style);
-			main_menu.AddItem(new AddScreenButton("Start Game", manager, typeof(CentipedeGame),
-				new Object[] { manager, main_menu }));
-			main_menu.AddItem(new AddScreenButton("Go to submenu", manager, typeof(MenuScreen),
-				new Object[] { manager, main_menu, "Sub Menu", style }));
-			main_menu.AddItem(new AddScreenButton("Credits", manager, typeof(CreditsScreen),
-				new Object[] { manager, main_menu, style.head_pos}));
-			main_menu.AddItem(new MenuQuitButton("Quit", main_menu));
+			MainMenuScreen main_menu =
+                new MainMenuScreen(manager, new ExitScreen(manager, null), style);
+			
 
-			// Load Background
-			Texture2D background = Content.Load<Texture2D>("lcars");
+			manager.AddScreen(
+                new BackgroundScreen(
+                    manager,
+                    Content.Load<Texture2D>(GameParameters.DEFAULT_MENU_BACKGROUND)
+                )
+            );
 
-			manager.AddScreen(new BackgroundScreen(manager, background));
 			manager.AddScreen(new IntroScreen(manager, main_menu, style.head_pos));
 
 

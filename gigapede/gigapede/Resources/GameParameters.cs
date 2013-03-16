@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Drawing;
+using Microsoft.Xna.Framework;
 
 namespace gigapede.Resources
 {
@@ -39,6 +40,22 @@ namespace gigapede.Resources
 		public static readonly Microsoft.Xna.Framework.Rectangle screenSize = new Microsoft.Xna.Framework.Rectangle(0, 0, TARGET_RESOLUTION.Width, TARGET_RESOLUTION.Height);
 		public static readonly int DEFAULT_ITEM_WIDTH = (int)(TARGET_RESOLUTION.Width / GRID_SIZE);
 		public static readonly int DEFAULT_ITEM_HEIGHT = DEFAULT_ITEM_WIDTH;
+
+
+        //menu parameters
+        public static readonly Vector2 DEFAULT_TITLE_FACTOR = new Vector2 ((float)2.7 / 8, (float)2.7 / 6);
+        public static readonly Vector2 DEFAULT_MENU_FACTOR = new Vector2 ((float)3.0 / 8, (float)3.1 / 6);
+        public static readonly Vector2 DEFAULT_MENU_ITEM_DISPLACEMENT = new Vector2(0, ((float)1.0 / 20));
+        public static readonly String DEFAULT_TITLE_FONT = "MenuHead";
+        public static readonly String DEFAULT_MENU_FONT = "Default";
+        public static readonly String DEFAULT_MENU_BACKGROUND = "lcars";
+        public static readonly Microsoft.Xna.Framework.Color DEFAULT_TITLE_COLOR =
+            Microsoft.Xna.Framework.Color.Orange;
+        public static readonly Microsoft.Xna.Framework.Color DEFAULT_MENU_COLOR =
+            Microsoft.Xna.Framework.Color.Orange;
+        public static readonly Microsoft.Xna.Framework.Color DEFAULT_SELECTED_ITEM_COLOR =
+            Microsoft.Xna.Framework.Color.OrangeRed;
+
 
 		//other
 		public const float LOCATION_TOLERANCE = 1f;

@@ -47,6 +47,23 @@ namespace gigapede.Resources
 			return value;
 		}
 
+
+
+        // Will use this function to load all high scores.
+        public String LoadAll()
+        {
+            String value = "";
+
+            using (XmlReader reader = XmlReader.Create(fileName))
+            {
+                while (reader.Read())
+                    if (reader.IsStartElement() && reader.Name.Equals("score") && reader.Read())
+                        value = reader.Value;
+            }
+
+            return value;
+        }
+
 		//www.dotnetperls.com/xmlwriter
 		//www.dotnetperls.com/xmlreader
 	}
