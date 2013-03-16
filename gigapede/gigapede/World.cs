@@ -89,7 +89,18 @@ namespace gigapede
 		public bool TypeAt(PointF point, Type itemType)
 		{
 			GameItem item = ItemAt(point);
-			return item != null && item.GetType().Equals(itemType);
+			return item != null && item.GetType() == itemType;
+		}
+
+
+
+		public GameItem GetItemOfType(Type itemType)
+		{
+			foreach (GameItem item in items)
+				if (item.GetType() == itemType)
+					return item;
+
+			return null;
 		}
 
 

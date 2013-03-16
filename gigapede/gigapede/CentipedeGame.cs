@@ -22,7 +22,6 @@ namespace gigapede
 			base(manager, exitScreen)
 		{
 			Shooter.minY = world.getBounds().Height - GameParameters.DEFAULT_ITEM_WIDTH * GameParameters.EMPTY_FOOTER_ROWS;
-
 			AddWorldContent();
 		}
 
@@ -30,10 +29,10 @@ namespace gigapede
 
 		public override void Update(GameTime gameTime)
 		{
-			userInput.Update();
-
 			HandleCentipedeSpawning();
 			HandleScorpionSpawning();
+
+			userInput.Update();
 			world.Update(gameTime, userInput);
 		}
 
@@ -61,6 +60,8 @@ namespace gigapede
 
 		public void AddWorldContent()
 		{
+			world.AddItem(new Spider(new PointF(0, GameParameters.DEFAULT_ITEM_HEIGHT)));
+
 			AddMushrooms();
 			//adding of Centipedes and Scorpions are handled in Update function
 			world.AddItem(new Shooter(new PointF(

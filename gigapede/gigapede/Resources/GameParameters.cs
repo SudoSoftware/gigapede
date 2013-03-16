@@ -11,9 +11,10 @@ namespace gigapede.Resources
 		//behavior
 		public const float CENTIPEDE_SPEED = 0.4f;
 		public const float SCORPION_SPEED = 0.3f;
+		public const float SPIDER_SPEED = 0.15f;
 		public const float ROCKET_SPEED = 0.8f;
 		public const float FLEA_SPEED = 0.3f;
-		public const float SHOOTER_MOVEMENT_THETA = 0.25f;
+		public const float SHOOTER_MOVEMENT_THETA = 0.32f;
 		public const float POWERUP_INITIAL_UPWARD_THRUST = -0.3f;
 		public const float GRAVITY = 0.02f;
 

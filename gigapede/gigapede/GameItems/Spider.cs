@@ -4,6 +4,7 @@ using System.Text;
 using Microsoft.Xna.Framework.Graphics;
 using System.Drawing;
 using gigapede.Resources;
+using Microsoft.Xna.Framework;
 
 namespace gigapede.GameItems
 {
@@ -23,14 +24,39 @@ namespace gigapede.GameItems
 		{
 			List<GameItemAction> actions = new List<GameItemAction>();
 
+			//System.Diagnostics.Debug.WriteLine("CALLED");
+
 			if (GetAliveness() <= 0)
 				Die(ref actions, info);
 
-			Mushroom contactingMushroom = GetContactingMushroom(info.contacts);
-			if (contactingMushroom != null && prng.nextRange(0, 5) <= 1) //20% of eating the mushroom it's touching
-				actions.Add(new GameItemAction(GameItemAction.Action.REMOVE_ITEM, contactingMushroom));
+			Vector2 vector = GetVectorToShooter(info);
+			vector.Normalize();
+			vector *= info.gameTime.ElapsedGameTime.Milliseconds * GameParameters.SPIDER_SPEED;
+
+			boundingBox.X += vector.X;
+			boundingBox.Y += vector.Y;
+
+			//Mushroom contactingMushroom = GetContactingMushroom(info.contacts);
+			//if (contactingMushroom != null && prng.nextRange(0, 5) <= 1) //20% of eating the mushroom it's touching
+			//	actions.Add(new GameItemAction(GameItemAction.Action.REMOVE_ITEM, contactingMushroom));
 
 			return actions;
+		}
+
+
+
+		private Vector2 GetVectorToShooter(InfoForItem info)
+		{
+			Shooter shooter = (Shooter)info.world.GetItemOfType(typeof(Shooter));
+			PointF shooterLoc = shooter.GetLocation();
+
+			Vector2 vector = new Vector2(shooterLoc.X, shooterLoc.Y);
+			vector.X -= boundingBox.X;
+			vector.Y -= boundingBox.Y;
+
+			System.Diagnostics.Debug.WriteLine(vector);
+
+			return vector;
 		}
 
 
