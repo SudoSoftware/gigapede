@@ -19,6 +19,7 @@ namespace gigapede
 		private PersistanceManager manager = new PersistanceManager("highScores.xml");
 		private List<GameAlert> scoringAlerts = new List<GameAlert>();
 		private int padding = 10;
+		private bool attactMode = false;
 
 
 		public HeadsUpDisplay()
@@ -38,6 +39,13 @@ namespace gigapede
 		public void IndicateAdditionalLife()
 		{
 			livesLeft++;
+		}
+
+
+
+		public void SetAttactMode(bool mode)
+		{
+			attactMode = mode;
 		}
 
 
@@ -77,6 +85,9 @@ namespace gigapede
 			DrawScores(spriteBatch);
 			DrawLife(spriteBatch);
 			DrawAlerts(spriteBatch);
+
+			if (attactMode)
+				DrawAttractMode(spriteBatch);
 		}
 
 
@@ -126,6 +137,19 @@ namespace gigapede
 					Microsoft.Xna.Framework.Color.Green
 				);
 			}
+		}
+
+
+
+		private void DrawAttractMode(SpriteBatch spriteBatch)
+		{
+			String attactText = "Check out this cool Gigapede game!";
+			spriteBatch.DrawString(
+				font,
+				attactText,
+				new Microsoft.Xna.Framework.Vector2(GameParameters.TARGET_RESOLUTION.Width - font.MeasureString(attactText).X - padding, padding + 100),
+				Microsoft.Xna.Framework.Color.Wheat
+			);
 		}
 
 

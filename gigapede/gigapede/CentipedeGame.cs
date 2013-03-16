@@ -12,13 +12,13 @@ namespace gigapede
 	class CentipedeGame : Screen
 	{
 		public static Texture2D background;
-		MyRandom prng = new MyRandom();
-		PointF centipedeSpawnLoc = new PointF(0, 0);
-		UserInput userInput = new UserInput();
-		World world = new World(new RectangleF(new PointF(), GameParameters.TARGET_RESOLUTION));
+		private MyRandom prng = new MyRandom();
+		private PointF centipedeSpawnLoc = new PointF(0, 0);
+		private World world = new World(new RectangleF(new PointF(), GameParameters.TARGET_RESOLUTION));
+		private UserInput userInput = new UserInput();
 
 
-		public CentipedeGame(ScreenManager manager, Screen exitScreen):
+		public CentipedeGame(ScreenManager manager, Screen exitScreen) :
 			base(manager, exitScreen)
 		{
 			Shooter.minY = world.getBounds().Height - GameParameters.DEFAULT_ITEM_WIDTH * GameParameters.EMPTY_FOOTER_ROWS;
@@ -29,6 +29,13 @@ namespace gigapede
 
 		public override void Update(GameTime gameTime)
 		{
+			System.Diagnostics.Debug.WriteLine(userInput.GetTimeSinceLastInput() + "	" + userInput.GetTimeSinceLastInput().TotalSeconds);
+			if (userInput.GetTimeSinceLastInput().TotalSeconds >= 10)
+			{
+				userInput = new AI(ref world);
+				world.getHUD().SetAttactMode(true);
+			}
+
 			HandleCentipedeSpawning();
 			HandleScorpionSpawning();
 
@@ -37,7 +44,7 @@ namespace gigapede
 		}
 
 
-		
+
 		public override void Draw()
 		{
 			SpriteBatch spriteBatch = manager.RM.SpriteB;
@@ -69,7 +76,7 @@ namespace gigapede
 				world.getBounds().Height - GameParameters.DEFAULT_ITEM_HEIGHT
 			)));
 		}
-		
+
 
 
 		private void AddMushrooms()
