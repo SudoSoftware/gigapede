@@ -16,8 +16,8 @@ namespace gigapede
 		}
 
 
-		private List<InputType> lastState = new List<InputType>();
-		private List<InputType> currentState = new List<InputType>();
+		protected List<InputType> lastState = new List<InputType>();
+		protected List<InputType> currentState = new List<InputType>();
 
 
 		public UserInput()
