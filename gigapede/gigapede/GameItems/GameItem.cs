@@ -71,6 +71,12 @@ namespace gigapede.GameItems
 
 
 
+		public RectangleF GetBounds()
+		{
+			return boundingBox;
+		}
+
+		
 
 		public class GameItemAction
 		{
