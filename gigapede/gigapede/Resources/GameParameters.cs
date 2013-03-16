@@ -18,7 +18,7 @@ namespace gigapede.Resources
 		public const float GRAVITY = 0.02f;
 
 		//world parameters
-		public const int GRID_SIZE = 24; //size of N-by-N grid. The original game was around 30 or 35
+		public const int GRID_SIZE = 24; //size of N-by-N grid. The original game was around 30 or 35. Must be >= 3
 		public const int EMPTY_HEADER_ROWS = 2; //free space for centipede
 		public const int EMPTY_FOOTER_ROWS = 5; //free space for shooter movement
 		public const int MAX_DAMAGEABLE_HEALTH = 4;

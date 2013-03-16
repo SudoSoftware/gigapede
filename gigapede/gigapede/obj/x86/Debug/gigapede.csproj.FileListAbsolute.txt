@@ -27,11 +27,11 @@ C:\Users\foobar\Desktop\gigapede\gigapede\gigapede\obj\x86\Debug\gigapede.csproj
 C:\Users\foobar\Desktop\gigapede\gigapede\gigapede\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
 C:\Users\foobar\Desktop\gigapede\gigapede\gigapede\obj\x86\Debug\gigapede.exe
 C:\Users\foobar\Desktop\gigapede\gigapede\gigapede\obj\x86\Debug\gigapede.pdb
-C:\Users\Admin\Documents\GitHub\gigapede\gigapede\gigapede\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
 C:\Users\Admin\Documents\GitHub\gigapede\gigapede\gigapede\bin\x86\Debug\Content\Default.xnb
 C:\Users\Admin\Documents\GitHub\gigapede\gigapede\gigapede\bin\x86\Debug\Content\MenuHead.xnb
 C:\Users\Admin\Documents\GitHub\gigapede\gigapede\gigapede\bin\x86\Debug\Content\LcarsFont.xnb
 C:\Users\Admin\Documents\GitHub\gigapede\gigapede\gigapede\bin\x86\Debug\Content\MenuItem.xnb
+C:\Users\Admin\Documents\GitHub\gigapede\gigapede\gigapede\bin\x86\Debug\Content\temporaryFont.xnb
 C:\Users\Admin\Documents\GitHub\gigapede\gigapede\gigapede\bin\x86\Debug\Content\lcars.xnb
 C:\Users\Admin\Documents\GitHub\gigapede\gigapede\gigapede\bin\x86\Debug\Content\textures\asteroid1.xnb
 C:\Users\Admin\Documents\GitHub\gigapede\gigapede\gigapede\bin\x86\Debug\Content\textures\asteroid2.xnb
@@ -44,8 +44,8 @@ C:\Users\Admin\Documents\GitHub\gigapede\gigapede\gigapede\bin\x86\Debug\Content
 C:\Users\Admin\Documents\GitHub\gigapede\gigapede\gigapede\bin\x86\Debug\Content\textures\romulan warbird.xnb
 C:\Users\Admin\Documents\GitHub\gigapede\gigapede\gigapede\bin\x86\Debug\Content\textures\starfield.xnb
 C:\Users\Admin\Documents\GitHub\gigapede\gigapede\gigapede\bin\x86\Debug\Content\textures\US coin.xnb
-C:\Users\Admin\Documents\GitHub\gigapede\gigapede\gigapede\bin\x86\Debug\Content\temporaryFont.xnb
 C:\Users\Admin\Documents\GitHub\gigapede\gigapede\gigapede\bin\x86\Debug\gigapede.exe
 C:\Users\Admin\Documents\GitHub\gigapede\gigapede\gigapede\bin\x86\Debug\gigapede.pdb
+C:\Users\Admin\Documents\GitHub\gigapede\gigapede\gigapede\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
 C:\Users\Admin\Documents\GitHub\gigapede\gigapede\gigapede\obj\x86\Debug\gigapede.exe
 C:\Users\Admin\Documents\GitHub\gigapede\gigapede\gigapede\obj\x86\Debug\gigapede.pdb

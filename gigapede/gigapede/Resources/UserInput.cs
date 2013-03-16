@@ -20,6 +20,13 @@ namespace gigapede
 		private List<InputType> currentState = new List<InputType>();
 
 
+		public UserInput()
+		{
+			Update();
+		}
+
+
+
 		public void Update()
 		{
 			lastState.Clear();
@@ -27,7 +34,7 @@ namespace gigapede
 			currentState.Clear();
 
 			checkKeyboard(Keyboard.GetState());
-			//checkGamepad(GamePad.GetState(PlayerIndex.One)); //TODO: FINALIZE
+			checkGamepad(GamePad.GetState(PlayerIndex.One));
 		}
 
 
@@ -81,10 +88,20 @@ namespace gigapede
 			if (gamepadState.Buttons.Back == ButtonState.Pressed)
 				currentState.Add(InputType.ESCAPE);
 
+			if (gamepadState.Buttons.Y == ButtonState.Pressed || gamepadState.ThumbSticks.Left.Y > 0)
+				currentState.Add(InputType.UP);
+
+			if (gamepadState.Buttons.A == ButtonState.Pressed || gamepadState.ThumbSticks.Left.Y < 0)
+				currentState.Add(InputType.DOWN);
+
+			if (gamepadState.Buttons.X == ButtonState.Pressed || gamepadState.ThumbSticks.Left.X < 0)
+				currentState.Add(InputType.LEFT);
+
+			if (gamepadState.Buttons.B == ButtonState.Pressed || gamepadState.ThumbSticks.Left.X > 0)
+				currentState.Add(InputType.RIGHT);
+
 			if (gamepadState.Triggers.Left == 1 || gamepadState.Triggers.Right == 1)
 				currentState.Add(InputType.FIRE);
-
-			//TODO: IMPLEMENT MOVEMENT
 		}
 	}
 }
