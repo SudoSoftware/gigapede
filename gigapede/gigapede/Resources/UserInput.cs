@@ -18,11 +18,19 @@ namespace gigapede
 
 		protected List<InputType> lastState = new List<InputType>();
 		protected List<InputType> currentState = new List<InputType>();
+		protected DateTime lastInputTime = new DateTime();
 
 
-		public UserInput()
+		public UserInput():
+			this(true)
+		{ }
+
+
+
+		public UserInput(bool immediateUpdate)
 		{
-			Update();
+			if (immediateUpdate)
+				Update();
 		}
 
 
@@ -42,6 +50,9 @@ namespace gigapede
 		{
 			checkKeyboard(Keyboard.GetState());
 			checkGamepad(GamePad.GetState(PlayerIndex.One));
+
+			if (currentState.Count > 0)
+				lastInputTime = DateTime.Now;
 		}
 
 
@@ -109,6 +120,13 @@ namespace gigapede
 
 			if (gamepadState.Triggers.Left == 1 || gamepadState.Triggers.Right == 1)
 				currentState.Add(InputType.FIRE);
+		}
+
+
+
+		public TimeSpan GetTimeSinceLastInput()
+		{
+			return DateTime.Now.Subtract(lastInputTime);
 		}
 	}
 }

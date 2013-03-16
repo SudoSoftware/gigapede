@@ -24,8 +24,6 @@ namespace gigapede.GameItems
 		{
 			List<GameItemAction> actions = new List<GameItemAction>();
 
-			//System.Diagnostics.Debug.WriteLine("CALLED");
-
 			if (GetAliveness() <= 0)
 				Die(ref actions, info);
 
@@ -53,8 +51,6 @@ namespace gigapede.GameItems
 			Vector2 vector = new Vector2(shooterLoc.X, shooterLoc.Y);
 			vector.X -= boundingBox.X;
 			vector.Y -= boundingBox.Y;
-
-			System.Diagnostics.Debug.WriteLine(vector);
 
 			return vector;
 		}
