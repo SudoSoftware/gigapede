@@ -9,70 +9,52 @@ using gigapede.Resources;
 
 namespace gigapede
 {
-	public class CentipedeGame : Microsoft.Xna.Framework.Game
+	class CentipedeGame : Screen
 	{
-		GraphicsDeviceManager graphics;
-		SpriteBatch spriteBatch;
-
-		Texture2D background;
+		public static Texture2D background;
 		MyRandom prng = new MyRandom();
 		PointF centipedeSpawnLoc = new PointF(0, 0);
-		UserInput userInput;
-		World world;
+		UserInput userInput = new UserInput();
+		World world = new World(new RectangleF(new PointF(), GameParameters.TARGET_RESOLUTION));
 
 
-		public CentipedeGame()
+		public CentipedeGame(ScreenManager manager, Screen exitScreen):
+			base(manager, exitScreen)
 		{
-			graphics = new GraphicsDeviceManager(this);
-			Content.RootDirectory = "Content";
-			
-			graphics.PreferredBackBufferWidth = GameParameters.TARGET_RESOLUTION.Width;
-			graphics.PreferredBackBufferHeight = GameParameters.TARGET_RESOLUTION.Height;
-			graphics.IsFullScreen = true;
-		}
-
-
-
-		protected override void Initialize()
-		{
-			userInput = new UserInput();
-			world = new World(new RectangleF(0, 0, graphics.PreferredBackBufferWidth, graphics.PreferredBackBufferHeight));
-
 			Shooter.minY = world.getBounds().Height - GameParameters.DEFAULT_ITEM_WIDTH * GameParameters.EMPTY_FOOTER_ROWS;
-
-			base.Initialize();
-		}
-
-
-
-		protected override void LoadContent()
-		{
-			spriteBatch = new SpriteBatch(GraphicsDevice);
-
-			//load all textures
-			background = this.Content.Load<Texture2D>("images/starfield");
-			Centipede.texture = this.Content.Load<Texture2D>("images/klingon bird of prey");
-			Flea.texture = this.Content.Load<Texture2D>("images/romulan warbird");
-			Mushroom.normalTexture = this.Content.Load<Texture2D>("images/asteroid1");
-			Mushroom.poisonedTexture = this.Content.Load<Texture2D>("images/asteroid2");
-			Powerup.texture = this.Content.Load<Texture2D>("images/US coin");
-			Rocket.primaryTexture = this.Content.Load<Texture2D>("images/phaser");
-			Rocket.secondaryTexture = this.Content.Load<Texture2D>("images/photon torpedo");
-			Scorpion.texture = this.Content.Load<Texture2D>("images/borg cube1");
-			Shooter.texture = this.Content.Load<Texture2D>("images/enterprise");
-			Spider.texture = this.Content.Load<Texture2D>("images/ferangi vessel");
-
-			//load all fonts
-			HeadsUpDisplay.font = Content.Load<SpriteFont>("temporaryFont");
 
 			AddWorldContent();
 		}
 
 
 
-		protected override void UnloadContent()
+		public override void Update(GameTime gameTime)
 		{
-			this.Content.Unload();
+			userInput.Update();
+
+			HandleCentipedeSpawning();
+			HandleScorpionSpawning();
+			world.Update(gameTime, userInput);
+		}
+
+
+		
+		public override void Draw()
+		{
+			SpriteBatch spriteBatch = manager.RM.SpriteB;
+
+			spriteBatch.Begin();
+			spriteBatch.Draw(background, GameParameters.screenSize, Microsoft.Xna.Framework.Color.White);
+			world.Draw(spriteBatch);
+			spriteBatch.End();
+		}
+
+
+
+		public override void HandleInput(GameTime time, UserInput input)
+		{
+			if (input.justPressed(UserInput.InputType.ESCAPE))
+				ExitScreen();
 		}
 
 
@@ -103,22 +85,6 @@ namespace gigapede
 
 
 
-		protected override void Update(GameTime gameTime)
-		{
-			userInput.Update();
-
-			if (userInput.justPressed(UserInput.InputType.ESCAPE))
-				this.Exit();
-
-			HandleCentipedeSpawning();
-			HandleScorpionSpawning();
-			world.Update(gameTime, userInput);
-
-			base.Update(gameTime);
-		}
-
-
-
 		int centipedeCount = 10;
 		private void HandleCentipedeSpawning()
 		{
@@ -141,20 +107,6 @@ namespace gigapede
 
 				world.AddItem(new Scorpion(new PointF(x, y)));
 			}
-		}
-
-
-
-		protected override void Draw(GameTime gameTime)
-		{
-			GraphicsDevice.Clear(Microsoft.Xna.Framework.Color.CornflowerBlue);
-			
-			spriteBatch.Begin();
-			spriteBatch.Draw(background, GameParameters.screenSize, Microsoft.Xna.Framework.Color.White);
-			world.Draw(spriteBatch);
-			spriteBatch.End();
-
-			base.Draw(gameTime);
 		}
 	}
 }

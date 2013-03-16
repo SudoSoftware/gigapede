@@ -70,7 +70,7 @@ namespace gigapede
 			if (keyboardState.IsKeyDown(Keys.Right))
 				currentState.Add(InputType.RIGHT);
 
-			if (keyboardState.IsKeyDown(Keys.Space))
+			if (keyboardState.IsKeyDown(Keys.Space) || keyboardState.IsKeyDown(Keys.Enter))
 				currentState.Add(InputType.FIRE);
 		}
 

@@ -2,6 +2,7 @@ Content\Default.xnb
 Content\MenuHead.xnb
 Content\LcarsFont.xnb
 Content\MenuItem.xnb
+Content\temporaryFont.xnb
 Content\lcars.xnb
 Content\textures\asteroid1.xnb
 Content\textures\asteroid2.xnb
@@ -14,4 +15,3 @@ Content\textures\photon torpedo.xnb
 Content\textures\romulan warbird.xnb
 Content\textures\starfield.xnb
 Content\textures\US coin.xnb
-Content\temporaryFont.xnb
