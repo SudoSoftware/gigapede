@@ -33,6 +33,13 @@ namespace gigapede
 			lastState.AddRange(currentState);
 			currentState.Clear();
 
+			UpdateState();
+		}
+
+
+
+		protected virtual void UpdateState()
+		{
 			checkKeyboard(Keyboard.GetState());
 			checkGamepad(GamePad.GetState(PlayerIndex.One));
 		}
