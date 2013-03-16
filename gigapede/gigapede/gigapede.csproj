@@ -66,12 +66,31 @@
     <Reference Include="Microsoft.Xna.Framework.GamerServices, Version=4.0.0.0, Culture=neutral, PublicKeyToken=842cf8be1de50553, processorArchitecture=x86" />
     <Reference Include="mscorlib" />
     <Reference Include="System" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Net" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CentipedeGame.cs" />
+    <Compile Include="GameItems\Centipede.cs" />
+    <Compile Include="GameItems\DamageableGameItem.cs" />
+    <Compile Include="GameItems\Flea.cs" />
+    <Compile Include="GameItems\GameItem.cs" />
+    <Compile Include="GameItems\JumpingGameItem.cs" />
+    <Compile Include="GameItems\Mushroom.cs" />
+    <Compile Include="GameItems\Powerup.cs" />
+    <Compile Include="GameItems\Rocket.cs" />
+    <Compile Include="GameItems\Scorpion.cs" />
+    <Compile Include="GameItems\Shooter.cs" />
+    <Compile Include="GameItems\Spider.cs" />
+    <Compile Include="HeadsUpDisplay.cs" />
+    <Compile Include="Resources\GameParameters.cs" />
+    <Compile Include="Resources\InfoForItem.cs" />
+    <Compile Include="Resources\MyRandom.cs" />
+    <Compile Include="Resources\PersistanceManager.cs" />
+    <Compile Include="Resources\UserInput.cs" />
     <Compile Include="ScreenManager\Buttons\AddScreenButton.cs" />
     <Compile Include="ScreenManager\Buttons\MenuQuitButton.cs" />
     <Compile Include="ScreenManager\MenuSystem\MenuButton.cs" />
@@ -91,7 +110,7 @@
     <Compile Include="ScreenManager\Base\ResourceManager.cs" />
     <Compile Include="ScreenManager\Base\Screen.cs" />
     <Compile Include="ScreenManager\Base\ScreenManager.cs" />
-    <Compile Include="ScreenManager\Base\UserInput.cs" />
+    <Compile Include="World.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Game.ico" />
