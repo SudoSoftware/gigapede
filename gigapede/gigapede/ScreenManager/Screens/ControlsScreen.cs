@@ -23,32 +23,32 @@ namespace gigapede
 
             MenuItem spacer = new MenuItem("");
 
-            this.AddItem( new MenuItem("Fire:") );
+            this.AddItem( new MenuItem("Fire:   ") );
             this.AddItem(
                 test_scroll
             );
 
-            this.AddItem(new MenuItem("ESC:"));
+            this.AddItem( new MenuItem("ESC:    ") );
             this.AddItem(
                 test_scroll
             );
 
-            this.AddItem(new MenuItem("Up:"));
+            this.AddItem( new MenuItem("Up:     ") );
             this.AddItem(
                 test_scroll
             );
 
-            this.AddItem(new MenuItem("Down:"));
+            this.AddItem( new MenuItem("Down:   ") );
             this.AddItem(
                 test_scroll
             );
 
-            this.AddItem(new MenuItem("Left:"));
+            this.AddItem( new MenuItem("Left:   ") );
             this.AddItem(
                 test_scroll
             );
 
-            this.AddItem(new MenuItem("Right:"));
+            this.AddItem( new MenuItem("Right:  ") );
             this.AddItem(
                 test_scroll
             );
