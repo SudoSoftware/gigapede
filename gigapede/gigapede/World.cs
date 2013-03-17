@@ -105,6 +105,18 @@ namespace gigapede
 
 
 
+		public int CountTypes(Type targetType)
+		{
+			int count = 0;
+			foreach (GameItem item in items)
+				if (item.GetType() == targetType)
+					count++;
+
+			return count;
+		}
+
+
+
 		public RectangleF getBounds()
 		{
 			return bounds;

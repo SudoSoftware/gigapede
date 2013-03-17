@@ -12,7 +12,11 @@ namespace gigapede
 	class AI : UserInput
 	{
 		private World world;
-		private Vector2 goalLocation, bottomRight, bottomLeft;
+		private MyRandom prng = new MyRandom();
+		private DateTime lastFired = DateTime.Now;
+		private double millisTillFire = 500;
+		private Vector2 goalLocation;
+		private readonly float maxX, minY, maxY;
 
 
 		public AI(ref World gameWorld):
@@ -20,9 +24,12 @@ namespace gigapede
 		{
 			world = gameWorld;
 
-			bottomRight = new Vector2(world.getBounds().Right - GameParameters.DEFAULT_ITEM_WIDTH, world.getBounds().Bottom - GameParameters.DEFAULT_ITEM_HEIGHT);
-			bottomLeft = new Vector2(0, bottomRight.Y);
-			goalLocation = bottomRight;
+			PointF shooterLoc = world.GetItemOfType(typeof(Shooter)).GetLocation();
+			goalLocation = new Vector2(shooterLoc.X, shooterLoc.Y);
+
+			maxX = world.getBounds().Right - GameParameters.DEFAULT_ITEM_WIDTH;
+			minY = world.getBounds().Bottom - GameParameters.DEFAULT_ITEM_HEIGHT * GameParameters.EMPTY_FOOTER_ROWS;
+			maxY = world.getBounds().Bottom - GameParameters.DEFAULT_ITEM_HEIGHT;
 		}
 
 
@@ -31,7 +38,8 @@ namespace gigapede
 		{
 			CheckForHumanInput();
 			UpdateDecisions();
-			PressKeys();
+			Navigate();
+			Fire();
 		}
 
 
@@ -51,17 +59,12 @@ namespace gigapede
 		private void UpdateDecisions()
 		{
 			if (GetDistanceToGo() < 5)
-			{
-				if (goalLocation == bottomRight)
-					goalLocation = bottomLeft;
-				else
-					goalLocation = bottomRight;
-			}
+				goalLocation = new Vector2(prng.nextRange(0, maxX), prng.nextRange(minY, maxY));
 		}
 
 
 
-		private void PressKeys()
+		private void Navigate()
 		{
 			Vector2 travelVector = GetTravelVector();
 
@@ -84,6 +87,18 @@ namespace gigapede
 
 
 
+		private void Fire()
+		{
+			if (DateTime.Now.Subtract(lastFired).TotalMilliseconds > millisTillFire)
+			{
+				currentState.Add(InputType.FIRE);
+				lastFired = DateTime.Now;
+				millisTillFire = prng.nextGaussian(100, 100);
+			}
+		}
+
+
+
 		private Vector2 GetTravelVector()
 		{
 			GameItem shooter = world.GetItemOfType(typeof(Shooter));
@@ -91,7 +106,6 @@ namespace gigapede
 
 			Vector2 vector = new Vector2(shooterLoc.X, shooterLoc.Y);
 			vector = goalLocation - vector;
-			System.Diagnostics.Debug.WriteLine(shooterLoc+"	"+vector + "	" + goalLocation + "	" + vector.Length());
 			return vector;
 		}
 

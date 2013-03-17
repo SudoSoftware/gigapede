@@ -26,10 +26,17 @@ namespace gigapede
 
 
 		public CentipedeGame(ScreenManager manager, Screen exitScreen) :
+			this(manager, exitScreen, true)
+		{ }
+
+
+		public CentipedeGame(ScreenManager manager, Screen exitScreen, bool startsInAttractMode) :
 			base(manager, exitScreen)
 		{
 			Shooter.minY = world.getBounds().Height - GameParameters.DEFAULT_ITEM_WIDTH * GameParameters.EMPTY_FOOTER_ROWS;
 			AddWorldContent();
+			if (startsInAttractMode)
+				userInput = new AI(ref world);
 
             if (game_theme == null)
                 game_theme = manager.RM.Content.Load<Song>(
@@ -50,7 +57,7 @@ namespace gigapede
 
 		public override void Update(GameTime gameTime)
 		{
-			if (userInput.GetTimeSinceLastInput().TotalSeconds >= 10)
+			if (userInput.GetType() != typeof(AI) && userInput.GetTimeSinceLastInput().TotalSeconds >= 10)
 			{
 				userInput = new AI(ref world);
 				world.getHUD().SetAttactMode(true);
