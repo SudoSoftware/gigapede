@@ -16,6 +16,6 @@ Content\textures\romulan warbird.xnb
 Content\textures\starfield.xnb
 Content\textures\US coin.xnb
 Content\music\brave.xnb
-Content\music\atdoomsgate.xnb
 Content\music\brave.wma
+Content\music\atdoomsgate.xnb
 Content\music\atdoomsgate.wma

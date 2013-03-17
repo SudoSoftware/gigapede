@@ -31,6 +31,7 @@ namespace gigapede
 			Shooter.minY = world.getBounds().Height - GameParameters.DEFAULT_ITEM_WIDTH * GameParameters.EMPTY_FOOTER_ROWS;
 			AddWorldContent();
 
+            // Soundtrack.
             if (game_theme == null)
                 game_theme = manager.RM.Content.Load<Song>(
                     Resources.GameParameters.DEFAULT_GAME_SONG
@@ -47,6 +48,7 @@ namespace gigapede
             manager.current_song = game_theme;
         }
         
+
 
 		public override void Update(GameTime gameTime)
 		{
@@ -79,9 +81,6 @@ namespace gigapede
 
 		public override void HandleInput(GameTime time, UserInput notUsing)
 		{
-            // Changed this so that globally editable controls work.
-            userInput = notUsing;
-
 			if (userInput.justPressed(UserInput.InputType.ESCAPE))
 				ExitScreen();
 		}

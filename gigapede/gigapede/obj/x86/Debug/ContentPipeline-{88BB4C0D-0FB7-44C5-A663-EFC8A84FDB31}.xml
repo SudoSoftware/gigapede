@@ -2,6 +2,24 @@
 <XnaContent xmlns:Pipeline="Microsoft.Xna.Framework.Content.Pipeline">
   <Asset Type="Pipeline:BuildItemCollection">
     <Item>
+      <Source>MenuFont.spritefont</Source>
+      <Name>MenuFont</Name>
+      <Importer>FontDescriptionImporter</Importer>
+      <Processor>FontDescriptionProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\foobar\Desktop\gigapede\gigapede\gigapede\bin\x86\Debug\Content\MenuFont.xnb</Output>
+      <Time>2013-03-16T09:56:54.1943359-06:00</Time>
+    </Item>
+    <Item>
+      <Source>TitleFont.spritefont</Source>
+      <Name>TitleFont</Name>
+      <Importer>FontDescriptionImporter</Importer>
+      <Processor>FontDescriptionProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\foobar\Desktop\gigapede\gigapede\gigapede\bin\x86\Debug\Content\TitleFont.xnb</Output>
+      <Time>2013-03-16T09:56:54.21875-06:00</Time>
+    </Item>
+    <Item>
       <Source>LcarsFont.spritefont</Source>
       <Name>LcarsFont</Name>
       <Importer>FontDescriptionImporter</Importer>
@@ -20,15 +38,6 @@
       <Time>2013-03-16T09:56:54.2363281-06:00</Time>
     </Item>
     <Item>
-      <Source>lcars.jpg</Source>
-      <Name>lcars</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\foobar\Desktop\gigapede\gigapede\gigapede\bin\x86\Debug\Content\lcars.xnb</Output>
-      <Time>2013-03-16T09:56:54.3134765-06:00</Time>
-    </Item>
-    <Item>
       <Source>temporaryFont.spritefont</Source>
       <Name>temporaryFont</Name>
       <Importer>FontDescriptionImporter</Importer>
@@ -36,6 +45,15 @@
       <Options>None</Options>
       <Output>C:\Users\foobar\Desktop\gigapede\gigapede\gigapede\bin\x86\Debug\Content\temporaryFont.xnb</Output>
       <Time>2013-03-16T09:56:54.3388672-06:00</Time>
+    </Item>
+    <Item>
+      <Source>lcars.jpg</Source>
+      <Name>lcars</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\foobar\Desktop\gigapede\gigapede\gigapede\bin\x86\Debug\Content\lcars.xnb</Output>
+      <Time>2013-03-16T09:56:54.3134765-06:00</Time>
     </Item>
     <Item>
       <Source>textures\asteroid1.png</Source>
@@ -135,24 +153,6 @@
       <Options>None</Options>
       <Output>C:\Users\foobar\Desktop\gigapede\gigapede\gigapede\bin\x86\Debug\Content\textures\US coin.xnb</Output>
       <Time>2013-03-16T09:56:54.3417968-06:00</Time>
-    </Item>
-    <Item>
-      <Source>MenuFont.spritefont</Source>
-      <Name>MenuFont</Name>
-      <Importer>FontDescriptionImporter</Importer>
-      <Processor>FontDescriptionProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\foobar\Desktop\gigapede\gigapede\gigapede\bin\x86\Debug\Content\MenuFont.xnb</Output>
-      <Time>2013-03-16T09:56:54.1943359-06:00</Time>
-    </Item>
-    <Item>
-      <Source>TitleFont.spritefont</Source>
-      <Name>TitleFont</Name>
-      <Importer>FontDescriptionImporter</Importer>
-      <Processor>FontDescriptionProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\foobar\Desktop\gigapede\gigapede\gigapede\bin\x86\Debug\Content\TitleFont.xnb</Output>
-      <Time>2013-03-16T09:56:54.21875-06:00</Time>
     </Item>
     <Item>
       <Source>music\brave.mp3</Source>

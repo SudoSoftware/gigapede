@@ -21,12 +21,12 @@ namespace gigapede
 		protected DateTime lastInputTime = new DateTime();
 
 
-        protected Keys LeftKey;
-        protected Keys RightKey;
-        protected Keys UpKey;
-        protected Keys DownKey;
-        protected Keys EscKey;
-        protected Keys FireKey;
+        protected static Keys LeftKey;
+        protected static Keys RightKey;
+        protected static Keys UpKey;
+        protected static Keys DownKey;
+        protected static Keys EscKey;
+        protected static Keys FireKey;
 
 
 		public UserInput():

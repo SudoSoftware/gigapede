@@ -1,0 +1,26 @@
+C:\Users\foobar\Desktop\gigapede\gigapede\gigapede\bin\x86\Debug\Content\MenuFont.xnb
+C:\Users\foobar\Desktop\gigapede\gigapede\gigapede\bin\x86\Debug\Content\TitleFont.xnb
+C:\Users\foobar\Desktop\gigapede\gigapede\gigapede\bin\x86\Debug\Content\LcarsFont.xnb
+C:\Users\foobar\Desktop\gigapede\gigapede\gigapede\bin\x86\Debug\Content\MenuItem.xnb
+C:\Users\foobar\Desktop\gigapede\gigapede\gigapede\bin\x86\Debug\Content\temporaryFont.xnb
+C:\Users\foobar\Desktop\gigapede\gigapede\gigapede\bin\x86\Debug\Content\lcars.xnb
+C:\Users\foobar\Desktop\gigapede\gigapede\gigapede\bin\x86\Debug\Content\textures\asteroid1.xnb
+C:\Users\foobar\Desktop\gigapede\gigapede\gigapede\bin\x86\Debug\Content\textures\asteroid2.xnb
+C:\Users\foobar\Desktop\gigapede\gigapede\gigapede\bin\x86\Debug\Content\textures\borg cube1.xnb
+C:\Users\foobar\Desktop\gigapede\gigapede\gigapede\bin\x86\Debug\Content\textures\enterprise.xnb
+C:\Users\foobar\Desktop\gigapede\gigapede\gigapede\bin\x86\Debug\Content\textures\ferangi vessel.xnb
+C:\Users\foobar\Desktop\gigapede\gigapede\gigapede\bin\x86\Debug\Content\textures\klingon bird of prey.xnb
+C:\Users\foobar\Desktop\gigapede\gigapede\gigapede\bin\x86\Debug\Content\textures\phaser.xnb
+C:\Users\foobar\Desktop\gigapede\gigapede\gigapede\bin\x86\Debug\Content\textures\photon torpedo.xnb
+C:\Users\foobar\Desktop\gigapede\gigapede\gigapede\bin\x86\Debug\Content\textures\romulan warbird.xnb
+C:\Users\foobar\Desktop\gigapede\gigapede\gigapede\bin\x86\Debug\Content\textures\starfield.xnb
+C:\Users\foobar\Desktop\gigapede\gigapede\gigapede\bin\x86\Debug\Content\textures\US coin.xnb
+C:\Users\foobar\Desktop\gigapede\gigapede\gigapede\bin\x86\Debug\Content\music\brave.xnb
+C:\Users\foobar\Desktop\gigapede\gigapede\gigapede\bin\x86\Debug\Content\music\atdoomsgate.xnb
+C:\Users\foobar\Desktop\gigapede\gigapede\gigapede\bin\x86\Debug\Content\music\brave.wma
+C:\Users\foobar\Desktop\gigapede\gigapede\gigapede\bin\x86\Debug\Content\music\atdoomsgate.wma
+C:\Users\foobar\Desktop\gigapede\gigapede\gigapede\bin\x86\Debug\gigapede.exe
+C:\Users\foobar\Desktop\gigapede\gigapede\gigapede\bin\x86\Debug\gigapede.pdb
+C:\Users\foobar\Desktop\gigapede\gigapede\gigapede\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
+C:\Users\foobar\Desktop\gigapede\gigapede\gigapede\obj\x86\Debug\gigapede.exe
+C:\Users\foobar\Desktop\gigapede\gigapede\gigapede\obj\x86\Debug\gigapede.pdb
