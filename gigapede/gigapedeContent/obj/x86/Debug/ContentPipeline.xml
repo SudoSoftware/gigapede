@@ -2,13 +2,22 @@
 <XnaContent xmlns:Pipeline="Microsoft.Xna.Framework.Content.Pipeline">
   <Asset Type="Pipeline:BuildItemCollection">
     <Item>
-      <Source>MenuHead.spritefont</Source>
-      <Name>MenuHead</Name>
+      <Source>MenuFont.spritefont</Source>
+      <Name>MenuFont</Name>
       <Importer>FontDescriptionImporter</Importer>
       <Processor>FontDescriptionProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Admin\Documents\GitHub\gigapede\gigapede\gigapede\bin\x86\Debug\Content\MenuHead.xnb</Output>
-      <Time>2013-03-15T17:48:07.6113724-06:00</Time>
+      <Output>C:\Users\Admin\Documents\GitHub\gigapede\gigapede\gigapede\bin\x86\Debug\Content\MenuFont.xnb</Output>
+      <Time>2013-03-16T16:40:39.9261095-06:00</Time>
+    </Item>
+    <Item>
+      <Source>TitleFont.spritefont</Source>
+      <Name>TitleFont</Name>
+      <Importer>FontDescriptionImporter</Importer>
+      <Processor>FontDescriptionProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Admin\Documents\GitHub\gigapede\gigapede\gigapede\bin\x86\Debug\Content\TitleFont.xnb</Output>
+      <Time>2013-03-16T19:22:19.2985861-06:00</Time>
     </Item>
     <Item>
       <Source>LcarsFont.spritefont</Source>
@@ -144,15 +153,6 @@
       <Options>None</Options>
       <Output>C:\Users\Admin\Documents\GitHub\gigapede\gigapede\gigapede\bin\x86\Debug\Content\textures\US coin.xnb</Output>
       <Time>2013-03-15T18:00:48.3484718-06:00</Time>
-    </Item>
-    <Item>
-      <Source>MenuFont.spritefont</Source>
-      <Name>MenuFont</Name>
-      <Importer>FontDescriptionImporter</Importer>
-      <Processor>FontDescriptionProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\Admin\Documents\GitHub\gigapede\gigapede\gigapede\bin\x86\Debug\Content\MenuFont.xnb</Output>
-      <Time>2013-03-16T16:40:39.9261095-06:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>

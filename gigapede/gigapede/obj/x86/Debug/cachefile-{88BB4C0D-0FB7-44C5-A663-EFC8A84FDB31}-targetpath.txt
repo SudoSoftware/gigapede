@@ -1,3 +1,5 @@
+Content\MenuFont.xnb
+Content\TitleFont.xnb
 Content\LcarsFont.xnb
 Content\MenuItem.xnb
 Content\temporaryFont.xnb
@@ -13,5 +15,3 @@ Content\textures\photon torpedo.xnb
 Content\textures\romulan warbird.xnb
 Content\textures\starfield.xnb
 Content\textures\US coin.xnb
-Content\MenuFont.xnb
-Content\TitleFont.xnb
