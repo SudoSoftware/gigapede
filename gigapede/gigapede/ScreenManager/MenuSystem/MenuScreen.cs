@@ -8,6 +8,7 @@ using Microsoft.Xna.Framework.GamerServices;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
+using gigapede.Resources;
 
 namespace gigapede
 {
@@ -74,8 +75,7 @@ namespace gigapede
                 selected_index > 0)
                 selected_index--;
 
-            if (input.justPressed(UserInput.InputType.FIRE))
-                menu_items[selected_index].HandleInput(time, input);
+            menu_items[selected_index].HandleInput(time, input);
         }
 
         public override void Draw()
@@ -105,6 +105,14 @@ namespace gigapede
                 x.Draw(manager, style, position, selected);
                 position.X += style.menu_inc.X;
                 position.Y += style.menu_inc.Y;
+
+                if (position.Y >= ((float)5 / 6) *
+                    GameParameters.TARGET_RESOLUTION.Height)
+                {
+                    position.Y = style.menu_start.Y;
+                    position.X += ((float)100 / 512) *
+                        GameParameters.TARGET_RESOLUTION.Width;
+                }
             }
         }
 

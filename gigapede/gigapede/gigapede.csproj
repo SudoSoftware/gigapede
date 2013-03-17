@@ -93,12 +93,14 @@
     <Compile Include="Resources\PersistanceManager.cs" />
     <Compile Include="Resources\UserInput.cs" />
     <Compile Include="ScreenManager\Buttons\AddScreenButton.cs" />
+    <Compile Include="ScreenManager\Buttons\KeySelector.cs" />
     <Compile Include="ScreenManager\Buttons\MenuQuitButton.cs" />
+    <Compile Include="ScreenManager\Buttons\ScrollButton.cs" />
     <Compile Include="ScreenManager\MenuSystem\MenuButton.cs" />
-    <Compile Include="ScreenManager\MenuSystem\ScrollButton.cs" />
     <Compile Include="ScreenManager\Base\Soundtrack.cs" />
     <Compile Include="ScreenManager\Base\SoundtrackManager.cs" />
     <Compile Include="ScreenManager\Screens\BackgroundScreen.cs" />
+    <Compile Include="ScreenManager\Screens\ControlsScreen.cs" />
     <Compile Include="ScreenManager\Screens\CreditsScreen.cs" />
     <Compile Include="ScreenManager\Screens\ExitScreen.cs" />
     <Compile Include="ScreenManager\Screens\HighScoresScreen.cs" />
@@ -113,7 +115,6 @@
     <Compile Include="ScreenManager\Base\Screen.cs" />
     <Compile Include="ScreenManager\Base\ScreenManager.cs" />
     <Compile Include="ScreenManager\Screens\MainMenuScreen.cs" />
-    <Compile Include="ScreenManager\Screens\OptionsScreen.cs" />
     <Compile Include="World.cs" />
   </ItemGroup>
   <ItemGroup>
