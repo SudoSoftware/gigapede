@@ -17,8 +17,8 @@ namespace gigapede
         public Vector2 head_pos;
         public Vector2 menu_start;
 
-        public SpriteFont head_font;
-        public SpriteFont font;
+        public String title_font;
+        public String menu_font;
 
         public Color head_color;
         public Color menu_color;
@@ -29,11 +29,11 @@ namespace gigapede
         public Soundtrack soundtrack;
 
         public MenuStyle(Vector2 head_pos, Vector2 menu_start, Vector2 menu_inc,
-            SpriteFont head_font, SpriteFont font,
+            String title_font, String menu_font,
             Color head_color, Color menu_color, Color selected_color, Soundtrack audio_manager)
         {
-            this.head_font = head_font;
-            this.font = font;
+            this.title_font = title_font;
+            this.menu_font = menu_font;
 
             this.menu_start = menu_start;
             this.head_pos = head_pos;
