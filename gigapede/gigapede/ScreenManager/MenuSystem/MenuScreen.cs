@@ -61,11 +61,8 @@ namespace gigapede
         {
             base.HandleInput(time, input);
 
-            // Update Soundtrack
-            manager.AM.PlaySoundtrack(style.soundtrack);
-
             // Based on input, move the highlighted item across the screen.
-            // If the input is not used here, pass it to the item.
+            // Pass input to the selected item.
 
             if (input.justPressed(UserInput.InputType.DOWN) &&
                 selected_index +1 < menu_items.Count)

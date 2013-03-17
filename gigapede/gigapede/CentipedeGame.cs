@@ -79,6 +79,9 @@ namespace gigapede
 
 		public override void HandleInput(GameTime time, UserInput notUsing)
 		{
+            // Changed this so that globally editable controls work.
+            userInput = notUsing;
+
 			if (userInput.justPressed(UserInput.InputType.ESCAPE))
 				ExitScreen();
 		}

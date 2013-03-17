@@ -97,8 +97,6 @@
     <Compile Include="ScreenManager\Buttons\MenuQuitButton.cs" />
     <Compile Include="ScreenManager\Buttons\ScrollButton.cs" />
     <Compile Include="ScreenManager\MenuSystem\MenuButton.cs" />
-    <Compile Include="ScreenManager\Base\Soundtrack.cs" />
-    <Compile Include="ScreenManager\Base\SoundtrackManager.cs" />
     <Compile Include="ScreenManager\Screens\BackgroundScreen.cs" />
     <Compile Include="ScreenManager\Screens\ControlsScreen.cs" />
     <Compile Include="ScreenManager\Screens\CreditsScreen.cs" />
