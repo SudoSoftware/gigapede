@@ -62,3 +62,7 @@ C:\Users\Admin\Documents\GitHub\gigapede\gigapede\gigapede\obj\x86\Debug\gigaped
 C:\Users\Admin\Documents\GitHub\gigapede\gigapede\gigapede\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
 C:\Users\Admin\Documents\GitHub\gigapede\gigapede\gigapede\obj\x86\Debug\gigapede.exe
 C:\Users\Admin\Documents\GitHub\gigapede\gigapede\gigapede\obj\x86\Debug\gigapede.pdb
+C:\Users\foobar\Desktop\gigapede\gigapede\gigapede\bin\x86\Debug\Content\music\brave.xnb
+C:\Users\foobar\Desktop\gigapede\gigapede\gigapede\bin\x86\Debug\Content\music\brave.wma
+C:\Users\foobar\Desktop\gigapede\gigapede\gigapede\bin\x86\Debug\Content\music\atdoomsgate.xnb
+C:\Users\foobar\Desktop\gigapede\gigapede\gigapede\bin\x86\Debug\Content\music\atdoomsgate.wma

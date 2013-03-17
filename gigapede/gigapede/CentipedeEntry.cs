@@ -36,6 +36,9 @@ namespace gigapede
 			spriteBatch = new SpriteBatch(GraphicsDevice);
 			manager = new ScreenManager(this, graphics, Content, spriteBatch);
 
+            // Soundtrack should repreat.
+            MediaPlayer.IsRepeating = true;
+
 			//SoundEffect menutheme = Content.Load<SoundEffect>("menutheme");
 
 			Soundtrack menutrack = new Soundtrack();
@@ -64,15 +67,11 @@ namespace gigapede
                 new MainMenuScreen(manager, new ExitScreen(manager, null), style);
 			
 
-			manager.AddScreen(
-                new BackgroundScreen(manager)
-            );
+			manager.AddScreen(new BackgroundScreen(manager));
 
-			manager.AddScreen(new IntroScreen(manager, main_menu, style.head_pos));
-
-
-			MenuScreen sub_menu = new MenuScreen(manager, main_menu, "Sub Menu", style);
-			sub_menu.AddItem(new MenuQuitButton("Go Back", sub_menu));
+            IntroScreen intro_screen = new IntroScreen(manager, main_menu, style.head_pos);
+			manager.AddScreen(intro_screen);
+            manager.FocusScreen(intro_screen);
 
 			base.Initialize();
 		}
@@ -95,6 +94,10 @@ namespace gigapede
              
 			//load all game fonts
 			HeadsUpDisplay.font = Content.Load<SpriteFont>("temporaryFont");
+
+            // Load up Soundtrack
+            MainMenuScreen.menu_theme = Content.Load<Song>("music/brave");
+            CentipedeGame.game_theme = Content.Load<Song>("music/atdoomsgate");
 
             // Load up all menu resources.
             manager.RM.Background = Content.Load<Texture2D>(GameParameters.DEFAULT_MENU_BACKGROUND);

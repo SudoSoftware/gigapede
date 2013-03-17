@@ -6,6 +6,11 @@ using Microsoft.Xna.Framework.Graphics;
 using gigapede.GameItems;
 using System.Drawing;
 using gigapede.Resources;
+using Microsoft.Xna.Framework.Audio;
+using Microsoft.Xna.Framework.Content;
+using Microsoft.Xna.Framework.GamerServices;
+using Microsoft.Xna.Framework.Input;
+using Microsoft.Xna.Framework.Media;
 
 namespace gigapede
 {
@@ -17,15 +22,31 @@ namespace gigapede
 		private World world = new World(new RectangleF(new PointF(), GameParameters.TARGET_RESOLUTION));
 		private UserInput userInput = new UserInput();
 
+        public static Song game_theme;
+
 
 		public CentipedeGame(ScreenManager manager, Screen exitScreen) :
 			base(manager, exitScreen)
 		{
 			Shooter.minY = world.getBounds().Height - GameParameters.DEFAULT_ITEM_WIDTH * GameParameters.EMPTY_FOOTER_ROWS;
 			AddWorldContent();
+
+            if (game_theme == null)
+                game_theme = manager.RM.Content.Load<Song>(
+                    Resources.GameParameters.DEFAULT_GAME_SONG
+                );
 		}
 
 
+
+        public override void GotFocus()
+        {
+            if (manager.current_song != game_theme)
+                MediaPlayer.Play(game_theme);
+
+            manager.current_song = game_theme;
+        }
+        
 
 		public override void Update(GameTime gameTime)
 		{

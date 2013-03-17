@@ -40,6 +40,16 @@ Welcome to the Starfleet Planar Combat Simulator";
             manager.FocusScreen(this);
         }
 
+        public override void GotFocus()
+        {
+            if (MainMenuScreen.menu_theme == null)
+                MainMenuScreen.menu_theme =
+                    manager.RM.Content.Load<Song>(Resources.GameParameters.DEFAULT_MENU_SONG);
+
+            MediaPlayer.Play(MainMenuScreen.menu_theme);
+            manager.current_song = MainMenuScreen.menu_theme;
+        }
+
         public override void ExitScreen()
         {
             manager.KillScreen(this);

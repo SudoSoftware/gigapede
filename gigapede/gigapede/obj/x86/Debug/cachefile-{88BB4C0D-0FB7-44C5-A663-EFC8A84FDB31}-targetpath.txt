@@ -15,3 +15,7 @@ Content\textures\starfield.xnb
 Content\textures\US coin.xnb
 Content\MenuFont.xnb
 Content\TitleFont.xnb
+Content\music\brave.xnb
+Content\music\brave.wma
+Content\music\atdoomsgate.xnb
+Content\music\atdoomsgate.wma

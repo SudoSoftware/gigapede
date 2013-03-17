@@ -59,6 +59,11 @@ namespace gigapede.Resources
             Microsoft.Xna.Framework.Color.OrangeRed;
 
 
+        //soundtrack
+        public static readonly String DEFAULT_MENU_SONG = "music/brave";
+        public static readonly String DEFAULT_GAME_SONG = "music/atdoomsgate";
+
+
 		//other
 		public const float LOCATION_TOLERANCE = 1f;
 		public const int ALERT_MILLISECONDS = 1500; //how long the alerts are shown for

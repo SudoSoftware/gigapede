@@ -32,6 +32,9 @@ namespace gigapede
         // The audio manager.
         SoundtrackManager am;
 
+        // The current song.
+        public Song current_song;
+
         // Input Class
         UserInput input;
 
@@ -84,7 +87,8 @@ namespace gigapede
 
     	public void FocusScreen (Screen focus_screen)
     	{
-           focus = focus_screen;
+            focus = focus_screen;
+            focus.GotFocus();
     	}
 
     	public void Update (GameTime time)
@@ -96,9 +100,6 @@ namespace gigapede
 
             if (focus != null)
     	        focus.HandleInput(time, input);
-
-            // Update Soundtrack.
-            am.Update();
     	}
 
     	public void Draw ()

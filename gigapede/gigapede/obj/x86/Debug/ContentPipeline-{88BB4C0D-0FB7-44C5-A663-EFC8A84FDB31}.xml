@@ -154,6 +154,26 @@
       <Output>C:\Users\foobar\Desktop\gigapede\gigapede\gigapede\bin\x86\Debug\Content\TitleFont.xnb</Output>
       <Time>2013-03-16T09:56:54.21875-06:00</Time>
     </Item>
+    <Item>
+      <Source>music\brave.mp3</Source>
+      <Name>music\brave</Name>
+      <Importer>Mp3Importer</Importer>
+      <Processor>SongProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\foobar\Desktop\gigapede\gigapede\gigapede\bin\x86\Debug\Content\music\brave.xnb</Output>
+      <Extra>C:\Users\foobar\Desktop\gigapede\gigapede\gigapede\bin\x86\Debug\Content\music\brave.wma</Extra>
+      <Time>2013-03-16T22:44:15.5595703-06:00</Time>
+    </Item>
+    <Item>
+      <Source>music\atdoomsgate.mp3</Source>
+      <Name>music\atdoomsgate</Name>
+      <Importer>Mp3Importer</Importer>
+      <Processor>SongProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\foobar\Desktop\gigapede\gigapede\gigapede\bin\x86\Debug\Content\music\atdoomsgate.xnb</Output>
+      <Extra>C:\Users\foobar\Desktop\gigapede\gigapede\gigapede\bin\x86\Debug\Content\music\atdoomsgate.wma</Extra>
+      <Time>2013-03-17T12:53:45.4716796-06:00</Time>
+    </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
       <ContentProjectGUID>{88BB4C0D-0FB7-44C5-A663-EFC8A84FDB31}</ContentProjectGUID>
