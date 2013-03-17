@@ -29,7 +29,6 @@ namespace gigapede
 
 		public override void Update(GameTime gameTime)
 		{
-			System.Diagnostics.Debug.WriteLine(userInput.GetTimeSinceLastInput() + "	" + userInput.GetTimeSinceLastInput().TotalSeconds);
 			if (userInput.GetTimeSinceLastInput().TotalSeconds >= 10)
 			{
 				userInput = new AI(ref world);
@@ -57,9 +56,9 @@ namespace gigapede
 
 
 
-		public override void HandleInput(GameTime time, UserInput input)
+		public override void HandleInput(GameTime time, UserInput notUsing)
 		{
-			if (input.justPressed(UserInput.InputType.ESCAPE))
+			if (userInput.justPressed(UserInput.InputType.ESCAPE))
 				ExitScreen();
 		}
 

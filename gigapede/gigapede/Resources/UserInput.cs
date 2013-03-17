@@ -42,6 +42,9 @@ namespace gigapede
 			currentState.Clear();
 
 			UpdateState();
+
+			if (currentState.Count > 0)
+				lastInputTime = DateTime.Now;
 		}
 
 
@@ -50,9 +53,6 @@ namespace gigapede
 		{
 			checkKeyboard(Keyboard.GetState());
 			checkGamepad(GamePad.GetState(PlayerIndex.One));
-
-			if (currentState.Count > 0)
-				lastInputTime = DateTime.Now;
 		}
 
 

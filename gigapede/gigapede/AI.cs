@@ -29,6 +29,27 @@ namespace gigapede
 
 		protected override void UpdateState()
 		{
+			CheckForHumanInput();
+			UpdateDecisions();
+			PressKeys();
+		}
+
+
+
+		private void CheckForHumanInput()
+		{
+			base.UpdateState();
+			bool humanInputHappened = currentState.Count > 0;
+
+			currentState.Clear();
+			if (humanInputHappened)
+				currentState.Add(InputType.ESCAPE);
+		}
+
+
+
+		private void UpdateDecisions()
+		{
 			if (GetDistanceToGo() < 5)
 			{
 				if (goalLocation == bottomRight)
@@ -36,9 +57,6 @@ namespace gigapede
 				else
 					goalLocation = bottomRight;
 			}
-
-			PressKeys();
-			base.UpdateState(); //temporary (this still allows human input)
 		}
 
 
