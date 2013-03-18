@@ -132,15 +132,15 @@
     <Folder Include="SoundEffects\" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="music\brave.mp3">
-      <Name>brave</Name>
+    <Compile Include="music\atdoomsgate.mp3">
+      <Name>atdoomsgate</Name>
       <Importer>Mp3Importer</Importer>
       <Processor>SongProcessor</Processor>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="music\atdoomsgate.mp3">
-      <Name>atdoomsgate</Name>
+    <Compile Include="music\firstContact.mp3">
+      <Name>firstContact</Name>
       <Importer>Mp3Importer</Importer>
       <Processor>SongProcessor</Processor>
     </Compile>

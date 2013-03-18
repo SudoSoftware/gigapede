@@ -100,8 +100,8 @@ namespace gigapede
 			HeadsUpDisplay.font = Content.Load<SpriteFont>("temporaryFont");
 
             // Load up Soundtrack
-            MainMenuScreen.menu_theme = Content.Load<Song>("music/brave");
-            CentipedeGame.game_theme = Content.Load<Song>("music/atdoomsgate");
+            MainMenuScreen.menu_theme = Content.Load<Song>(GameParameters.DEFAULT_MENU_SONG);
+			CentipedeGame.game_theme = Content.Load<Song>(GameParameters.DEFAULT_GAME_SONG);
 
             // Load up all menu resources.
             manager.RM.Background = Content.Load<Texture2D>(GameParameters.DEFAULT_MENU_BACKGROUND);

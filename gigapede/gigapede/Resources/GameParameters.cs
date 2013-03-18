@@ -60,7 +60,7 @@ namespace gigapede.Resources
 
 
         //soundtrack
-        public static readonly String DEFAULT_MENU_SONG = "music/brave";
+        public static readonly String DEFAULT_MENU_SONG = "music/firstContact";
         public static readonly String DEFAULT_GAME_SONG = "music/atdoomsgate";
 
 
