@@ -21,12 +21,12 @@ namespace gigapede
 		protected DateTime lastInputTime = new DateTime();
 
 
-        protected static Keys LeftKey;
-        protected static Keys RightKey;
-        protected static Keys UpKey;
-        protected static Keys DownKey;
-        protected static Keys EscKey;
-        protected static Keys FireKey;
+        public static Keys LeftKey;
+        public static Keys RightKey;
+        public static Keys UpKey;
+        public static Keys DownKey;
+        public static Keys EscKey;
+        public static Keys FireKey;
 
 
 		public UserInput():
@@ -37,13 +37,6 @@ namespace gigapede
 
 		public UserInput(bool immediateUpdate)
 		{
-            LeftKey = Keys.Left;
-            RightKey = Keys.Right;
-            UpKey = Keys.Up;
-            DownKey = Keys.Down;
-            EscKey = Keys.Escape;
-            FireKey = Keys.Space;
-
 			if (immediateUpdate)
 				Update();
 		}
