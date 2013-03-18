@@ -1,7 +1,9 @@
+Content\MenuFont.xnb
+Content\TitleFont.xnb
 Content\LcarsFont.xnb
 Content\MenuItem.xnb
-Content\lcars.xnb
 Content\temporaryFont.xnb
+Content\lcars.xnb
 Content\textures\asteroid1.xnb
 Content\textures\asteroid2.xnb
 Content\textures\borg cube1.xnb
@@ -13,8 +15,6 @@ Content\textures\photon torpedo.xnb
 Content\textures\romulan warbird.xnb
 Content\textures\starfield.xnb
 Content\textures\US coin.xnb
-Content\MenuFont.xnb
-Content\TitleFont.xnb
 Content\music\brave.xnb
 Content\music\atdoomsgate.xnb
 Content\music\brave.wma

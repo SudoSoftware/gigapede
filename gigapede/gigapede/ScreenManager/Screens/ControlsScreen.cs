@@ -17,42 +17,17 @@ namespace gigapede
         public ControlsScreen(ScreenManager manager, Screen exit_screen, MenuStyle style)
             : base(manager, exit_screen, "Controls", style)
         {
-            ScrollButton test_scroll = new ScrollButton("Scroll");
-            test_scroll.AddOption("xkcd");
-            test_scroll.AddOption("ussr");
+            this.AddItem( new KeySelector("Left:    ", UserInput.InputType.LEFT) );
 
-            MenuItem spacer = new MenuItem("");
+            this.AddItem( new KeySelector("Right:   ", UserInput.InputType.RIGHT) );
 
-            this.AddItem( new MenuItem("Fire:   ") );
-            this.AddItem(
-                test_scroll
-            );
+            this.AddItem( new KeySelector("Up:      ", UserInput.InputType.UP) );
 
-            this.AddItem( new MenuItem("ESC:    ") );
-            this.AddItem(
-                test_scroll
-            );
+            this.AddItem( new KeySelector("Down:    ", UserInput.InputType.DOWN) );
 
-            this.AddItem( new MenuItem("Up:     ") );
-            this.AddItem(
-                test_scroll
-            );
+            this.AddItem( new KeySelector("Escape:  ", UserInput.InputType.ESCAPE) );
 
-            this.AddItem( new MenuItem("Down:   ") );
-            this.AddItem(
-                test_scroll
-            );
-
-            this.AddItem( new MenuItem("Left:   ") );
-            this.AddItem(
-                test_scroll
-            );
-
-            this.AddItem( new MenuItem("Right:  ") );
-            this.AddItem(
-                test_scroll
-            );
-            this.AddItem(spacer);
+            this.AddItem( new KeySelector("Fire:    ", UserInput.InputType.FIRE) );
 
             this.AddItem(
                 new MenuQuitButton("Return to Main Menu", this)

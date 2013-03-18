@@ -27,10 +27,7 @@ namespace gigapede
         Game gm;
 
         // The resource manager.
-        ResourceManager rm;
-
-        // The audio manager.
-        SoundtrackManager am;
+        public ResourceManager rm;
 
         // The current song.
         public Song current_song;
@@ -56,18 +53,11 @@ namespace gigapede
             get { return rm; }
         }
 
-        // The audio manager's accessor.
-        public SoundtrackManager AM
-        {
-            get { return am; }
-        }
-
         // Constructor
         public ScreenManager(Game game, GraphicsDeviceManager graphics, ContentManager content, SpriteBatch spriteb)
         {
             gm = game;
             rm = new ResourceManager(graphics, content, spriteb);
-            am = new SoundtrackManager();
 
             screenqueue = new List<Screen>();
 

@@ -16,33 +16,33 @@ namespace gigapede
 {
     class KeySelector : MenuButton
     {
-        private bool collect_mode;
-        private Keys chosen_key;
+        private bool capture_mode;
         private String label_name;
         private UserInput.InputType edit_key;
 
         public KeySelector(String init_text, UserInput.InputType edit_key)
             : base(init_text + edit_key.ToString())
         {
-            collect_mode = false;
+            capture_mode = false;
             this.edit_key = edit_key;
             label_name = init_text;
         }
 
         public override void  HandleInput(GameTime time, UserInput input)
         {
-            if (input.justPressed(UserInput.InputType.FIRE))
+            Keys[] temp = Keyboard.GetState().GetPressedKeys();
+
+            if (temp.Length > 0)
             {
-                if (collect_mode)
+                Keys key = temp[0];
+                if (capture_mode && key != Keys.Enter)
                 {
-                    chosen_key = Keyboard.GetState().GetPressedKeys()[0];
-                    display_text = label_name + chosen_key.ToString();
-                    collect_mode = false;
+                    input.SetInputKey(edit_key, key);
+                    display_text = label_name + key.ToString();
+                    capture_mode = false;
                 }
-                else
-                {
-                    collect_mode = true;
-                }
+                else if (input.justPressed(UserInput.InputType.FIRE))
+                    capture_mode = true;
             }
         }
         

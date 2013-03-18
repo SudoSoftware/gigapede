@@ -38,6 +38,7 @@ namespace gigapede
 			if (startsInAttractMode)
 				userInput = new AI(ref world);
 
+            // Soundtrack.
             if (game_theme == null)
                 game_theme = manager.RM.Content.Load<Song>(
                     Resources.GameParameters.DEFAULT_GAME_SONG
@@ -54,6 +55,7 @@ namespace gigapede
             manager.current_song = game_theme;
         }
         
+
 
 		public override void Update(GameTime gameTime)
 		{

@@ -36,14 +36,19 @@ namespace gigapede
 			spriteBatch = new SpriteBatch(GraphicsDevice);
 			manager = new ScreenManager(this, graphics, Content, spriteBatch);
 
+
+            // Set up default key bindings.
+            UserInput.LeftKey = Keys.Left;
+            UserInput.RightKey = Keys.Right;
+            UserInput.UpKey = Keys.Up;
+            UserInput.DownKey = Keys.Down;
+            UserInput.EscKey = Keys.Escape;
+            UserInput.FireKey = Keys.Space;
+
+
             // Soundtrack should repreat.
             MediaPlayer.IsRepeating = true;
-
-			//SoundEffect menutheme = Content.Load<SoundEffect>("menutheme");
-
-			Soundtrack menutrack = new Soundtrack();
-			//menutrack.AddAudio(menutheme);
-
+            
             Vector2 SCREEN_PARAMETERS =
                 new Vector2(
                     GameParameters.TARGET_RESOLUTION.Width,
@@ -59,8 +64,7 @@ namespace gigapede
                     "MenuFont",
 				    GameParameters.DEFAULT_TITLE_COLOR,
                     GameParameters.DEFAULT_MENU_COLOR,
-                    GameParameters.DEFAULT_SELECTED_ITEM_COLOR,
-                    menutrack
+                    GameParameters.DEFAULT_SELECTED_ITEM_COLOR
 			    );
 
 			MainMenuScreen main_menu =
