@@ -41,10 +41,11 @@ namespace gigapede.GameItems
 			{
 				if (contact.GetType() == typeof(Shooter))
 				{
+					Shooter shooter = (Shooter)contact;
 					if (type == PowerupType.SHOOTER_POWERUP)
-						PowerupShooter((Shooter)contact, ref itemActions);
+						PowerupShooter(shooter, ref itemActions);
 					else if (type == PowerupType.EXTRA_LIFE)
-						info.world.getHUD().IndicateAdditionalLife();
+						shooter.GiveAdditionalLife();
 				}
 			}
 

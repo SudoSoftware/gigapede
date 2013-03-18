@@ -69,7 +69,7 @@ namespace gigapede.GameItems
 
 		protected override void Die(ref List<GameItemAction> itemActions, InfoForItem info)
 		{
-			info.world.getHUD().AddToScore(GameParameters.SPIDER_MID_POINTS, this); //todo: implement distance judgement
+			((Shooter)info.world.GetItemOfType(typeof(Shooter))).AddToScore(GameParameters.SPIDER_MID_POINTS, this, info.world.getHUD()); //todo: implement distance judgement
 			base.Die(ref itemActions, info);
 		}
 

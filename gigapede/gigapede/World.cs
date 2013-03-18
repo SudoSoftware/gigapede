@@ -12,9 +12,12 @@ namespace gigapede
 {
 	class World
 	{
-		private HeadsUpDisplay hud = new HeadsUpDisplay();
+		private HeadsUpDisplay hud;
 		private List<GameItem> items = new List<GameItem>();
 		private RectangleF bounds;
+		
+		//private bool playerAlive = true;
+		//private GameItem itemPlayerDiedTo;
 
 
 		public World(RectangleF worldBounds)
@@ -44,6 +47,10 @@ namespace gigapede
 
 			foreach (GameItem item in itemsToBeAdded)
 				AddItem(item);
+
+			Shooter shooter = (Shooter)GetItemOfType(typeof(Shooter));
+			if (!shooter.IsAlive())
+				items.Remove(shooter);
 
 			hud.Update();
 		}
@@ -127,6 +134,36 @@ namespace gigapede
 		public HeadsUpDisplay getHUD()
 		{
 			return hud;
+		}
+
+
+
+		public void setHUD(HeadsUpDisplay hud)
+		{
+			this.hud = hud;
+		}
+
+
+
+		/*public void SetPlayerAliveStatus(bool isPlayerAlive)
+		{
+			playerAlive = isPlayerAlive;
+		}
+
+
+		public void PlayerDiedTo(Game
+		{
+			playerAlive = false;
+			itemPlayerDiedTo = itemDiedTo;
+			hud.IndicateLostLife();
+		}*/
+
+
+
+		public bool IsPlayerAlive()
+		{
+			GameItem player = GetItemOfType(typeof(Shooter));
+			return player != null && ((Shooter)player).IsAlive();
 		}
 
 

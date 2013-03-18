@@ -43,7 +43,7 @@ namespace gigapede.GameItems
 
 		protected override void Die(ref List<GameItemAction> itemActions, InfoForItem info)
 		{
-			info.world.getHUD().AddToScore(GameParameters.CENTIPEDE_POINTS, this);
+			((Shooter)info.world.GetItemOfType(typeof(Shooter))).AddToScore(GameParameters.CENTIPEDE_POINTS, this, info.world.getHUD());
 			PossiblyGivePowerup(ref itemActions);
 			itemActions.Add(new GameItemAction(GameItemAction.Action.REPLACE_ME, new Mushroom(boundingBox.Location)));
 		}

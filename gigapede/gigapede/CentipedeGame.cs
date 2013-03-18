@@ -26,7 +26,7 @@ namespace gigapede
 
 
 		public CentipedeGame(ScreenManager manager, Screen exitScreen) :
-			this(manager, exitScreen, true)
+			this(manager, exitScreen, false)
 		{ }
 
 
@@ -56,6 +56,18 @@ namespace gigapede
         
 
 		public override void Update(GameTime gameTime)
+		{
+			if (world.IsPlayerAlive())
+				UpdateGame(gameTime);
+			else
+			{
+				world.RemoveItem(world.GetItemOfType(typeof(Shooter)));
+			}				
+		}
+
+
+
+		public void UpdateGame(GameTime gameTime)
 		{
 			if (userInput.GetType() != typeof(AI) && userInput.GetTimeSinceLastInput().TotalSeconds >= 10)
 			{
@@ -98,10 +110,14 @@ namespace gigapede
 
 			AddMushrooms();
 			//adding of Centipedes and Scorpions are handled in Update function
-			world.AddItem(new Shooter(new PointF(
+
+			Shooter player = new Shooter(new PointF(
 				(world.getBounds().Width + GameParameters.DEFAULT_ITEM_WIDTH) / 2,
 				world.getBounds().Height - GameParameters.DEFAULT_ITEM_HEIGHT
-			)));
+			));
+
+			world.AddItem(player);
+			world.setHUD(new HeadsUpDisplay(ref player));
 		}
 
 

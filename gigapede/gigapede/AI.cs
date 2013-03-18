@@ -13,7 +13,7 @@ namespace gigapede
 	{
 		private World world;
 		private MyRandom prng = new MyRandom();
-		private DateTime lastFired = DateTime.Now;
+		private DateTime lastFired = DateTime.Now, bornTime = DateTime.Now;
 		private double millisTillFire = 500;
 		private Vector2 goalLocation;
 		private readonly float maxX, minY, maxY;
@@ -89,6 +89,9 @@ namespace gigapede
 
 		private void Fire()
 		{
+			if (DateTime.Now.Subtract(bornTime).TotalSeconds >= 90 || world.CountTypes(typeof(Centipede)) <= 3)
+				return; //stop firing to try to stay within the assignment parameters
+
 			if (DateTime.Now.Subtract(lastFired).TotalMilliseconds > millisTillFire)
 			{
 				currentState.Add(InputType.FIRE);

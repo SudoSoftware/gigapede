@@ -35,7 +35,7 @@ namespace gigapede.GameItems
 
 		protected override void Die(ref List<GameItemAction> itemActions, InfoForItem info)
 		{
-			info.world.getHUD().AddToScore(GameParameters.SCORPION_POINTS, this);
+			((Shooter)info.world.GetItemOfType(typeof(Shooter))).AddToScore(GameParameters.SCORPION_POINTS, this, info.world.getHUD());
 			base.Die(ref itemActions, info);
 		}
 

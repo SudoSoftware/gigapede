@@ -13,17 +13,17 @@ namespace gigapede
 	class HeadsUpDisplay
 	{
 		public static SpriteFont font;
-		private int livesLeft = GameParameters.MAX_LIVES;
-		private int currentScore = 0;
 		private int highScore = 0;
 		private PersistanceManager manager = new PersistanceManager("highScores.xml");
 		private List<GameAlert> scoringAlerts = new List<GameAlert>();
 		private int padding = 10;
 		private bool attactMode = false;
+		private Shooter player;
 
 
-		public HeadsUpDisplay()
+		public HeadsUpDisplay(ref Shooter player)
 		{
+			this.player = player;
 			highScore = Convert.ToInt32(manager.Load());
 		}
 
@@ -31,14 +31,7 @@ namespace gigapede
 
 		public void IndicateLostLife()
 		{
-			livesLeft--;
-		}
-
-
-
-		public void IndicateAdditionalLife()
-		{
-			livesLeft++;
+			//livesLeft--;
 		}
 
 
@@ -50,13 +43,11 @@ namespace gigapede
 
 
 
-		public void AddToScore(int pointValue, GameItem source)
+		public void IndicateAdditionalPoints(int pointValue, GameItem source)
 		{
-			currentScore += pointValue;
-
-			if (currentScore > highScore)
+			if (player.GetCurrentScore() > highScore)
 			{
-				highScore = currentScore;
+				highScore = player.GetCurrentScore();
 				manager.Save(highScore);
 			}
 
@@ -94,7 +85,7 @@ namespace gigapede
 
 		private void DrawScores(SpriteBatch spriteBatch)
 		{
-			String scoreStr = "Score: " + currentScore;
+			String scoreStr = "Score: " + player.GetCurrentScore();
 			spriteBatch.DrawString(
 				font,
 				scoreStr,
@@ -115,7 +106,7 @@ namespace gigapede
 
 		private void DrawLife(SpriteBatch spriteBatch)
 		{
-			String livesLeftStr = "Lives: " + livesLeft;
+			String livesLeftStr = "Lives: " + player.GetLivesLeft();
 			spriteBatch.DrawString(
 				font,
 				livesLeftStr,

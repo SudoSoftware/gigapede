@@ -15,6 +15,11 @@ namespace gigapede.GameItems
 		public static float minY;
 		private int extraPowerUsesLeft = 0;
 
+		private bool amAlive = true;
+		private int livesLeft = GameParameters.MAX_LIVES;
+		private GameItem diedTo;
+		private int currentScore = 0;
+
 
 		public Shooter(PointF location) :
 			base(location)
@@ -25,7 +30,14 @@ namespace gigapede.GameItems
 		public override List<GameItemAction> Update(InfoForItem info)
 		{
 			HandleMovement(info);
-			
+
+			foreach (GameItem contact in info.contacts)
+			{
+				Type type = contact.GetType();
+				if (type == typeof(Centipede) || type == typeof(Flea) || type == typeof(Scorpion) || type == typeof(Spider))
+					Die(contact);
+			}
+
 			List<GameItemAction> actions = new List<GameItemAction>();
 			if (info.inputState.justPressed(UserInput.InputType.FIRE))
 				SpawnRocket(ref actions);
@@ -90,6 +102,66 @@ namespace gigapede.GameItems
 		public bool IsPoweredUp()
 		{
 			return extraPowerUsesLeft > 0;
+		}
+
+
+
+		public void AddToScore(int additionalPoints, GameItem source, HeadsUpDisplay hud)
+		{
+			currentScore += additionalPoints;
+			hud.IndicateAdditionalPoints(additionalPoints, source);
+		}
+
+
+
+		public void Die(GameItem itemDiedTo)
+		{
+			diedTo = itemDiedTo;
+			livesLeft--;
+			amAlive = false;
+		}
+
+
+
+		public void Respawn()
+		{
+			amAlive = true;
+			diedTo = null;
+		}
+
+
+
+		public void GiveAdditionalLife()
+		{
+			livesLeft++;
+		}
+
+
+
+		public int GetLivesLeft()
+		{
+			return livesLeft;
+		}
+
+
+
+		public GameItem GetItemDiedTo()
+		{
+			return diedTo;
+		}
+
+
+
+		public int GetCurrentScore()
+		{
+			return currentScore;
+		}
+
+
+
+		public bool IsAlive()
+		{
+			return amAlive;
 		}
 
 
