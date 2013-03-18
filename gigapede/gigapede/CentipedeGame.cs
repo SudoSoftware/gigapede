@@ -59,17 +59,30 @@ namespace gigapede
 
 		public override void Update(GameTime gameTime)
 		{
-			if (world.IsPlayerAlive())
-				UpdateGame(gameTime);
-			else
-			{
-				world.RemoveItem(world.GetItemOfType(typeof(Shooter)));
-			}				
+			if (!world.IsPlayerAlive())
+				HandlePlayerRespawn(gameTime);
+			
+			UpdateGame(gameTime);
 		}
 
 
 
-		public void UpdateGame(GameTime gameTime)
+		private DateTime respawnStart;
+		private void HandlePlayerRespawn(GameTime gameTime)
+		{
+			world.RemoveAllOfType(typeof(Centipede));
+			world.RemoveAllOfType(typeof(Rocket));
+			world.RemoveAllOfType(typeof(Flea));
+			world.RemoveAllOfType(typeof(Scorpion));
+			world.RemoveAllOfType(typeof(Spider));
+
+			world.getHUD().IndicateLostLife();
+
+		}
+
+
+
+		private void UpdateGame(GameTime gameTime)
 		{
 			if (userInput.GetType() != typeof(AI) && userInput.GetTimeSinceLastInput().TotalSeconds >= 10)
 			{
@@ -113,12 +126,7 @@ namespace gigapede
 			AddMushrooms();
 			//adding of Centipedes and Scorpions are handled in Update function
 
-			Shooter player = new Shooter(new PointF(
-				(world.getBounds().Width + GameParameters.DEFAULT_ITEM_WIDTH) / 2,
-				world.getBounds().Height - GameParameters.DEFAULT_ITEM_HEIGHT
-			));
-
-			world.AddItem(player);
+			Shooter player = AddShooter();
 			world.setHUD(new HeadsUpDisplay(ref player));
 		}
 
@@ -134,6 +142,36 @@ namespace gigapede
 				for (float y = startY; y < endY; y += GameParameters.DEFAULT_ITEM_HEIGHT)
 					if (prng.nextRange(0, 10) <= 1) // 10% chance of adding
 						world.AddItem(new Mushroom(new PointF(x, y)));
+		}
+
+
+
+		//spawns a new Shooter, centered in the empty footer, but avoids spawning on top of existing GameItems
+		public Shooter AddShooter()
+		{
+			int centerColumn = (int)(world.getBounds().Width / GameParameters.DEFAULT_ITEM_WIDTH) / 2;
+
+			PointF shooterSpawnLoc = new PointF(
+				centerColumn * GameParameters.DEFAULT_ITEM_WIDTH,
+				world.getBounds().Height - (float)Math.Ceiling((double)GameParameters.EMPTY_FOOTER_ROWS / 2) * GameParameters.DEFAULT_ITEM_HEIGHT
+			);
+			
+			//avoid spawning on top of any existing GameItem
+			float originalSpawnX = shooterSpawnLoc.X;
+			for (int offset = 0; offset < centerColumn; offset++)
+			{
+				shooterSpawnLoc.X = originalSpawnX + GameParameters.DEFAULT_ITEM_WIDTH * (offset + 1);
+				if (world.ItemAt(shooterSpawnLoc) == null)
+					break;
+
+				shooterSpawnLoc.X = originalSpawnX + GameParameters.DEFAULT_ITEM_WIDTH * (offset + 1) * -1;
+				if (world.ItemAt(shooterSpawnLoc) == null)
+					break;
+			}
+
+			Shooter player = new Shooter(shooterSpawnLoc);
+			world.AddItem(player);
+			return player;
 		}
 
 

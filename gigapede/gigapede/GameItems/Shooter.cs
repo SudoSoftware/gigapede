@@ -29,6 +29,11 @@ namespace gigapede.GameItems
 
 		public override List<GameItemAction> Update(InfoForItem info)
 		{
+			List<GameItemAction> actions = new List<GameItemAction>();
+
+			if (!amAlive)
+				return actions;
+
 			HandleMovement(info);
 
 			foreach (GameItem contact in info.contacts)
@@ -38,9 +43,10 @@ namespace gigapede.GameItems
 					Die(contact);
 			}
 
-			List<GameItemAction> actions = new List<GameItemAction>();
+			
 			if (info.inputState.justPressed(UserInput.InputType.FIRE))
 				SpawnRocket(ref actions);
+
 			return actions;
 		}
 
@@ -113,7 +119,7 @@ namespace gigapede.GameItems
 		}
 
 
-
+		
 		public void Die(GameItem itemDiedTo)
 		{
 			diedTo = itemDiedTo;
@@ -144,7 +150,7 @@ namespace gigapede.GameItems
 		}
 
 
-
+		
 		public GameItem GetItemDiedTo()
 		{
 			return diedTo;

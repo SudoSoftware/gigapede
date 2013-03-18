@@ -34,7 +34,7 @@ namespace gigapede.GameItems
 
 		private void PossiblyGivePowerup(ref List<GameItemAction> itemActions)
 		{
-			if (prng.nextRange(0, 40) <= 1) //2.5% chance
+			if (prng.nextRange(0, 10) <= 1) //40 is a good value as its a 2.5% chance
 				itemActions.Add(new GameItemAction(GameItemAction.Action.ADD_ITEM, new Powerup(boundingBox.Location, Powerup.PowerupType.SHOOTER_POWERUP)));
 		}
 

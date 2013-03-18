@@ -48,10 +48,6 @@ namespace gigapede
 			foreach (GameItem item in itemsToBeAdded)
 				AddItem(item);
 
-			Shooter shooter = (Shooter)GetItemOfType(typeof(Shooter));
-			if (!shooter.IsAlive())
-				items.Remove(shooter);
-
 			hud.Update();
 		}
 
@@ -77,6 +73,20 @@ namespace gigapede
 		public void RemoveItem(GameItem item)
 		{
 			items.Remove(item);
+		}
+
+
+
+		public void RemoveAllOfType(Type targetType)
+		{
+			LinkedList<GameItem> itemsToBeRemoved = new LinkedList<GameItem>();
+
+			foreach (GameItem item in items)
+				if (item.GetType() == targetType)
+					itemsToBeRemoved.AddLast(item);
+
+			foreach (GameItem item in itemsToBeRemoved)
+				items.Remove(item);
 		}
 
 
