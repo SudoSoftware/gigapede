@@ -39,8 +39,8 @@ namespace gigapede.GameItems
 			foreach (GameItem contact in info.contacts)
 			{
 				Type type = contact.GetType();
-				if (type == typeof(Centipede) || type == typeof(Flea) || type == typeof(Scorpion) || type == typeof(Spider))
-					Die(contact);
+				//if (type == typeof(Centipede) || type == typeof(Flea) || type == typeof(Scorpion) || type == typeof(Spider))
+				//	Die(contact);
 			}
 
 			

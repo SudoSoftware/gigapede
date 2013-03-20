@@ -12,7 +12,7 @@ namespace gigapede.Resources
 		//behavior
 		public const float CENTIPEDE_SPEED = 0.4f;
 		public const float SCORPION_SPEED = 0.3f;
-		public const float SPIDER_SPEED = 0.2f;
+		public const float SPIDER_SPEED = 0.25f;
 		public const float ROCKET_SPEED = 0.8f;
 		public const float FLEA_SPEED = 0.3f;
 		public const float SPIDER_ZIGZAG_COEFF = 0.5f;

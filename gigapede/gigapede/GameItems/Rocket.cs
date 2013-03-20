@@ -40,15 +40,17 @@ namespace gigapede.GameItems
 				Type itemType = item.GetType();
 				if (itemType.IsSubclassOf(typeof(DamageableGameItem)))
 				{
-					if (itemType == typeof(Mushroom))
+					DamageableGameItem damageableItem = (DamageableGameItem)item;
+
+					if (itemType == typeof(Centipede))
+						damageableItem.KillOff();
+					else
 					{
 						if (IsPoweredUp)
-							((Mushroom)item).KillOff();
+							damageableItem.KillOff();
 						else
-							((Mushroom)item).Damage();
+							damageableItem.Damage();
 					}
-					else if (itemType == typeof(Centipede))
-						((Centipede)item).KillOff();
 
 					actions.Add(new GameItemAction(GameItemAction.Action.REMOVE_ITEM, this));
 					break; //makes it only destroy one item

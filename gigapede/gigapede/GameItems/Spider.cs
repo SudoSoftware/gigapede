@@ -74,16 +74,18 @@ namespace gigapede.GameItems
 		private void ResetGoal(InfoForItem info)
 		{
 			Shooter shooter = (Shooter)info.world.GetItemOfType(typeof(Shooter));
-			Vector2 vToShooter = GetVectorTo(shooter.GetLocation());
+			PointF shooterLoc = shooter.GetLocation();
 			
+			Vector2 vToShooter = GetVectorTo(shooterLoc); //get vector to shooter
 			Vector2 perpToShooter = new Vector2(-vToShooter.Y, vToShooter.X);
-			perpToShooter.Normalize();
+			perpToShooter.Normalize(); //normalize the vector to the shooter
 			float magnitude = prng.nextRange(-GameParameters.SPIDER_ZIGZAG_COEFF, GameParameters.SPIDER_ZIGZAG_COEFF) * vToShooter.Length();
-			Vector2 offsetVector = perpToShooter * magnitude;
+			Vector2 offsetVector = perpToShooter * magnitude; //pick vector that is an offset from vToShooter
 
-			float percentage = 0.5f;// prng.nextRange(0.1f, 0.7f); // (float)prng.nextGaussian(0.5, 0.5);
-			PointF ptOnLine = new PointF(vToShooter.X * percentage, vToShooter.Y * percentage);
+			float percentage = 0.5f; // prng.nextRange(0.1f, 0.7f); //(float)prng.nextGaussian(0.5, 1);
+			PointF ptOnLine = new PointF((boundingBox.X + shooterLoc.X) * percentage, (boundingBox.Y + shooterLoc.Y) * percentage);
 
+			//adding the offset vector to the point on vToShooter produces the new goal location 
 			goalLocation.X = ptOnLine.X + offsetVector.X;
 			goalLocation.Y = ptOnLine.Y + offsetVector.Y;
 		}
