@@ -12,6 +12,7 @@ namespace gigapede.GameItems
 	{
 		public static Texture2D texture;
 		private MyRandom prng = new MyRandom();
+		private List<Mushroom> mContactsLastTime = new List<Mushroom>();
 
 
 		public Spider(PointF location) :
@@ -27,18 +28,22 @@ namespace gigapede.GameItems
 			if (GetAliveness() <= 0)
 				Die(ref actions, info);
 
+			Move(info);
+			EatMushrooms(info.contacts, ref actions);
+
+			return actions;
+		}
+
+
+
+		private void Move(InfoForItem info)
+		{
 			Vector2 vector = GetVectorToShooter(info);
 			vector.Normalize();
 			vector *= info.gameTime.ElapsedGameTime.Milliseconds * GameParameters.SPIDER_SPEED;
 
 			boundingBox.X += vector.X;
 			boundingBox.Y += vector.Y;
-
-			//Mushroom contactingMushroom = GetContactingMushroom(info.contacts);
-			//if (contactingMushroom != null && prng.nextRange(0, 5) <= 1) //20% of eating the mushroom it's touching
-			//	actions.Add(new GameItemAction(GameItemAction.Action.REMOVE_ITEM, contactingMushroom));
-
-			return actions;
 		}
 
 
@@ -57,12 +62,39 @@ namespace gigapede.GameItems
 
 
 
-		private Mushroom GetContactingMushroom(List<GameItem> contacts)
+		private void EatMushrooms(List<GameItem> currentContacts, ref List<GameItemAction> actions)
 		{
-			foreach (GameItem item in contacts)
-				if (item.GetType() == typeof(Mushroom))
-					return (Mushroom)item;
-			return null;
+			removeObsoleteContacts(currentContacts);
+
+			foreach (GameItem contact in currentContacts)
+			{
+				if (contact.GetType() == typeof(Mushroom))
+				{
+					Mushroom mushroomContact = (Mushroom)contact;
+					if (!mContactsLastTime.Contains(mushroomContact))
+					{ //it just now contacted the mushroom
+
+						if (prng.nextRange(0, 5) <= 1) //20% of eating the mushroom it's touching
+							actions.Add(new GameItemAction(GameItemAction.Action.REMOVE_ITEM, mushroomContact));
+						mContactsLastTime.Add(mushroomContact);
+					}
+				}
+			}
+		}
+
+
+
+		//if the Spider is no longer contacting any of the remembered Mushroms, forget them
+		private void removeObsoleteContacts(List<GameItem> currentContacts)
+		{
+			List<Mushroom> obsoleteContacts = new List<Mushroom>();
+
+			foreach (Mushroom mushroom in mContactsLastTime)
+				if (!currentContacts.Contains(mushroom))
+					obsoleteContacts.Add(mushroom);
+
+			foreach (Mushroom mushroom in obsoleteContacts)
+				mContactsLastTime.Remove(mushroom);
 		}
 
 
@@ -71,6 +103,13 @@ namespace gigapede.GameItems
 		{
 			((Shooter)info.world.GetItemOfType(typeof(Shooter))).AddToScore(GameParameters.SPIDER_MID_POINTS, this, info.world.getHUD()); //todo: implement distance judgement
 			base.Die(ref itemActions, info);
+		}
+
+
+
+		public override bool IsMovable()
+		{
+			return true;
 		}
 
 
