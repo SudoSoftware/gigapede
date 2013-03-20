@@ -92,6 +92,7 @@ namespace gigapede
 
 			HandleCentipedeSpawning();
 			HandleScorpionSpawning();
+			HandleFleaSpawning();
 
 			userInput.Update();
 			world.Update(gameTime, userInput);
@@ -197,6 +198,23 @@ namespace gigapede
 				float y = (float)Math.Round(range) * GameParameters.DEFAULT_ITEM_HEIGHT;
 
 				world.AddItem(new Scorpion(new PointF(x, y)));
+			}
+		}
+
+
+
+		private DateTime fleaLastSpawned = DateTime.Now;
+		private void HandleFleaSpawning()
+		{
+			if (!Flea.SpawnIsAppropriate(world))
+				return;
+
+			if (DateTime.Now.Subtract(fleaLastSpawned).TotalMilliseconds >= prng.nextGaussian(4000, 1))
+			{
+				float x = (int)prng.nextRange(0, GameParameters.GRID_SIZE) * GameParameters.DEFAULT_ITEM_WIDTH;
+				
+				world.AddItem(new Flea(new PointF(x, 0)));
+				fleaLastSpawned = DateTime.Now;
 			}
 		}
 	}

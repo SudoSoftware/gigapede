@@ -9,7 +9,7 @@ namespace gigapede.GameItems
 {
 	abstract class DamageableGameItem : GameItem
 	{
-		private int currentHealth = GameParameters.MAX_DAMAGEABLE_HEALTH;
+		protected int currentHealth = GameParameters.MAX_DAMAGEABLE_HEALTH;
 		protected float originalHeight;
 
 
@@ -48,7 +48,7 @@ namespace gigapede.GameItems
 
 
 
-		public void Damage()
+		public virtual void Damage()
 		{
 			currentHealth--;
 			boundingBox.Height = originalHeight * GetAliveness();

@@ -15,9 +15,6 @@ namespace gigapede
 		private HeadsUpDisplay hud;
 		private List<GameItem> items = new List<GameItem>();
 		private RectangleF bounds;
-		
-		//private bool playerAlive = true;
-		//private GameItem itemPlayerDiedTo;
 
 
 		public World(RectangleF worldBounds)
@@ -122,6 +119,19 @@ namespace gigapede
 
 
 
+		public List<GameItem> GetAllItemsOfType(Type targetType)
+		{
+			List<GameItem> result = new List<GameItem>();
+
+			foreach (GameItem item in items)
+				if (item.GetType() == targetType)
+					result.Add(item);
+
+			return result;
+		}
+
+
+
 		public int CountTypes(Type targetType)
 		{
 			int count = 0;
@@ -152,21 +162,6 @@ namespace gigapede
 		{
 			this.hud = hud;
 		}
-
-
-
-		/*public void SetPlayerAliveStatus(bool isPlayerAlive)
-		{
-			playerAlive = isPlayerAlive;
-		}
-
-
-		public void PlayerDiedTo(Game
-		{
-			playerAlive = false;
-			itemPlayerDiedTo = itemDiedTo;
-			hud.IndicateLostLife();
-		}*/
 
 
 
