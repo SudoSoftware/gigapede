@@ -33,7 +33,7 @@ namespace gigapede
 		public CentipedeGame(ScreenManager manager, Screen exitScreen, bool startsInAttractMode) :
 			base(manager, exitScreen)
 		{
-			Shooter.minY = world.getBounds().Height - GameParameters.DEFAULT_ITEM_WIDTH * GameParameters.EMPTY_FOOTER_ROWS;
+			Shooter.minY = world.getBounds().Height - GameParameters.DEFAULT_ITEM_HEIGHT * GameParameters.EMPTY_FOOTER_ROWS;
 			AddWorldContent();
 			if (startsInAttractMode)
 				userInput = new AI(ref world);

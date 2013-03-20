@@ -40,8 +40,8 @@ namespace gigapede.Resources
 		//screen
 		public static readonly Size TARGET_RESOLUTION = new Size(1024, 768);
 		public static readonly Microsoft.Xna.Framework.Rectangle screenSize = new Microsoft.Xna.Framework.Rectangle(0, 0, TARGET_RESOLUTION.Width, TARGET_RESOLUTION.Height);
-		public static readonly int DEFAULT_ITEM_WIDTH = (int)(TARGET_RESOLUTION.Width / GRID_SIZE);
-		public static readonly int DEFAULT_ITEM_HEIGHT = DEFAULT_ITEM_WIDTH;
+		public static readonly float DEFAULT_ITEM_WIDTH = (int)(TARGET_RESOLUTION.Width / GRID_SIZE);
+		public static readonly float DEFAULT_ITEM_HEIGHT = DEFAULT_ITEM_WIDTH;
 
 
         //menu parameters
