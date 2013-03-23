@@ -42,7 +42,7 @@ namespace gigapede
 
             sb.Begin();
             sb.DrawString(
-                manager.RM.Content.Load<SpriteFont>(font),
+                (SpriteFont)manager.RM.FontHash[font],
                 display_text,
                 position,
                 color

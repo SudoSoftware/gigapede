@@ -83,31 +83,7 @@ namespace gigapede
 		
 		protected override void LoadContent()
 		{
-			//load game textures
-			CentipedeGame.background = this.Content.Load<Texture2D>("textures/starfield");
-			Centipede.texture = this.Content.Load<Texture2D>("textures/klingon bird of prey");
-			Flea.texture = this.Content.Load<Texture2D>("textures/romulan warbird");
-			Mushroom.normalTexture = this.Content.Load<Texture2D>("textures/asteroid1");
-			Mushroom.poisonedTexture = this.Content.Load<Texture2D>("textures/asteroid2");
-			Powerup.texture = this.Content.Load<Texture2D>("textures/US coin");
-			Rocket.primaryTexture = this.Content.Load<Texture2D>("textures/phaser");
-			Rocket.secondaryTexture = this.Content.Load<Texture2D>("textures/photon torpedo");
-			Scorpion.texture = this.Content.Load<Texture2D>("textures/borg cube1");
-			Shooter.texture = this.Content.Load<Texture2D>("textures/enterprise");
-			Spider.texture = this.Content.Load<Texture2D>("textures/ferangi vessel");
-             
-			//load all game fonts
-			HeadsUpDisplay.font = Content.Load<SpriteFont>("temporaryFont");
-
-            // Load up Soundtrack
-            MainMenuScreen.menu_theme = Content.Load<Song>(GameParameters.DEFAULT_MENU_SONG);
-			CentipedeGame.game_theme = Content.Load<Song>(GameParameters.DEFAULT_GAME_SONG);
-
-            // Load up all menu resources.
-            manager.RM.Background = Content.Load<Texture2D>(GameParameters.DEFAULT_MENU_BACKGROUND);
-            manager.RM.FontHash.Add("TitleFont", Content.Load<SpriteFont>(GameParameters.DEFAULT_TITLE_FONT));
-            manager.RM.FontHash.Add("MenuFont", Content.Load<SpriteFont>(GameParameters.DEFAULT_MENU_FONT));
-            manager.RM.FontHash.Add("LcarsFont", Content.Load<SpriteFont>(GameParameters.DEFAULT_LCARS_FONT));
+            manager.RM.LoadResources("default/");
 		}
 
 		

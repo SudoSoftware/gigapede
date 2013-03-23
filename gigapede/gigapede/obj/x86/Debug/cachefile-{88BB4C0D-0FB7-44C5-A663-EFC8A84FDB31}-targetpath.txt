@@ -11,11 +11,11 @@ Content\default\textures\photon torpedo.xnb
 Content\default\textures\starfield.xnb
 Content\default\textures\US coin.xnb
 Content\default\music\atdoomsgate.xnb
+Content\default\music\atdoomsgate.wma
 Content\default\music\firstContact.xnb
+Content\default\music\firstContact.wma
 Content\default\textures\Mushroom.xnb
 Content\default\textures\PMushroom.xnb
 Content\default\textures\Scorpion.xnb
 Content\default\textures\Shooter.xnb
 Content\default\textures\Centipede.xnb
-Content\default\music\atdoomsgate.wma
-Content\default\music\firstContact.wma

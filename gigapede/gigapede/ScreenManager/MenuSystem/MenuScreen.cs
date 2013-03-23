@@ -84,7 +84,7 @@ namespace gigapede
 
             sb.Begin();
             sb.DrawString(
-                manager.RM.Content.Load<SpriteFont>(title_font),
+                (SpriteFont)manager.RM.FontHash["MenuFont"],
                 head_text,
                 position,
                 head_color

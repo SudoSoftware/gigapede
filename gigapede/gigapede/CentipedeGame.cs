@@ -41,7 +41,7 @@ namespace gigapede
             // Soundtrack.
             if (game_theme == null)
                 game_theme = manager.RM.Content.Load<Song>(
-                    Resources.GameParameters.DEFAULT_GAME_SONG
+                    "default/" + Resources.GameParameters.DEFAULT_GAME_SONG
                 );
 		}
 

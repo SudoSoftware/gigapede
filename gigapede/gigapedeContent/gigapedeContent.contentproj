@@ -30,120 +30,120 @@
     <Reference Include="Microsoft.Xna.Framework.Content.Pipeline.VideoImporters, Version=4.0.0.0, Culture=neutral, PublicKeyToken=842cf8be1de50553, processorArchitecture=MSIL" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="MenuFont.spritefont">
+    <Compile Include="default\MenuFont.spritefont">
       <Name>MenuFont</Name>
       <Importer>FontDescriptionImporter</Importer>
       <Processor>FontDescriptionProcessor</Processor>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="TitleFont.spritefont">
+    <Compile Include="default\TitleFont.spritefont">
       <Name>TitleFont</Name>
       <Importer>FontDescriptionImporter</Importer>
       <Processor>FontDescriptionProcessor</Processor>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="lcars.jpg">
+    <Compile Include="default\lcars.jpg">
       <Name>lcars</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="LcarsFont.spritefont">
+    <Compile Include="default\LcarsFont.spritefont">
       <Name>LcarsFont</Name>
       <Importer>FontDescriptionImporter</Importer>
       <Processor>FontDescriptionProcessor</Processor>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="MenuItem.spritefont">
+    <Compile Include="default\MenuItem.spritefont">
       <Name>MenuItem</Name>
       <Importer>FontDescriptionImporter</Importer>
       <Processor>FontDescriptionProcessor</Processor>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="textures\asteroid1.png">
-      <Name>asteroid1</Name>
+    <Compile Include="default\textures\Mushroom.png">
+      <Name>Mushroom</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
-    <Compile Include="textures\asteroid2.png">
-      <Name>asteroid2</Name>
+    <Compile Include="default\textures\PMushroom.png">
+      <Name>PMushroom</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
-    <Compile Include="textures\borg cube1.png">
-      <Name>borg cube1</Name>
+    <Compile Include="default\textures\Scorpion.png">
+      <Name>Scorpion</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
-    <Compile Include="textures\enterprise.png">
-      <Name>enterprise</Name>
+    <Compile Include="default\textures\Shooter.png">
+      <Name>Shooter</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
-    <Compile Include="textures\ferangi vessel.png">
+    <Compile Include="default\textures\ferangi vessel.png">
       <Name>ferangi vessel</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
-    <Compile Include="textures\klingon bird of prey.png">
+    <Compile Include="default\textures\klingon bird of prey.png">
       <Name>klingon bird of prey</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
-    <Compile Include="textures\phaser.png">
+    <Compile Include="default\textures\phaser.png">
       <Name>phaser</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
-    <Compile Include="textures\photon torpedo.png">
+    <Compile Include="default\textures\photon torpedo.png">
       <Name>photon torpedo</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
-    <Compile Include="textures\romulan warbird.png">
-      <Name>romulan warbird</Name>
+    <Compile Include="default\textures\Centipede.png">
+      <Name>Centipede</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
-    <Compile Include="textures\starfield.jpg">
+    <Compile Include="default\textures\starfield.jpg">
       <Name>starfield</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
-    <Compile Include="textures\US coin.png">
+    <Compile Include="default\textures\US coin.png">
       <Name>US coin</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="temporaryFont.spritefont">
+    <Compile Include="default\temporaryFont.spritefont">
       <Name>temporaryFont</Name>
       <Importer>FontDescriptionImporter</Importer>
       <Processor>FontDescriptionProcessor</Processor>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="SoundEffects\" />
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="music\atdoomsgate.mp3">
+    <Compile Include="default\music\atdoomsgate.mp3">
       <Name>atdoomsgate</Name>
       <Importer>Mp3Importer</Importer>
       <Processor>SongProcessor</Processor>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="music\firstContact.mp3">
+    <Compile Include="default\music\firstContact.mp3">
       <Name>firstContact</Name>
       <Importer>Mp3Importer</Importer>
       <Processor>SongProcessor</Processor>
     </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="custom\" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\XNA Game Studio\$(XnaFrameworkVersion)\Microsoft.Xna.GameStudio.ContentPipeline.targets" />
   <!--  To modify your build process, add your task inside one of the targets below and uncomment it. 

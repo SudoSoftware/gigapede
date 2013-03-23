@@ -32,7 +32,7 @@ namespace gigapede
             );
 
             this.AddItem(
-                new AddScreenButton("Controls", manager, typeof(ControlsScreen),
+                new AddScreenButton("Options", manager, typeof(OptionsScreen),
                     new Object[] { manager, this, style }
                 )
             );
@@ -47,7 +47,7 @@ namespace gigapede
 
             if (menu_theme == null)
                 menu_theme = manager.RM.Content.Load<Song>(
-                    Resources.GameParameters.DEFAULT_MENU_SONG
+                    "default/" + Resources.GameParameters.DEFAULT_MENU_SONG
                 );
         }
 
@@ -57,6 +57,20 @@ namespace gigapede
                 MediaPlayer.Play(menu_theme);
 
             manager.current_song = menu_theme;
+        }
+
+        public override void  HandleInput(GameTime time, UserInput input)
+        {
+ 	        base.HandleInput(time, input);
+
+            // Handle non-input
+            if (input.GetTimeSinceLastInput().Seconds >= 20)
+            {
+                Screen s = new CentipedeGame(manager, this, true);
+                this.hidden_p = true;
+                manager.AddScreen(s);
+                manager.FocusScreen(s);
+            }
         }
     }
 }

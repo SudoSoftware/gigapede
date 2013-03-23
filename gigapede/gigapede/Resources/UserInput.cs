@@ -18,7 +18,7 @@ namespace gigapede
 
 		protected List<InputType> lastState = new List<InputType>();
 		protected List<InputType> currentState = new List<InputType>();
-		protected DateTime lastInputTime = new DateTime();
+        protected DateTime lastInputTime;
 
 
         public static Keys LeftKey;
@@ -37,6 +37,8 @@ namespace gigapede
 
 		public UserInput(bool immediateUpdate)
 		{
+            lastInputTime = new DateTime();
+
 			if (immediateUpdate)
 				Update();
 		}
