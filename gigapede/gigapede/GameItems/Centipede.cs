@@ -13,6 +13,7 @@ namespace gigapede.GameItems
 	{
 		public static Texture2D texture;
 		private static MyRandom prng = new MyRandom();
+		private bool movingDown = true;
 
 
 		public Centipede(PointF location) :
@@ -28,11 +29,20 @@ namespace gigapede.GameItems
 
 			if (!info.world.IsLegalLocation(new RectangleF(nextLoc, boundingBox.Size)) || info.world.TypeAt(nextLoc, typeof(Mushroom)))
 			{
-				nextLoc.X = boundingBox.X;
-				nextLoc.Y += originalHeight;
 				movingRight = !movingRight;
+				nextLoc.X = boundingBox.X;
 
-				if (info.world.TypeAt(nextLoc, typeof(Mushroom)))
+				if (movingDown && (nextLoc.Y + originalHeight >= info.world.getBounds().Bottom))
+					movingDown = false;
+				else if (!movingDown && (nextLoc.Y - originalHeight < info.world.getBounds().Top))
+					movingDown = true;
+
+				if (movingDown)
+					nextLoc.Y += originalHeight;
+				else
+					nextLoc.Y -= originalHeight;
+
+				while (info.world.TypeAt(nextLoc, typeof(Mushroom)))
 					Move(ref nextLoc);
 			}
 

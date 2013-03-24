@@ -41,8 +41,8 @@ namespace gigapede.GameItems
 		//if chance agrees that a mushroom should be spawned, only spawn it in the grid pattern 
 		private void PossiblySpawnMushroom(float currentY, float nextY, ref List<GameItemAction> itemActions, World world)
 		{
-			int rowIn = (int)currentY / GameParameters.DEFAULT_ITEM_HEIGHT;
-			int rowWillBeIn = (int)nextY / GameParameters.DEFAULT_ITEM_HEIGHT;
+			int rowIn = (int)currentY / (int)GameParameters.DEFAULT_ITEM_HEIGHT;
+			int rowWillBeIn = (int)nextY / (int)GameParameters.DEFAULT_ITEM_HEIGHT;
 			
 			if (rowIn != rowWillBeIn && prng.nextRange(0, 3) <= 1)
 			{

@@ -12,6 +12,7 @@ namespace gigapede.GameItems
 	abstract class GameItem
 	{
 		protected RectangleF boundingBox = new RectangleF(0, 0, GameParameters.DEFAULT_ITEM_WIDTH, GameParameters.DEFAULT_ITEM_HEIGHT);
+		protected List<GameItem> contactsLastTime = new List<GameItem>();
 
 		abstract public List<GameItemAction> Update(InfoForItem info);
 		abstract public Texture2D GetTexture();
@@ -43,7 +44,24 @@ namespace gigapede.GameItems
 
 
 
-		public virtual bool Intersects(GameItem otherItem)
+		protected void SyncLastContacts(List<GameItem> currentContacts)
+		{
+			List<GameItem> obsoleteContacts = new List<GameItem>();
+			foreach (GameItem contact in contactsLastTime)
+				if (!currentContacts.Contains(contact))
+					obsoleteContacts.Add(contact);
+
+			foreach (GameItem contact in obsoleteContacts)
+				contactsLastTime.Remove(contact);
+
+			foreach (GameItem contact in currentContacts)
+				if (!contactsLastTime.Contains(contact))
+					contactsLastTime.Add(contact);
+		}
+
+
+
+		public bool Intersects(GameItem otherItem)
 		{
 			return boundingBox.IntersectsWith(otherItem.boundingBox);
 		}
