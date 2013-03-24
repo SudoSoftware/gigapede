@@ -13,7 +13,7 @@ using Microsoft.Xna.Framework.Media;
 
 namespace gigapede
 {
-    class ScrollButton : MenuItem
+class ScrollButton : MenuItem
     {
         protected int current_index;
         protected List<String> options;

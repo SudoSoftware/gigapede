@@ -4,8 +4,6 @@ Content\default\LcarsFont.xnb
 Content\default\MenuItem.xnb
 Content\default\temporaryFont.xnb
 Content\default\lcars.xnb
-Content\default\textures\ferangi vessel.xnb
-Content\default\textures\klingon bird of prey.xnb
 Content\default\textures\phaser.xnb
 Content\default\textures\photon torpedo.xnb
 Content\default\textures\starfield.xnb
@@ -17,5 +15,7 @@ Content\default\textures\PMushroom.xnb
 Content\default\textures\Scorpion.xnb
 Content\default\textures\Shooter.xnb
 Content\default\textures\Centipede.xnb
+Content\default\textures\Spider.xnb
+Content\default\textures\Flea.xnb
 Content\default\music\atdoomsgate.wma
 Content\default\music\firstContact.wma

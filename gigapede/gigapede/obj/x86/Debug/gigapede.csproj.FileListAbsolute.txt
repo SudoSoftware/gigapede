@@ -10,8 +10,6 @@ C:\Users\foobar\Desktop\gigapede\gigapede\gigapede\bin\x86\Debug\Content\default
 C:\Users\foobar\Desktop\gigapede\gigapede\gigapede\bin\x86\Debug\Content\default\MenuItem.xnb
 C:\Users\foobar\Desktop\gigapede\gigapede\gigapede\bin\x86\Debug\Content\default\temporaryFont.xnb
 C:\Users\foobar\Desktop\gigapede\gigapede\gigapede\bin\x86\Debug\Content\default\lcars.xnb
-C:\Users\foobar\Desktop\gigapede\gigapede\gigapede\bin\x86\Debug\Content\default\textures\ferangi vessel.xnb
-C:\Users\foobar\Desktop\gigapede\gigapede\gigapede\bin\x86\Debug\Content\default\textures\klingon bird of prey.xnb
 C:\Users\foobar\Desktop\gigapede\gigapede\gigapede\bin\x86\Debug\Content\default\textures\phaser.xnb
 C:\Users\foobar\Desktop\gigapede\gigapede\gigapede\bin\x86\Debug\Content\default\textures\photon torpedo.xnb
 C:\Users\foobar\Desktop\gigapede\gigapede\gigapede\bin\x86\Debug\Content\default\textures\starfield.xnb
@@ -25,3 +23,5 @@ C:\Users\foobar\Desktop\gigapede\gigapede\gigapede\bin\x86\Debug\Content\default
 C:\Users\foobar\Desktop\gigapede\gigapede\gigapede\bin\x86\Debug\Content\default\textures\Scorpion.xnb
 C:\Users\foobar\Desktop\gigapede\gigapede\gigapede\bin\x86\Debug\Content\default\textures\Shooter.xnb
 C:\Users\foobar\Desktop\gigapede\gigapede\gigapede\bin\x86\Debug\Content\default\textures\Centipede.xnb
+C:\Users\foobar\Desktop\gigapede\gigapede\gigapede\bin\x86\Debug\Content\default\textures\Spider.xnb
+C:\Users\foobar\Desktop\gigapede\gigapede\gigapede\bin\x86\Debug\Content\default\textures\Flea.xnb

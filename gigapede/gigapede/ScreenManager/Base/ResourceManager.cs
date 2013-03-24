@@ -88,7 +88,7 @@ namespace gigapede
         {
                 //load game textures
                 CentipedeGame.background = this.Content.Load<Texture2D>(prefix + "textures/starfield");
-                Centipede.texture = this.Content.Load<Texture2D>(prefix + "textures/klingon bird of prey");
+                Centipede.texture = this.Content.Load<Texture2D>(prefix + "textures/Spider");
                 Flea.texture = this.Content.Load<Texture2D>(prefix + "textures/Centipede");
                 Mushroom.normalTexture = this.Content.Load<Texture2D>(prefix + "textures/Mushroom");
                 Mushroom.poisonedTexture = this.Content.Load<Texture2D>(prefix + "textures/PMushroom");
@@ -97,7 +97,7 @@ namespace gigapede
                 Rocket.secondaryTexture = this.Content.Load<Texture2D>(prefix + "textures/photon torpedo");
                 Scorpion.texture = this.Content.Load<Texture2D>(prefix + "textures/Scorpion");
                 Shooter.texture = this.Content.Load<Texture2D>(prefix + "textures/Shooter");
-                Spider.texture = this.Content.Load<Texture2D>(prefix + "textures/ferangi vessel");
+                Spider.texture = this.Content.Load<Texture2D>(prefix + "textures/Flea");
 
                 //load all game fonts
                 HeadsUpDisplay.font = Content.Load<SpriteFont>(prefix + "temporaryFont");

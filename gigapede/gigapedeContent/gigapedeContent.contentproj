@@ -85,13 +85,13 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
-    <Compile Include="default\textures\ferangi vessel.png">
-      <Name>ferangi vessel</Name>
+    <Compile Include="default\textures\Flea.png">
+      <Name>Flea</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
-    <Compile Include="default\textures\klingon bird of prey.png">
-      <Name>klingon bird of prey</Name>
+    <Compile Include="default\textures\Spider.png">
+      <Name>Spider</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
