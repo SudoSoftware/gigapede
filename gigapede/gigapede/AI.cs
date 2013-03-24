@@ -87,10 +87,19 @@ namespace gigapede
 
 
 
+		private bool alreadySpawnedSpider = false;
 		private void Fire()
 		{
-			if (DateTime.Now.Subtract(bornTime).TotalSeconds >= 90 || world.CountTypes(typeof(Centipede)) <= 3)
+			if (DateTime.Now.Subtract(bornTime).TotalSeconds >= 60 || world.CountTypes(typeof(Centipede)) <= 4)
+			{
+				if (!alreadySpawnedSpider && DateTime.Now.Subtract(bornTime).TotalSeconds >= 60)
+				{
+					world.AddItem(new Spider(new PointF(), true));
+					alreadySpawnedSpider = true;
+				}
+
 				return; //stop firing to try to stay within the assignment parameters
+			}
 
 			if (DateTime.Now.Subtract(lastFired).TotalMilliseconds > millisTillFire)
 			{
@@ -124,6 +133,13 @@ namespace gigapede
 		private void MoveTowardsLocation(Vector2 desiredLocation)
 		{
 			goalLocation = desiredLocation;
+		}
+
+
+
+		public DateTime GetBornTime()
+		{
+			return bornTime;
 		}
 	}
 }

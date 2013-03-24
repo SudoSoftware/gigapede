@@ -68,10 +68,11 @@ namespace gigapede.Resources
         //soundtrack
         public static readonly String DEFAULT_MENU_SONG = "music/firstContact";
         public static readonly String DEFAULT_GAME_SONG = "music/atdoomsgate";
+		public static readonly String DEFAULT_SHOOT_SOUND = "music/pew";
 
 
 		//other
-		public const float LOCATION_TOLERANCE = 1f;
+		public const float LOCATION_TOLERANCE = 1.5f;
 		public const int ALERT_MILLISECONDS = 1500; //how long the alerts are shown for
 	}
 }

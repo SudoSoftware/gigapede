@@ -6,12 +6,14 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System.Drawing;
 using gigapede.Resources;
+using Microsoft.Xna.Framework.Audio;
 
 namespace gigapede.GameItems
 {
 	class Shooter : GameItem
 	{
 		public static Texture2D texture;
+		public static SoundEffect rocketSpawnSound;
 		public static float minY;
 		private int extraPowerUsesLeft = 0;
 
@@ -92,6 +94,7 @@ namespace gigapede.GameItems
 				rocketLocation.X += boundingBox.Width / 3;
 
 			itemActions.Add(new GameItemAction(GameItemAction.Action.ADD_ITEM, new Rocket(rocketLocation, rocketIsPoweredUp)));
+			rocketSpawnSound.Play();
 		}
 
 

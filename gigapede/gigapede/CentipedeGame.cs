@@ -114,6 +114,12 @@ namespace gigapede
 			{
 				shooter.Respawn();
 				world.getHUD().IndicateRespawn();
+
+				foreach (GameItem item in mushrooms)
+				{
+					Mushroom mushroom = (Mushroom)item;
+					mushroom.isRespawning = false;
+				}
 			}
 		}
 
@@ -125,6 +131,17 @@ namespace gigapede
 			{
 				userInput = new AI(ref world);
 				world.getHUD().SetAttactMode(true);
+
+				List<GameItem> mushrooms = world.GetAllItemsOfType(typeof(Mushroom));
+				foreach (GameItem mushroom in mushrooms)
+					if (mushroom.GetLocation().Y >= Shooter.minY)
+						world.RemoveItem(mushroom);
+
+				world.RemoveAllOfType(typeof(Centipede));
+				world.RemoveAllOfType(typeof(Rocket));
+				world.RemoveAllOfType(typeof(Flea));
+				world.RemoveAllOfType(typeof(Scorpion));
+				world.RemoveAllOfType(typeof(Spider));
 			}
 
 			HandleCentipedeSpawning();
@@ -177,7 +194,7 @@ namespace gigapede
 		private void AddMushrooms()
 		{
 			float startY = GameParameters.EMPTY_HEADER_ROWS * GameParameters.DEFAULT_ITEM_HEIGHT;
-			float endY = world.getBounds().Height - GameParameters.EMPTY_FOOTER_ROWS * GameParameters.DEFAULT_ITEM_HEIGHT;
+			float endY = world.getBounds().Height - (GameParameters.EMPTY_FOOTER_ROWS + 1) * GameParameters.DEFAULT_ITEM_HEIGHT;
 			float endX = world.getBounds().Width - GameParameters.DEFAULT_ITEM_WIDTH;
 
 			for (float x = 0; x < endX; x += GameParameters.DEFAULT_ITEM_WIDTH)

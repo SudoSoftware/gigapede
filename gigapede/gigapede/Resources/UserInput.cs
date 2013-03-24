@@ -18,7 +18,7 @@ namespace gigapede
 
 		protected List<InputType> lastState = new List<InputType>();
 		protected List<InputType> currentState = new List<InputType>();
-        protected DateTime lastInputTime;
+		protected DateTime lastInputTime;
 
 
         public static Keys LeftKey;
@@ -29,9 +29,11 @@ namespace gigapede
         public static Keys FireKey;
 
 
-		public UserInput():
+		public UserInput() :
 			this(true)
-		{ }
+		{
+			resetLastInputTime();
+		}
 
 
 
@@ -86,7 +88,14 @@ namespace gigapede
 			UpdateState();
 
 			if (currentState.Count > 0)
-				lastInputTime = DateTime.Now;
+				resetLastInputTime();
+		}
+
+
+
+		public void resetLastInputTime()
+		{
+			lastInputTime = DateTime.Now;
 		}
 
 

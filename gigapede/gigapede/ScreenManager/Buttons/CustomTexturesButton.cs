@@ -28,8 +28,7 @@ namespace gigapede
             {
                 manager.LoadResources("default/");
             }
-
-			//display_text = "Custom Textures : " + state;
+			
 			GameParameters.USING_CUSTOM_TEXTURES = state;
         }
     }

@@ -13,11 +13,20 @@ namespace gigapede.GameItems
 		public static Texture2D texture;
 		private MyRandom prng = new MyRandom();
 		private PointF goalLocation;
+		private bool searchAndDestroy;
 
 
 		public Spider(PointF location) :
-			base(location)
+			this(location, false)
 		{ }
+
+
+
+		public Spider(PointF location, bool searchAndDestroyMode) :
+			base(location)
+		{
+			this.searchAndDestroy = searchAndDestroyMode;
+		}
 
 
 
@@ -39,10 +48,18 @@ namespace gigapede.GameItems
 
 		private void Move(InfoForItem info)
 		{
-			if (goalLocation.X == 0 && goalLocation.Y == 0 || GetVectorTo(goalLocation).Length() < 5)
-				ResetGoalLocation(info);
-			else
+			if (searchAndDestroy)
+			{
+				goalLocation = info.world.GetItemOfType(typeof(Shooter)).GetLocation();
 				MoveTowardsGoal(info);
+			}
+			else
+			{
+				if (goalLocation.X == 0 && goalLocation.Y == 0 || GetVectorTo(goalLocation).Length() < 5)
+					ResetGoalLocation(info);
+				else
+					MoveTowardsGoal(info);
+			}
 		}
 
 

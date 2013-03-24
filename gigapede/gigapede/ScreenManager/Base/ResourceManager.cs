@@ -105,6 +105,7 @@ namespace gigapede
             // Load up Soundtrack
             MainMenuScreen.menu_theme = Content.Load<Song>(prefix + GameParameters.DEFAULT_MENU_SONG);
             CentipedeGame.game_theme = Content.Load<Song>(prefix + GameParameters.DEFAULT_GAME_SONG);
+			Shooter.rocketSpawnSound = Content.Load<SoundEffect>(prefix + GameParameters.DEFAULT_SHOOT_SOUND);
 
             // Load up all menu resources.
             Background = Content.Load<Texture2D>(prefix + "lcars"); // prefix + GameParameters.DEFAULT_MENU_BACKGROUND);

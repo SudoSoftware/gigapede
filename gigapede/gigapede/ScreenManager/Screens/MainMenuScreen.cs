@@ -64,7 +64,7 @@ namespace gigapede
  	        base.HandleInput(time, input);
 
             // Handle non-input
-            if (input.GetTimeSinceLastInput().Seconds >= 20)
+            if (input.GetTimeSinceLastInput().Seconds >= 10)
             {
                 Screen s = new CentipedeGame(manager, this, true);
                 this.hidden_p = true;

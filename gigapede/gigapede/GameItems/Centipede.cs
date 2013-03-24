@@ -14,11 +14,24 @@ namespace gigapede.GameItems
 		public static Texture2D texture;
 		private static MyRandom prng = new MyRandom();
 		private bool movingDown = true;
+		private float lowerBoundary;
 
 
 		public Centipede(PointF location) :
 			base(location)
 		{ }
+
+
+
+		public override List<GameItemAction> Update(InfoForItem info)
+		{
+			if (info.inputState.GetType() == typeof(AI))
+				lowerBoundary = info.world.getBounds().Bottom - (GameParameters.EMPTY_FOOTER_ROWS + 1) * GameParameters.DEFAULT_ITEM_HEIGHT;
+			else
+				lowerBoundary = info.world.getBounds().Bottom;
+
+			return base.Update(info);
+		}
 
 
 
@@ -32,7 +45,7 @@ namespace gigapede.GameItems
 				movingRight = !movingRight;
 				nextLoc.X = boundingBox.X;
 
-				if (movingDown && (nextLoc.Y + originalHeight >= info.world.getBounds().Bottom))
+				if (movingDown && (nextLoc.Y + originalHeight >= lowerBoundary))
 					movingDown = false;
 				else if (!movingDown && (nextLoc.Y - originalHeight < info.world.getBounds().Top))
 					movingDown = true;
