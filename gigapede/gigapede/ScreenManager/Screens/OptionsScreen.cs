@@ -17,6 +17,10 @@ namespace gigapede
             );
 
             this.AddItem(
+                new DifficultyButton()
+                );
+
+            this.AddItem(
                 new CustomTexturesButton(manager.RM)
             );
 

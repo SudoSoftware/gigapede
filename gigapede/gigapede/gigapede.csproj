@@ -94,6 +94,7 @@
     <Compile Include="Resources\UserInput.cs" />
     <Compile Include="ScreenManager\Buttons\AddScreenButton.cs" />
     <Compile Include="ScreenManager\Buttons\CustomTexturesButton.cs" />
+    <Compile Include="ScreenManager\Buttons\DifficultyButton.cs" />
     <Compile Include="ScreenManager\Buttons\KeySelector.cs" />
     <Compile Include="ScreenManager\Buttons\MenuQuitButton.cs" />
     <Compile Include="ScreenManager\Buttons\ScrollButton.cs" />

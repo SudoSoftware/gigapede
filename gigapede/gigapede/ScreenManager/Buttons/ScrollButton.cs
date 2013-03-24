@@ -74,7 +74,7 @@ namespace gigapede
                 current_index = 0;
         }
 
-        public void RunAction ()
+        public virtual void RunAction ()
         {
         }
 
