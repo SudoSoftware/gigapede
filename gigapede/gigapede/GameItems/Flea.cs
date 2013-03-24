@@ -47,8 +47,9 @@ namespace gigapede.GameItems
 			if (rowIn != rowWillBeIn && prng.nextRange(0, 3) <= 1)
 			{
 				PointF mushroomLoc = new PointF(boundingBox.X, rowWillBeIn * GameParameters.DEFAULT_ITEM_HEIGHT);
-			
-				if (world.ItemAt(mushroomLoc) == null)
+				RectangleF mushroomBounds = new RectangleF(mushroomLoc, new SizeF(GameParameters.DEFAULT_ITEM_WIDTH, GameParameters.DEFAULT_ITEM_HEIGHT));
+
+				if (world.ItemAt(mushroomLoc) == null && !world.GetItemOfType(typeof(Shooter)).GetBounds().IntersectsWith(mushroomBounds))
 					itemActions.Add(new GameItemAction(GameItemAction.Action.ADD_ITEM, new Mushroom(mushroomLoc)));
 			}
 		}

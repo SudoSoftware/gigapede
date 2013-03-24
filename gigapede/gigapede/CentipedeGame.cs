@@ -53,6 +53,10 @@ namespace gigapede
                 MediaPlayer.Play(game_theme);
 
             manager.current_song = game_theme;
+
+			timeAtNextScorpionSpawn = DateTime.Now.Add(new TimeSpan(0, 0, 6)); //6 seconds from now
+			timeAtNextSpiderSpawn = DateTime.Now.Add(new TimeSpan(0, 0, 4)); //6 seconds from now
+			timeAtNextFleaSpawn = DateTime.Now.Add(new TimeSpan(0, 0, 3)); //3 seconds from now
         }
         
 
@@ -91,6 +95,7 @@ namespace gigapede
 			}
 
 			HandleCentipedeSpawning();
+			HandleSpiderSpawning();
 			HandleScorpionSpawning();
 			HandleFleaSpawning();
 
@@ -122,10 +127,8 @@ namespace gigapede
 
 		public void AddWorldContent()
 		{
-			world.AddItem(new Spider(new PointF(0, GameParameters.DEFAULT_ITEM_HEIGHT)));
-
 			AddMushrooms();
-			//adding of Centipedes and Scorpions are handled in Update function
+			//spawning of Centipedes, Spiders, and Scorpions are handled in Update function
 
 			Shooter player = AddShooter();
 			world.setHUD(new HeadsUpDisplay(ref player));
@@ -141,7 +144,7 @@ namespace gigapede
 
 			for (float x = 0; x < endX; x += GameParameters.DEFAULT_ITEM_WIDTH)
 				for (float y = startY; y < endY; y += GameParameters.DEFAULT_ITEM_HEIGHT)
-					if (prng.nextRange(0, 10) <= 1) // 10% chance of adding
+					if (prng.nextRange(0, 15) <= 1) //7.5% chance of adding
 						world.AddItem(new Mushroom(new PointF(x, y)));
 		}
 
@@ -177,44 +180,82 @@ namespace gigapede
 
 
 
-		int centipedeCount = 10;
+		bool shouldSpawnCentipede;
+		int centipedeSegmentsToSpawn;
 		private void HandleCentipedeSpawning()
 		{
-			if (centipedeCount > 0 && !world.TypeAt(centipedeSpawnLoc, typeof(Centipede)))
+			if (world.CountTypes(typeof(Centipede)) <= 1)
+			{
+				shouldSpawnCentipede = true;
+				centipedeSegmentsToSpawn = GameParameters.DEFAULT_CENTIPEDE_LENGTH;
+			}
+
+			if (centipedeSegmentsToSpawn == 0)
+				shouldSpawnCentipede = false;
+
+			if (shouldSpawnCentipede && !world.TypeAt(centipedeSpawnLoc, typeof(Centipede)))
 			{
 				world.AddItem(new Centipede(centipedeSpawnLoc));
-				centipedeCount--;
+				centipedeSegmentsToSpawn--;
 			}
 		}
 
 
 
+		private DateTime timeAtNextSpiderSpawn;
+		private void HandleSpiderSpawning()
+		{
+			if (world.CountTypes(typeof(Spider)) > 0)
+				return; //only one spider can be in the world at a time
+
+			if (DateTime.Now.Subtract(timeAtNextSpiderSpawn).TotalSeconds >= 0)
+			{
+				bool spawnsOnLeft = prng.nextRange(0, 2) <= 1;
+				float spawnX = spawnsOnLeft ? 0 : world.getBounds().Right - GameParameters.DEFAULT_ITEM_WIDTH;
+
+				float spawnY = (int)Math.Round(world.getBounds().Bottom * 2 / 3);
+				spawnY += prng.nextRange(-GameParameters.DEFAULT_ITEM_HEIGHT, GameParameters.DEFAULT_ITEM_HEIGHT);
+
+				world.AddItem(new Spider(new PointF(spawnX, spawnY)));
+				TimeSpan span = new TimeSpan(0, 0, (int)Math.Round(prng.nextRange(3, 6)));
+				timeAtNextSpiderSpawn = DateTime.Now.Add(span);
+			}
+		}
+
+
+
+		private DateTime timeAtNextScorpionSpawn;
 		private void HandleScorpionSpawning()
 		{
-			if (prng.nextRange(0, 1000) <= 1) // 0.1% of spawning
+			if (world.CountTypes(typeof(Scorpion)) > 0)
+				return; //only one Scorpion in the world at a time
+
+			if (DateTime.Now.Subtract(timeAtNextScorpionSpawn).TotalSeconds >= 0)
 			{
+				bool spawnsOnLeft = prng.nextRange(0, 2) <= 1;
+				float spawnX = spawnsOnLeft ? 0 : world.getBounds().Right - GameParameters.DEFAULT_ITEM_WIDTH;
+
 				float range = prng.nextRange(GameParameters.EMPTY_HEADER_ROWS, GameParameters.GRID_SIZE - GameParameters.EMPTY_FOOTER_ROWS);
-				float x = 0; //temporary
 				float y = (float)Math.Round(range) * GameParameters.DEFAULT_ITEM_HEIGHT;
 
-				world.AddItem(new Scorpion(new PointF(x, y)));
+				world.AddItem(new Scorpion(new PointF(spawnX, y), (spawnX == 0)));
+				timeAtNextScorpionSpawn = DateTime.Now.Add(new TimeSpan(0, 0, (int)Math.Round(prng.nextRange(8, 12))));
 			}
 		}
 
 
 
-		private DateTime fleaLastSpawned = DateTime.Now;
+		private DateTime timeAtNextFleaSpawn;
 		private void HandleFleaSpawning()
 		{
-			if (!Flea.SpawnIsAppropriate(world))
+			if (!Flea.SpawnIsAppropriate(world) || world.CountTypes(typeof(Flea)) > 0)
 				return;
 
-			if (DateTime.Now.Subtract(fleaLastSpawned).TotalMilliseconds >= prng.nextGaussian(4000, 1))
+			if (DateTime.Now.Subtract(timeAtNextFleaSpawn).TotalSeconds >= 0)
 			{
 				float x = (int)prng.nextRange(0, GameParameters.GRID_SIZE) * GameParameters.DEFAULT_ITEM_WIDTH;
-				
 				world.AddItem(new Flea(new PointF(x, 0)));
-				fleaLastSpawned = DateTime.Now;
+				timeAtNextFleaSpawn = DateTime.Now.Add(new TimeSpan(0, 0, (int)Math.Round(prng.nextRange(1, 3))));
 			}
 		}
 	}

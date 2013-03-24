@@ -13,12 +13,20 @@ namespace gigapede.Resources
         public static Difficulty difficulty = Difficulty.Easy;
 
 		//behavior
+<<<<<<< HEAD
 		public static float CENTIPEDE_SPEED = 0.4f;
 		public static float SCORPION_SPEED = 0.3f;
 		public static float SPIDER_SPEED = 0.25f;
 		public static float ROCKET_SPEED = 0.8f;
 		public static float FLEA_SPEED = 0.3f;
 		public const float SPIDER_ZIGZAG_COEFF = 0.5f;
+=======
+		public const float CENTIPEDE_SPEED = 0.4f;
+		public const float SCORPION_SPEED = 0.3f;
+		public const float SPIDER_SPEED = 0.25f;
+		public const float ROCKET_SPEED = 0.8f;
+		public const float FLEA_SPEED = 0.3f;
+>>>>>>> gameplay continues (fixed #30)
 		public const float SHOOTER_MOVEMENT_THETA = 0.32f;
 		public const float POWERUP_INITIAL_UPWARD_THRUST = -0.3f;
 		public const float GRAVITY = 0.02f;
@@ -30,6 +38,7 @@ namespace gigapede.Resources
 		public const int MAX_DAMAGEABLE_HEALTH = 4;
 		public const int MAX_LIVES = 3;
 		public const int ROCKET_POWERUP_USES = 10;
+		public const int DEFAULT_CENTIPEDE_LENGTH = 10;
 
 		//scoring
 		public const int CENTIPEDE_POINTS = 10;
@@ -43,7 +52,7 @@ namespace gigapede.Resources
 		//screen
 		public static readonly Size TARGET_RESOLUTION = new Size(1024, 768);
 		public static readonly Microsoft.Xna.Framework.Rectangle screenSize = new Microsoft.Xna.Framework.Rectangle(0, 0, TARGET_RESOLUTION.Width, TARGET_RESOLUTION.Height);
-		public static readonly float DEFAULT_ITEM_WIDTH = (int)(TARGET_RESOLUTION.Width / GRID_SIZE);
+		public static readonly float DEFAULT_ITEM_WIDTH = TARGET_RESOLUTION.Width / GRID_SIZE;
 		public static readonly float DEFAULT_ITEM_HEIGHT = DEFAULT_ITEM_WIDTH;
 
 

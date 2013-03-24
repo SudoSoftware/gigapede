@@ -13,9 +13,25 @@ namespace gigapede.GameItems
 		public static Texture2D texture;
 
 
-		public Scorpion(PointF location) :
+		public Scorpion(PointF location, bool movingRight) :
 			base(location)
-		{ }
+		{
+			this.movingRight = movingRight;
+		}
+
+
+		public override List<GameItemAction> Update(InfoForItem info)
+		{
+			List<GameItemAction> actions = new List<GameItemAction>();
+
+			if (GetAliveness() <= 0)
+				Die(ref actions, info);
+
+			if (!info.world.IsLegalLocation(boundingBox))
+				actions.Add(new GameItemAction(GameItemAction.Action.REMOVE_ITEM, this));
+
+			return actions;
+		}
 
 
 

@@ -39,7 +39,7 @@ namespace gigapede.GameItems
 
 		private void Move(InfoForItem info)
 		{
-			if (GetVectorTo(goalLocation).Length() < 5)
+			if (goalLocation.X == 0 && goalLocation.Y == 0 || GetVectorTo(goalLocation).Length() < 5)
 				ResetGoalLocation(info);
 			else
 				MoveTowardsGoal(info);
