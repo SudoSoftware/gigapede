@@ -83,6 +83,8 @@ namespace gigapede
 
 			Shooter shooter = (Shooter)world.GetItemOfType(typeof(Shooter));
 			world.getHUD().IndicateLostLife();
+			if (shooter.GetLivesLeft() <= 0)
+				ExitScreen();
 
 			if (mushrooms.Count == 0)
 			{
