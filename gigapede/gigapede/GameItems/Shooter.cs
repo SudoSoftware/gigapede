@@ -17,7 +17,7 @@ namespace gigapede.GameItems
 
 		private bool amAlive = true;
 		private int livesLeft = GameParameters.MAX_LIVES;
-		private GameItem diedTo;
+		private DateTime deathDate;
 		private int currentScore = 0;
 
 
@@ -39,8 +39,8 @@ namespace gigapede.GameItems
 			foreach (GameItem contact in info.contacts)
 			{
 				Type type = contact.GetType();
-				//if (type == typeof(Centipede) || type == typeof(Flea) || type == typeof(Scorpion) || type == typeof(Spider))
-				//	Die(contact);
+				if (type == typeof(Centipede) || type == typeof(Flea) || type == typeof(Scorpion) || type == typeof(Spider))
+					Die(contact);
 			}
 
 			
@@ -132,7 +132,7 @@ namespace gigapede.GameItems
 		
 		public void Die(GameItem itemDiedTo)
 		{
-			diedTo = itemDiedTo;
+			deathDate = DateTime.Now;
 			livesLeft--;
 			amAlive = false;
 		}
@@ -142,7 +142,6 @@ namespace gigapede.GameItems
 		public void Respawn()
 		{
 			amAlive = true;
-			diedTo = null;
 		}
 
 
@@ -161,9 +160,9 @@ namespace gigapede.GameItems
 
 
 		
-		public GameItem GetItemDiedTo()
+		public DateTime GetDeathDate()
 		{
-			return diedTo;
+			return deathDate;
 		}
 
 

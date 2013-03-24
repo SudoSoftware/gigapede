@@ -54,8 +54,8 @@ namespace gigapede
 
             manager.current_song = game_theme;
 
-			timeAtNextScorpionSpawn = DateTime.Now.Add(new TimeSpan(0, 0, 6)); //6 seconds from now
-			timeAtNextSpiderSpawn = DateTime.Now.Add(new TimeSpan(0, 0, 4)); //6 seconds from now
+			timeAtNextScorpionSpawn = DateTime.Now.Add(new TimeSpan(0, 0, 8)); //6 seconds from now
+			timeAtNextSpiderSpawn = DateTime.Now.Add(new TimeSpan(0, 0, 6)); //6 seconds from now
 			timeAtNextFleaSpawn = DateTime.Now.Add(new TimeSpan(0, 0, 3)); //3 seconds from now
         }
         
@@ -71,7 +71,8 @@ namespace gigapede
 
 
 
-		private DateTime respawnStart;
+		private List<GameItem> mushrooms = new List<GameItem>();
+		private DateTime timeAtNextSum;
 		private void HandlePlayerRespawn(GameTime gameTime)
 		{
 			world.RemoveAllOfType(typeof(Centipede));
@@ -80,8 +81,38 @@ namespace gigapede
 			world.RemoveAllOfType(typeof(Scorpion));
 			world.RemoveAllOfType(typeof(Spider));
 
+			Shooter shooter = (Shooter)world.GetItemOfType(typeof(Shooter));
 			world.getHUD().IndicateLostLife();
 
+			if (mushrooms.Count == 0)
+			{
+				mushrooms = world.GetAllItemsOfType(typeof(Mushroom));
+				timeAtNextSum = DateTime.Now.Add(new TimeSpan(0, 0, 0, 0, 500));
+			}
+
+			if (DateTime.Now.Subtract(timeAtNextSum).TotalSeconds >= 0)
+			{
+				foreach (GameItem item in mushrooms)
+				{
+					Mushroom mushroom = (Mushroom)item;
+					if (mushroom.GetAliveness() < 1)
+					{
+						shooter.AddToScore(GameParameters.MUSHROOM_POINTS, mushroom, world.getHUD());
+						mushroom.ResetHealth();
+						mushroom.isRespawning = true;
+						timeAtNextSum = DateTime.Now.Add(new TimeSpan(0, 0, 0, 0, 500));
+						break;
+					}
+					else
+						mushroom.isRespawning = false;
+				}
+			}
+
+			if (DateTime.Now.Subtract(shooter.GetDeathDate()).TotalSeconds >= 2)
+			{
+				shooter.Respawn();
+				world.getHUD().IndicateRespawn();
+			}
 		}
 
 
@@ -95,9 +126,13 @@ namespace gigapede
 			}
 
 			HandleCentipedeSpawning();
-			HandleSpiderSpawning();
-			HandleScorpionSpawning();
-			HandleFleaSpawning();
+
+			if (userInput.GetType() != typeof(AI))
+			{
+				HandleSpiderSpawning();
+				HandleScorpionSpawning();
+				HandleFleaSpawning();
+			}
 
 			userInput.Update();
 			world.Update(gameTime, userInput);
@@ -130,7 +165,8 @@ namespace gigapede
 			AddMushrooms();
 			//spawning of Centipedes, Spiders, and Scorpions are handled in Update function
 
-			Shooter player = AddShooter();
+			Shooter player = new Shooter(GetNewShooterLocation());
+			world.AddItem(player);
 			world.setHUD(new HeadsUpDisplay(ref player));
 		}
 
@@ -151,7 +187,7 @@ namespace gigapede
 
 
 		//spawns a new Shooter, centered in the empty footer, but avoids spawning on top of existing GameItems
-		public Shooter AddShooter()
+		public PointF GetNewShooterLocation()
 		{
 			int centerColumn = (int)(world.getBounds().Width / GameParameters.DEFAULT_ITEM_WIDTH) / 2;
 
@@ -173,9 +209,7 @@ namespace gigapede
 					break;
 			}
 
-			Shooter player = new Shooter(shooterSpawnLoc);
-			world.AddItem(player);
-			return player;
+			return shooterSpawnLoc;
 		}
 
 

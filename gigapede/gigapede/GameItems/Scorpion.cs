@@ -30,6 +30,15 @@ namespace gigapede.GameItems
 			if (!info.world.IsLegalLocation(boundingBox))
 				actions.Add(new GameItemAction(GameItemAction.Action.REMOVE_ITEM, this));
 
+			float theta = info.gameTime.ElapsedGameTime.Milliseconds * GetSpeed();
+			movementTillJump -= theta;
+
+			if (movementTillJump <= 0)
+			{
+				Jump(info);
+				ResetJumpWait();
+			}
+
 			return actions;
 		}
 

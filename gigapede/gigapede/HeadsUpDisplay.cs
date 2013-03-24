@@ -19,6 +19,7 @@ namespace gigapede
 		private int padding = 10;
 		private bool attactMode = false;
 		private Shooter player;
+		private bool deathScreenOn = false;
 
 
 		public HeadsUpDisplay(ref Shooter player)
@@ -31,7 +32,14 @@ namespace gigapede
 
 		public void IndicateLostLife()
 		{
-			//livesLeft--;
+			deathScreenOn = true;
+		}
+
+
+
+		public void IndicateRespawn()
+		{
+			deathScreenOn = false;
 		}
 
 
@@ -79,6 +87,9 @@ namespace gigapede
 
 			if (attactMode)
 				DrawAttractMode(spriteBatch);
+
+			if (deathScreenOn)
+				DrawDeathScreen(spriteBatch);
 		}
 
 
@@ -117,6 +128,18 @@ namespace gigapede
 
 
 
+		private void DrawDeathScreen(SpriteBatch spriteBatch)
+		{
+			spriteBatch.DrawString(
+				font,
+				"Oh noes! You dead! Respawning...",
+				new Microsoft.Xna.Framework.Vector2(100, padding + 400),
+				Microsoft.Xna.Framework.Color.Wheat
+			);
+		}
+
+
+
 		private void DrawAlerts(SpriteBatch spriteBatch)
 		{
 			foreach (GameAlert alert in scoringAlerts)
@@ -134,11 +157,10 @@ namespace gigapede
 
 		private void DrawAttractMode(SpriteBatch spriteBatch)
 		{
-			String attactText = "Check out this cool Gigapede game!";
 			spriteBatch.DrawString(
 				font,
-				attactText,
-				new Microsoft.Xna.Framework.Vector2(GameParameters.TARGET_RESOLUTION.Width - font.MeasureString(attactText).X - padding, padding + 100),
+				"Gigapede, like Centipede, now with Star Trek! (Attract mode)",
+				new Microsoft.Xna.Framework.Vector2(100, padding + 200),
 				Microsoft.Xna.Framework.Color.Wheat
 			);
 		}

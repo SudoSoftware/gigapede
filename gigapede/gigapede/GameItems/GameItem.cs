@@ -89,6 +89,13 @@ namespace gigapede.GameItems
 
 
 
+		public void SetLocation(PointF newLoc)
+		{
+			boundingBox.Location = newLoc;
+		}
+
+
+
 		public RectangleF GetBounds()
 		{
 			return boundingBox;

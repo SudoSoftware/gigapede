@@ -56,6 +56,14 @@ namespace gigapede.GameItems
 
 
 
+		public void ResetHealth()
+		{
+			currentHealth = GameParameters.MAX_DAMAGEABLE_HEALTH;
+			boundingBox.Height = originalHeight * GetAliveness();
+		}
+
+
+
 		public float GetAliveness()
 		{
 			return Math.Max(0, currentHealth / (float)GameParameters.MAX_DAMAGEABLE_HEALTH);

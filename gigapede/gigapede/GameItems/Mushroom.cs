@@ -14,7 +14,7 @@ namespace gigapede.GameItems
 		public static Texture2D normalTexture;
 		public static Texture2D poisonedTexture;
 		private static MyRandom prng = new MyRandom();
-		public bool IsPoisoned;
+		public bool IsPoisoned, isRespawning;
 
 
 		public Mushroom(PointF location) :
@@ -36,6 +36,18 @@ namespace gigapede.GameItems
 		{
 			if (prng.nextRange(0, 10) <= 1) //40 is a good value as its a 2.5% chance
 				itemActions.Add(new GameItemAction(GameItemAction.Action.ADD_ITEM, new Powerup(boundingBox.Location, Powerup.PowerupType.SHOOTER_POWERUP)));
+		}
+
+
+
+		public override void Draw(SpriteBatch spriteBatch)
+		{
+			spriteBatch.Draw(
+				GetTexture(),
+				new Microsoft.Xna.Framework.Rectangle((int)boundingBox.X, (int)boundingBox.Y, (int)boundingBox.Width, (int)boundingBox.Height),
+				GetTextureRectangle(),
+				isRespawning ? Microsoft.Xna.Framework.Color.Blue : Microsoft.Xna.Framework.Color.White
+			);
 		}
 
 
