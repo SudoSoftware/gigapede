@@ -21,11 +21,11 @@ namespace gigapede
 
             if (state)
             {
-                manager.LoadResources("custom");
+                manager.LoadResources("custom/");
             }
             else
             {
-                manager.LoadResources("default");
+                manager.LoadResources("default/");
             }
         }
     }

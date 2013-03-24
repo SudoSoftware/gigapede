@@ -25,3 +25,24 @@ C:\Users\foobar\Desktop\gigapede\gigapede\gigapede\bin\x86\Debug\Content\default
 C:\Users\foobar\Desktop\gigapede\gigapede\gigapede\bin\x86\Debug\Content\default\textures\Centipede.xnb
 C:\Users\foobar\Desktop\gigapede\gigapede\gigapede\bin\x86\Debug\Content\default\textures\Spider.xnb
 C:\Users\foobar\Desktop\gigapede\gigapede\gigapede\bin\x86\Debug\Content\default\textures\Flea.xnb
+C:\Users\foobar\Desktop\gigapede\gigapede\gigapede\bin\x86\Debug\Content\custom\TitleFont.xnb
+C:\Users\foobar\Desktop\gigapede\gigapede\gigapede\bin\x86\Debug\Content\custom\LcarsFont.xnb
+C:\Users\foobar\Desktop\gigapede\gigapede\gigapede\bin\x86\Debug\Content\custom\MenuFont.xnb
+C:\Users\foobar\Desktop\gigapede\gigapede\gigapede\bin\x86\Debug\Content\custom\MenuItem.xnb
+C:\Users\foobar\Desktop\gigapede\gigapede\gigapede\bin\x86\Debug\Content\custom\temporaryFont.xnb
+C:\Users\foobar\Desktop\gigapede\gigapede\gigapede\bin\x86\Debug\Content\custom\textures\Centipede.xnb
+C:\Users\foobar\Desktop\gigapede\gigapede\gigapede\bin\x86\Debug\Content\custom\textures\Flea.xnb
+C:\Users\foobar\Desktop\gigapede\gigapede\gigapede\bin\x86\Debug\Content\custom\textures\Mushroom.xnb
+C:\Users\foobar\Desktop\gigapede\gigapede\gigapede\bin\x86\Debug\Content\custom\textures\phaser.xnb
+C:\Users\foobar\Desktop\gigapede\gigapede\gigapede\bin\x86\Debug\Content\custom\textures\photon torpedo.xnb
+C:\Users\foobar\Desktop\gigapede\gigapede\gigapede\bin\x86\Debug\Content\custom\textures\PMushroom.xnb
+C:\Users\foobar\Desktop\gigapede\gigapede\gigapede\bin\x86\Debug\Content\custom\textures\Scorpion.xnb
+C:\Users\foobar\Desktop\gigapede\gigapede\gigapede\bin\x86\Debug\Content\custom\textures\Shooter.xnb
+C:\Users\foobar\Desktop\gigapede\gigapede\gigapede\bin\x86\Debug\Content\custom\textures\Spider.xnb
+C:\Users\foobar\Desktop\gigapede\gigapede\gigapede\bin\x86\Debug\Content\custom\textures\starfield.xnb
+C:\Users\foobar\Desktop\gigapede\gigapede\gigapede\bin\x86\Debug\Content\custom\textures\US coin.xnb
+C:\Users\foobar\Desktop\gigapede\gigapede\gigapede\bin\x86\Debug\Content\custom\lcars.xnb
+C:\Users\foobar\Desktop\gigapede\gigapede\gigapede\bin\x86\Debug\Content\custom\music\atdoomsgate.xnb
+C:\Users\foobar\Desktop\gigapede\gigapede\gigapede\bin\x86\Debug\Content\custom\music\firstContact.xnb
+C:\Users\foobar\Desktop\gigapede\gigapede\gigapede\bin\x86\Debug\Content\custom\music\atdoomsgate.wma
+C:\Users\foobar\Desktop\gigapede\gigapede\gigapede\bin\x86\Debug\Content\custom\music\firstContact.wma

@@ -43,6 +43,7 @@ namespace gigapede
         {
             GameParameters.difficulty = (Difficulty) current_index;
 
+            // MAGIC NUMBERS !!!!
             switch (current_index)
             {
                     // Easy

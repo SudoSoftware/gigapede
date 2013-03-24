@@ -86,30 +86,42 @@ namespace gigapede
 
         public void LoadResources(String prefix)
         {
-                //load game textures
-                CentipedeGame.background = this.Content.Load<Texture2D>(prefix + "textures/starfield");
-                Centipede.texture = this.Content.Load<Texture2D>(prefix + "textures/Spider");
-                Flea.texture = this.Content.Load<Texture2D>(prefix + "textures/Centipede");
-                Mushroom.normalTexture = this.Content.Load<Texture2D>(prefix + "textures/Mushroom");
-                Mushroom.poisonedTexture = this.Content.Load<Texture2D>(prefix + "textures/PMushroom");
-                Powerup.texture = this.Content.Load<Texture2D>(prefix + "textures/US coin");
-                Rocket.primaryTexture = this.Content.Load<Texture2D>(prefix + "textures/phaser");
-                Rocket.secondaryTexture = this.Content.Load<Texture2D>(prefix + "textures/photon torpedo");
-                Scorpion.texture = this.Content.Load<Texture2D>(prefix + "textures/Scorpion");
-                Shooter.texture = this.Content.Load<Texture2D>(prefix + "textures/Shooter");
-                Spider.texture = this.Content.Load<Texture2D>(prefix + "textures/Flea");
+            //load game textures
+            CentipedeGame.background = this.Content.Load<Texture2D>(prefix + "textures/starfield");
+            Centipede.texture = this.Content.Load<Texture2D>(prefix + "textures/Spider");
+            Flea.texture = this.Content.Load<Texture2D>(prefix + "textures/Centipede");
+            Mushroom.normalTexture = this.Content.Load<Texture2D>(prefix + "textures/Mushroom");
+            Mushroom.poisonedTexture = this.Content.Load<Texture2D>(prefix + "textures/PMushroom");
+            Powerup.texture = this.Content.Load<Texture2D>(prefix + "textures/US coin");
+            Rocket.primaryTexture = this.Content.Load<Texture2D>(prefix + "textures/phaser");
+            Rocket.secondaryTexture = this.Content.Load<Texture2D>(prefix + "textures/photon torpedo");
+            Scorpion.texture = this.Content.Load<Texture2D>(prefix + "textures/Scorpion");
+            Shooter.texture = this.Content.Load<Texture2D>(prefix + "textures/Shooter");
+            Spider.texture = this.Content.Load<Texture2D>(prefix + "textures/Flea");
 
-                //load all game fonts
-                HeadsUpDisplay.font = Content.Load<SpriteFont>(prefix + "temporaryFont");
+            //load all game fonts
+            HeadsUpDisplay.font = Content.Load<SpriteFont>(prefix + "temporaryFont");
 
-                // Load up Soundtrack
-                MainMenuScreen.menu_theme = Content.Load<Song>(prefix + GameParameters.DEFAULT_MENU_SONG);
-                CentipedeGame.game_theme = Content.Load<Song>(prefix + GameParameters.DEFAULT_GAME_SONG);
+            // Load up Soundtrack
+            MainMenuScreen.menu_theme = Content.Load<Song>(prefix + GameParameters.DEFAULT_MENU_SONG);
+            CentipedeGame.game_theme = Content.Load<Song>(prefix + GameParameters.DEFAULT_GAME_SONG);
 
-                // Load up all menu resources.
-                Background = Content.Load<Texture2D>(prefix + "lcars"); // prefix + GameParameters.DEFAULT_MENU_BACKGROUND);
+            // Load up all menu resources.
+            Background = Content.Load<Texture2D>(prefix + "lcars"); // prefix + GameParameters.DEFAULT_MENU_BACKGROUND);
+
+            if (FontHash.ContainsKey("TitleFont"))
+                FontHash["TitleFont"] = Content.Load<SpriteFont>(prefix + GameParameters.DEFAULT_TITLE_FONT);
+            else
                 FontHash.Add("TitleFont", Content.Load<SpriteFont>(prefix + GameParameters.DEFAULT_TITLE_FONT));
+
+            if (FontHash.ContainsKey("MenuFont"))
+                FontHash["MenuFont"] = Content.Load<SpriteFont>(prefix + GameParameters.DEFAULT_MENU_FONT);
+            else
                 FontHash.Add("MenuFont", Content.Load<SpriteFont>(prefix + GameParameters.DEFAULT_MENU_FONT));
+
+            if (FontHash.ContainsKey("LcarsFont"))
+                FontHash["LcarsFont"] = Content.Load<SpriteFont>(prefix + GameParameters.DEFAULT_LCARS_FONT);
+            else
                 FontHash.Add("LcarsFont", Content.Load<SpriteFont>(prefix + GameParameters.DEFAULT_LCARS_FONT));
         }
     }

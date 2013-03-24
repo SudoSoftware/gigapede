@@ -39,7 +39,7 @@ Returned:
         {
             SpriteBatch sb = manager.RM.SpriteB;
 
-            SpriteFont font = manager.RM.Content.Load<SpriteFont>("LcarsFont");
+            SpriteFont font = (SpriteFont) manager.RM.FontHash["LcarsFont"];
 
             sb.Begin();
             sb.DrawString(font, display_string, position, Color.Orange);

@@ -19,3 +19,24 @@ Content\default\textures\Shooter.xnb
 Content\default\textures\Centipede.xnb
 Content\default\textures\Spider.xnb
 Content\default\textures\Flea.xnb
+Content\custom\TitleFont.xnb
+Content\custom\LcarsFont.xnb
+Content\custom\MenuFont.xnb
+Content\custom\MenuItem.xnb
+Content\custom\temporaryFont.xnb
+Content\custom\textures\Centipede.xnb
+Content\custom\textures\Flea.xnb
+Content\custom\textures\Mushroom.xnb
+Content\custom\textures\phaser.xnb
+Content\custom\textures\photon torpedo.xnb
+Content\custom\textures\PMushroom.xnb
+Content\custom\textures\Scorpion.xnb
+Content\custom\textures\Shooter.xnb
+Content\custom\textures\Spider.xnb
+Content\custom\textures\starfield.xnb
+Content\custom\textures\US coin.xnb
+Content\custom\lcars.xnb
+Content\custom\music\atdoomsgate.xnb
+Content\custom\music\atdoomsgate.wma
+Content\custom\music\firstContact.xnb
+Content\custom\music\firstContact.wma
