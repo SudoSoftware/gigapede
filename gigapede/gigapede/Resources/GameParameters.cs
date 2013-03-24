@@ -9,6 +9,8 @@ namespace gigapede.Resources
 {
 	class GameParameters
 	{
+		public static bool USING_CUSTOM_TEXTURES = false;
+
         //difficulty
         public static Difficulty difficulty = Difficulty.Easy;
 
