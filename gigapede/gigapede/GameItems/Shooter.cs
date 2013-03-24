@@ -34,7 +34,7 @@ namespace gigapede.GameItems
 			if (!amAlive)
 				return actions;
 
-			HandleMovement(info);
+			Move(info);
 
 			foreach (GameItem contact in info.contacts)
 			{
@@ -52,11 +52,28 @@ namespace gigapede.GameItems
 
 
 
-		private void HandleMovement(InfoForItem info)
+		private void Move(InfoForItem info)
 		{
-			RectangleF newBounds = GetNewLocation(info);
-			if (info.world.IsLegalLocation(newBounds) && newBounds.Y >= minY)
-				boundingBox = newBounds;
+			float movementTheta = info.gameTime.ElapsedGameTime.Milliseconds * GameParameters.SHOOTER_MOVEMENT_THETA;
+			RectangleF newBounds = new RectangleF(boundingBox.Location, boundingBox.Size);
+
+			if (info.inputState.onNow(UserInput.InputType.LEFT))
+				newBounds.X -= movementTheta;
+			if (info.inputState.onNow(UserInput.InputType.RIGHT))
+				newBounds.X += movementTheta;
+
+			if (!info.world.IsLegalLocation(newBounds) || IntersectsWithMushroom(newBounds, info.world))
+				newBounds.X = boundingBox.X;
+
+			if (info.inputState.onNow(UserInput.InputType.UP))
+				newBounds.Y -= movementTheta;
+			if (info.inputState.onNow(UserInput.InputType.DOWN))
+				newBounds.Y += movementTheta;
+
+			if (!info.world.IsLegalLocation(newBounds) || newBounds.Y < minY || IntersectsWithMushroom(newBounds, info.world))
+				newBounds.Y = boundingBox.Y;
+
+			boundingBox = newBounds;
 		}
 
 
@@ -79,21 +96,14 @@ namespace gigapede.GameItems
 
 
 
-		private RectangleF GetNewLocation(InfoForItem info)
+		private bool IntersectsWithMushroom(RectangleF bounds, World world)
 		{
-			float movementTheta = info.gameTime.ElapsedGameTime.Milliseconds * GameParameters.SHOOTER_MOVEMENT_THETA;
-			RectangleF newBounds = new RectangleF(boundingBox.Location, boundingBox.Size);
+			List<GameItem> mushrooms = world.GetAllItemsOfType(typeof(Mushroom));
+			foreach (GameItem mushroom in mushrooms)
+				if (bounds.IntersectsWith(mushroom.GetBounds()))
+					return true;
 
-			if (info.inputState.onNow(UserInput.InputType.LEFT))
-				newBounds.X -= movementTheta;
-			if (info.inputState.onNow(UserInput.InputType.RIGHT))
-				newBounds.X += movementTheta;
-			if (info.inputState.onNow(UserInput.InputType.UP))
-				newBounds.Y -= movementTheta;
-			if (info.inputState.onNow(UserInput.InputType.DOWN))
-				newBounds.Y += movementTheta;
-
-			return newBounds;
+			return false;
 		}
 
 

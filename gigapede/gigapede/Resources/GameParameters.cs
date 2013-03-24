@@ -25,7 +25,7 @@ namespace gigapede.Resources
 		public const int EMPTY_HEADER_ROWS = 2; //free space for centipede
 		public const int EMPTY_FOOTER_ROWS = 5; //free space for shooter movement
 		public const int MAX_DAMAGEABLE_HEALTH = 4;
-		public const int MAX_LIVES = 5;
+		public const int MAX_LIVES = 3;
 		public const int ROCKET_POWERUP_USES = 10;
 
 		//scoring

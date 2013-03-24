@@ -61,7 +61,7 @@ namespace gigapede.GameItems
 
 
 
-		public virtual bool Intersects(GameItem otherItem)
+		public bool Intersects(GameItem otherItem)
 		{
 			return boundingBox.IntersectsWith(otherItem.boundingBox);
 		}
