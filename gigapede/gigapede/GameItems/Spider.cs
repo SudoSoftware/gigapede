@@ -12,15 +12,12 @@ namespace gigapede.GameItems
 	{
 		public static Texture2D texture;
 		private MyRandom prng = new MyRandom();
-		private List<Mushroom> mContactsLastTime = new List<Mushroom>();
 		private PointF goalLocation;
 
 
 		public Spider(PointF location) :
 			base(location)
-		{
-			goalLocation = boundingBox.Location;
-		}
+		{ }
 
 
 
@@ -33,6 +30,7 @@ namespace gigapede.GameItems
 
 			Move(info);
 			EatMushrooms(info.contacts, ref actions);
+			SyncLastContacts(info.contacts);
 
 			return actions;
 		}
@@ -42,52 +40,23 @@ namespace gigapede.GameItems
 		private void Move(InfoForItem info)
 		{
 			if (GetVectorTo(goalLocation).Length() < 5)
-				ResetGoal(info);
+				ResetGoalLocation(info);
 			else
 				MoveTowardsGoal(info);
 		}
 
 
 
-		private void EatMushrooms(List<GameItem> currentContacts, ref List<GameItemAction> actions)
-		{
-			RemoveObsoleteContacts(currentContacts);
-
-			foreach (GameItem contact in currentContacts)
-			{
-				if (contact.GetType() == typeof(Mushroom))
-				{
-					Mushroom mushroomContact = (Mushroom)contact;
-					if (!mContactsLastTime.Contains(mushroomContact))
-					{ //it just now contacted the mushroom
-
-						if (prng.nextRange(0, 10) <= 1) //10% of eating the mushroom it's touching
-							actions.Add(new GameItemAction(GameItemAction.Action.REMOVE_ITEM, mushroomContact));
-						mContactsLastTime.Add(mushroomContact);
-					}
-				}
-			}
-		}
-
-
-
-		private void ResetGoal(InfoForItem info)
+		private void ResetGoalLocation(InfoForItem info)
 		{
 			Shooter shooter = (Shooter)info.world.GetItemOfType(typeof(Shooter));
 			PointF shooterLoc = shooter.GetLocation();
-			
-			Vector2 vToShooter = GetVectorTo(shooterLoc); //get vector to shooter
-			Vector2 perpToShooter = new Vector2(-vToShooter.Y, vToShooter.X);
-			perpToShooter.Normalize(); //normalize the vector to the shooter
-			float magnitude = prng.nextRange(-GameParameters.SPIDER_ZIGZAG_COEFF, GameParameters.SPIDER_ZIGZAG_COEFF) * vToShooter.Length();
-			Vector2 offsetVector = perpToShooter * magnitude; //pick vector that is an offset from vToShooter
 
-			float percentage = 0.5f; // prng.nextRange(0.1f, 0.7f); //(float)prng.nextGaussian(0.5, 1);
-			PointF ptOnLine = new PointF((boundingBox.X + shooterLoc.X) * percentage, (boundingBox.Y + shooterLoc.Y) * percentage);
+			PointF locAboveShooter = new PointF(shooterLoc.X, Shooter.minY - GameParameters.DEFAULT_ITEM_HEIGHT);
+			Vector2 offsetVector = prng.nextCircleVector() * (float)prng.nextGaussian(GameParameters.DEFAULT_ITEM_HEIGHT * 2, 3);
 
-			//adding the offset vector to the point on vToShooter produces the new goal location 
-			goalLocation.X = ptOnLine.X + offsetVector.X;
-			goalLocation.Y = ptOnLine.Y + offsetVector.Y;
+			goalLocation.X = locAboveShooter.X + offsetVector.X;
+			goalLocation.Y = locAboveShooter.Y + offsetVector.Y;
 		}
 
 
@@ -96,7 +65,7 @@ namespace gigapede.GameItems
 		{
 			Vector2 vToGoal = GetVectorTo(goalLocation);
 			vToGoal.Normalize();
-			vToGoal *= info.gameTime.ElapsedGameTime.Milliseconds * GameParameters.SPIDER_SPEED;
+			vToGoal *= (float)info.gameTime.ElapsedGameTime.TotalMilliseconds * GameParameters.SPIDER_SPEED;
 
 			boundingBox.X += vToGoal.X;
 			boundingBox.Y += vToGoal.Y;
@@ -104,17 +73,12 @@ namespace gigapede.GameItems
 
 
 
-		//if the Spider is no longer contacting any of the remembered Mushroms, forget them
-		private void RemoveObsoleteContacts(List<GameItem> currentContacts)
+		private void EatMushrooms(List<GameItem> currentContacts, ref List<GameItemAction> actions)
 		{
-			List<Mushroom> obsoleteContacts = new List<Mushroom>();
-
-			foreach (Mushroom mushroom in mContactsLastTime)
-				if (!currentContacts.Contains(mushroom))
-					obsoleteContacts.Add(mushroom);
-
-			foreach (Mushroom mushroom in obsoleteContacts)
-				mContactsLastTime.Remove(mushroom);
+			foreach (GameItem contact in currentContacts)
+				if (contact.GetType() == typeof(Mushroom)
+					&& !contactsLastTime.Contains(contact) && prng.nextRange(0, 10) <= 1) //10% of eating the mushroom it just touched
+						actions.Add(new GameItemAction(GameItemAction.Action.REMOVE_ITEM, contact));
 		}
 
 

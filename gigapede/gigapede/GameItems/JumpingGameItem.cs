@@ -28,7 +28,7 @@ namespace gigapede.GameItems
 			float theta = info.gameTime.ElapsedGameTime.Milliseconds * GetSpeed();
 			movementTillJump -= theta;
 
-			if (movementTillJump <= 0 && CanJump(info))
+			if (movementTillJump <= 0)
 			{
 				Jump(info);
 				ResetJumpWait();
@@ -47,15 +47,6 @@ namespace gigapede.GameItems
 				pt.X += boundingBox.Width;
 			else
 				pt.X -= boundingBox.Width;
-		}
-
-
-
-		protected bool CanJump(InfoForItem info)
-		{
-			PointF nextLoc = boundingBox.Location;
-			Move(ref nextLoc);
-			return !info.world.TypeAt(nextLoc, this.GetType());
 		}
 
 
